@@ -2,25 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { getBookOverviewBySlug } from '../../../firebase/firebaseApi';
 
-const Post = ({ book }) => {
+type BookOverview = {
+  book: {
+    title: string;
+    author: string;
+    content: string;
+  };
+};
+
+const Post = ({ book }: BookOverview) => {
   const router = useRouter();
   const { category, slug } = router.query;
-
-  // useEffect(() => {
-  //   if (id) {
-  //     getBookOverviewBySlug(id)
-  //       .then(doc => {
-  //         console.log(doc.data());
-  //         setBookOverview(doc.data());
-  //         // @ts-ignore
-  //         // const city = doc.data();
-  //       })
-  //       .catch(err => {
-  //         console.log('Error getting document:', err);
-  //       });
-  //     console.log('slug:', slug);
-  //   }
-  // }, [slug]);
 
   useEffect(() => {
     console.log('book', book);
@@ -37,7 +29,7 @@ const Post = ({ book }) => {
 };
 
 Post.getInitialProps = async ({ query }) => {
-  let pageProps;
+  let pageProps: {};
 
   await getBookOverviewBySlug(query.slug)
     .then(book => {
