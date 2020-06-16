@@ -1,48 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import { getBookOverviewBySlug } from '../../../firebase/firebaseApi';
+import React from 'react';
 
-type BookOverview = {
-  book: {
-    title: string;
-    author: string;
-    content: string;
-  };
-};
-
-const Post = ({ book }: BookOverview) => {
-  const router = useRouter();
-  const { category, slug } = router.query;
-
-  useEffect(() => {
-    console.log('book', book);
-  }, []);
-
+export const Post = () => {
   return (
     <>
-      <p>
-        Post: {book.title} - {book.author}
-      </p>
-      <div dangerouslySetInnerHTML={{ __html: book.content }} />
+      <p>Post</p>
     </>
   );
 };
-
-Post.getInitialProps = async ({ query }) => {
-  let pageProps: {};
-
-  await getBookOverviewBySlug(query.slug)
-    .then(book => {
-      pageProps = {
-        id: book.id,
-        book: book.data(),
-      };
-    })
-    .catch(error => {
-      console.log('Post: ', error);
-    });
-
-  return pageProps;
-};
-
-export default Post;
