@@ -1,6 +1,5 @@
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/,
-});
+const withMdxEnhanced = require('next-mdx-enhanced');
+const readingTime = require('reading-time');
 
 module.exports = {
   // Public, build-time env vars.
@@ -17,6 +16,14 @@ module.exports = {
   },
 };
 
-module.exports = withMDX({
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-});
+module.exports = withMdxEnhanced({
+  layoutPath: 'src/layouts',
+  defaultLayout: true,
+  fileExtensions: ['mdx'],
+  remarkPlugins: [],
+  rehypePlugins: [],
+  extendFrontMatter: {
+    process: (mdxContent, frontMatter) => {},
+    phase: 'prebuild|loader|both',
+  },
+})(/* your normal nextjs config */);

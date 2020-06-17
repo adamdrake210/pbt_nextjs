@@ -32,3 +32,5 @@ yarn-error.log*
 public/sitemap.xml
 .mdx-data
 .now
+
+.mdx-data
