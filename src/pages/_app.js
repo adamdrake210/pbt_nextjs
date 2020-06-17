@@ -1,5 +1,6 @@
 // import App from 'next/app'
 import React from 'react';
+import { MDXProvider } from '@mdx-js/react';
 import {
   ThemeProvider,
   CSSReset,
@@ -40,14 +41,20 @@ const GlobalStyle = ({ children }) => {
   );
 };
 
+const MDXComponents = {
+  h1: props => <h1 style={{ color: 'tomato', fontSize: '26px' }} {...props} />,
+};
+
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
-      <ColorModeProvider value="light">
-        <GlobalStyle>
-          <Component {...pageProps} />
-        </GlobalStyle>
-      </ColorModeProvider>
+      <MDXProvider components={MDXComponents}>
+        <ColorModeProvider value="light">
+          <GlobalStyle>
+            <Component {...pageProps} />
+          </GlobalStyle>
+        </ColorModeProvider>
+      </MDXProvider>
     </ThemeProvider>
   );
 }

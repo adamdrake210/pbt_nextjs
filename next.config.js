@@ -1,3 +1,7 @@
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+});
+
 module.exports = {
   // Public, build-time env vars.
   // https://nextjs.org/docs#build-time-configuration
@@ -12,3 +16,7 @@ module.exports = {
     FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,
   },
 };
+
+module.exports = withMDX({
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+});
