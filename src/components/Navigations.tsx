@@ -27,12 +27,17 @@ const Navigation = () => {
       mx="auto"
     >
       <Box px={4} h={6}>
-        <Image
+        {/* <Image
           size="200px"
           h="30px"
           src="vercel.svg"
           alt="Paper Back Travels Logo"
-        />
+        /> */}
+        <NextLink href="/" passHref>
+          <Button as="h2" variant="ghost" p={[1, 4]}>
+            PAPER BACK TRAVELS
+          </Button>
+        </NextLink>
       </Box>
       <Box>
         <NextLink href="/" passHref>

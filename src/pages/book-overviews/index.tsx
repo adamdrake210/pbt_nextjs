@@ -7,7 +7,7 @@ function BookOverviewIndex() {
   return (
     <>
       <Head>
-        <title>PaperBackTravels | Home</title>
+        <title>PaperBackTravels | Book Overviews</title>
       </Head>
       <PageContainer>
         <BookOverview />

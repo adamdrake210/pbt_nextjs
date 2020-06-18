@@ -7,8 +7,6 @@ export default function Layout(frontMatter) {
       <PageContainer>
         <h1>{frontMatter.title}</h1>
         {content}
-        <p>{frontMatter.slug}</p>
-        <p>{frontMatter.slug}</p>
       </PageContainer>
     );
   };
