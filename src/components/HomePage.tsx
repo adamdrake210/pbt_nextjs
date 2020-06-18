@@ -1,11 +1,11 @@
 import React from 'react';
 import { useColorMode, Heading, Text, Flex, Stack } from '@chakra-ui/core';
 
-export default function BookOverviews() {
+export default function Homepage() {
   return (
     <div>
       <Heading as="h1" size="2xl">
-        Book Overviews
+        HomePage
       </Heading>
     </div>
   );

@@ -1,19 +1,19 @@
 import React from 'react';
 import Head from 'next/head';
-import HomePage from '../components/HomePage';
-import PageContainer from '../containers/PageContainer';
+import PageContainer from '../../containers/PageContainer';
+import BookOverview from '../../components/BookOverview';
 
-function PageIndex() {
+function BookOverviewIndex() {
   return (
     <>
       <Head>
         <title>PaperBackTravels | Home</title>
       </Head>
       <PageContainer>
-        <HomePage />
+        <BookOverview />
       </PageContainer>
     </>
   );
 }
 
-export default PageIndex;
+export default BookOverviewIndex;

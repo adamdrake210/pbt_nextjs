@@ -1,14 +1,15 @@
 import React from 'react';
+import PageContainer from '../containers/PageContainer';
 
 export default function Layout(frontMatter) {
   return ({ children: content }) => {
     return (
-      <div>
+      <PageContainer>
         <h1>{frontMatter.title}</h1>
         {content}
         <p>{frontMatter.slug}</p>
         <p>{frontMatter.slug}</p>
-      </div>
+      </PageContainer>
     );
   };
 }
