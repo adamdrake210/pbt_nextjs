@@ -28,3 +28,9 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+
+public/sitemap.xml
+.mdx-data
+.now
+
+.mdx-data

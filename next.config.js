@@ -1,3 +1,6 @@
+const withMdxEnhanced = require('next-mdx-enhanced');
+const readingTime = require('reading-time');
+
 module.exports = {
   // Public, build-time env vars.
   // https://nextjs.org/docs#build-time-configuration
@@ -12,3 +15,15 @@ module.exports = {
     FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,
   },
 };
+
+module.exports = withMdxEnhanced({
+  layoutPath: 'src/layouts',
+  defaultLayout: true,
+  fileExtensions: ['mdx'],
+  remarkPlugins: [],
+  rehypePlugins: [],
+  extendFrontMatter: {
+    process: (mdxContent, frontMatter) => {},
+    phase: 'prebuild|loader|both',
+  },
+})(/* your normal nextjs config */);
