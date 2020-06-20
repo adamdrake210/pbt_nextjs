@@ -6,7 +6,7 @@ export default function Layout(frontMatter) {
   const { title, slug, author } = frontMatter;
   return ({ children: content }) => {
     return (
-      <PageContainer maxWidth="900px">
+      <PageContainer maxWidth="700px">
         <Flex
           p={[4, 8]}
           w="100%"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useColorMode, Heading, Text, Flex, Stack, Box } from '@chakra-ui/core';
+import { useColorMode, Heading, Flex, Stack, Box } from '@chakra-ui/core';
 import { frontMatter as bookOverviewPosts } from '../pages/book-overviews/**/*.mdx';
 import PictureItem from './PictureItem';
 import Link from 'next/link';

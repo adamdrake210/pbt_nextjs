@@ -4,7 +4,6 @@ import {
   Heading,
   Text,
   Flex,
-  Stack,
   Box,
   List,
   ListItem,
