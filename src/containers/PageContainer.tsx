@@ -1,8 +1,13 @@
 import React from 'react';
-import { useColorMode, Flex, Stack } from '@chakra-ui/core';
+import { useColorMode, Flex, Stack, Box } from '@chakra-ui/core';
 import Navigation from '../components/Navigations';
 
-const Container = ({ children }) => {
+type Props = {
+  children: React.ReactNode;
+  maxWidth: string;
+};
+
+const Container = ({ children, maxWidth }: Props) => {
   const { colorMode } = useColorMode();
 
   const bgColor = {
@@ -17,32 +22,16 @@ const Container = ({ children }) => {
   return (
     <>
       <Navigation />
-      <Flex
+      <Box
         as="main"
-        justifyContent="center"
-        flexDirection="column"
+        w="100%"
+        m="0 auto"
+        maxW={maxWidth}
         bg={bgColor[colorMode]}
         color={primarytextColor[colorMode]}
-        px={8}
       >
-        <Stack
-          as="main"
-          spacing={8}
-          justifyContent="center"
-          alignItems="flex-start"
-          m="0 auto 4rem auto"
-          maxWidth="900px"
-        >
-          <Flex
-            flexDirection="column"
-            justifyContent="flex-start"
-            alignItems="flex-start"
-            maxWidth="900px"
-          >
-            {children}
-          </Flex>
-        </Stack>
-      </Flex>
+        {children}
+      </Box>
     </>
   );
 };

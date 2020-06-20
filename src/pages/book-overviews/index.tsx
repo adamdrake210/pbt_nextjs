@@ -9,7 +9,7 @@ function BookOverviewIndex() {
       <Head>
         <title>PaperBackTravels | Book Overviews</title>
       </Head>
-      <PageContainer>
+      <PageContainer maxWidth="1200px">
         <BookOverview />
       </PageContainer>
     </>

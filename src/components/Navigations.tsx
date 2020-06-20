@@ -19,7 +19,7 @@ const Navigation = () => {
       alignItems="center"
       // maxWidth="1200px"
       width="100%"
-      bg="#7EB2FF"
+      bg="cyan.600"
       as="nav"
       p={8}
       mt={0}

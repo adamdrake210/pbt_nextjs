@@ -5,8 +5,14 @@ const theme = {
   breakpoints: ['30em', '48em', '62em', '80em'],
   fonts: {
     heading: '"Raleway", sans-serif',
-    body: 'system-ui, sans-serif',
+    body: '"Eczar", sans-serif',
     mono: 'Menlo, monospace',
+  },
+  fontWeights: {
+    light: 300,
+    normal: 400,
+    medium: 500,
+    bold: 700,
   },
   fontSizes: {
     xs: '0.75rem',
