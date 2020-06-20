@@ -9,7 +9,7 @@ function PageIndex() {
       <Head>
         <title>PaperBackTravels | Home</title>
       </Head>
-      <PageContainer maxWidth="1200px">
+      <PageContainer maxWidth="1000px">
         <HomePage />
       </PageContainer>
     </>

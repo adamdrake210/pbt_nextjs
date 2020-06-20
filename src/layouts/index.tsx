@@ -1,6 +1,6 @@
 import React from 'react';
 import PageContainer from '../containers/PageContainer';
-import { Heading, Image, Box, Flex } from '@chakra-ui/core';
+import { Heading, Image, Box, Flex, Divider } from '@chakra-ui/core';
 
 export default function Layout(frontMatter) {
   const { title, slug, author } = frontMatter;
@@ -25,6 +25,7 @@ export default function Layout(frontMatter) {
             h={400}
           />
         </Flex>
+        <Divider />
         <Box p={[4, 8]}>{content}</Box>
       </PageContainer>
     );
