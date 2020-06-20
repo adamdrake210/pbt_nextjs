@@ -6,26 +6,29 @@ import Link from 'next/link';
 
 export default function Homepage() {
   return (
-    <div>
-      <Box p={8} w="100%">
-        <Flex justify="space-between" direction={['column', 'row']}>
-          {bookOverviewPosts.map(frontMatter => (
-            <Link
-              key={frontMatter.slug}
-              passHref
-              href={`/book-overviews/${frontMatter.category}/${frontMatter.slug}`}
-            >
-              <a>
-                <PictureItem
-                  slug={frontMatter.slug}
-                  title={frontMatter.title}
-                  author={frontMatter.author}
-                />
-              </a>
-            </Link>
-          ))}
-        </Flex>
-      </Box>
-    </div>
+    <Flex
+      p={[4, 8]}
+      w="100%"
+      justify={['center', 'center', 'space-between']}
+      alignItems={['center']}
+      direction={['column', 'row']}
+      flexWrap="wrap"
+    >
+      {bookOverviewPosts.map(frontMatter => (
+        <Link
+          key={frontMatter.slug}
+          passHref
+          href={`/book-overviews/${frontMatter.category}/${frontMatter.slug}`}
+        >
+          <a>
+            <PictureItem
+              slug={frontMatter.slug}
+              title={frontMatter.title}
+              author={frontMatter.author}
+            />
+          </a>
+        </Link>
+      ))}
+    </Flex>
   );
 }

@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/core';
 import { Global, css } from '@emotion/core';
 import theme from '../styles/theme';
+import MDXComponents from '../components/MDXComponents';
 
 const GlobalStyle = ({ children }) => {
   const { colorMode } = useColorMode();
@@ -39,10 +40,6 @@ const GlobalStyle = ({ children }) => {
       {children}
     </>
   );
-};
-
-const MDXComponents = {
-  h1: props => <h1 style={{ color: 'tomato', fontSize: '26px' }} {...props} />,
 };
 
 function MyApp({ Component, pageProps }) {

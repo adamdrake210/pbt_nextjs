@@ -1,6 +1,19 @@
 import React from 'react';
 import NextLink from 'next/link';
-import { Button, Flex, Box, Image } from '@chakra-ui/core';
+import {
+  Button,
+  Flex,
+  Box,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+  Icon,
+} from '@chakra-ui/core';
 import styled from '@emotion/styled';
 
 const StickyNav = styled(Flex)`
@@ -12,50 +25,105 @@ const StickyNav = styled(Flex)`
 `;
 
 const Navigation = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  function DrawerNav() {
+    const btnRef = React.useRef();
+
+    return (
+      <>
+        <Drawer
+          isOpen={isOpen}
+          placement="right"
+          onClose={onClose}
+          finalFocusRef={btnRef}
+        >
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader>PAPER BACK TRAVELS</DrawerHeader>
+            <DrawerBody>
+              <Flex color="#000" direction="column">
+                <NextLink href="/book-overviews" passHref>
+                  <Button as="a" variant="ghost" fontSize={24} p={[1, 4]}>
+                    Book Overviews
+                  </Button>
+                </NextLink>
+                <NextLink href="/about" passHref>
+                  <Button as="a" variant="ghost" fontSize={24} p={[1, 4]}>
+                    About
+                  </Button>
+                </NextLink>
+              </Flex>
+            </DrawerBody>
+
+            <DrawerFooter>FOOTER</DrawerFooter>
+          </DrawerContent>
+        </Drawer>
+      </>
+    );
+  }
+
   return (
-    <StickyNav
-      flexDirection="row"
-      justifyContent="space-between"
-      alignItems="center"
-      // maxWidth="1200px"
-      width="100%"
-      bg="#7EB2FF"
-      as="nav"
-      p={8}
-      mt={0}
-      mb={8}
-      mx="auto"
-    >
-      <Box px={4} h={6}>
-        {/* <Image
-          size="200px"
-          h="30px"
-          src="vercel.svg"
-          alt="Paper Back Travels Logo"
-        /> */}
-        <NextLink href="/" passHref>
-          <Button as="h2" variant="ghost" p={[1, 4]}>
-            PAPER BACK TRAVELS
+    <StickyNav width="100%" bg="cyan.600" as="nav" p={[4, 4, 8]}>
+      <Flex
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="center"
+        maxWidth="1200px"
+        width="100%"
+        m="0 auto"
+      >
+        <Box>
+          <NextLink href="/" passHref>
+            <Button
+              as="a"
+              variant="ghost"
+              fontSize={[20, 20, 28]}
+              fontWeight={500}
+              color="white"
+              p={[1, 4]}
+            >
+              PAPER BACK TRAVELS
+            </Button>
+          </NextLink>
+        </Box>
+        <Box color="#ffffff" display={['none', 'none', 'block']}>
+          <NextLink href="/book-overviews" passHref>
+            <Button
+              as="a"
+              variant="ghost"
+              fontSize={24}
+              fontWeight={300}
+              p={[1, 4]}
+            >
+              Book Overviews
+            </Button>
+          </NextLink>
+          <NextLink href="/about" passHref>
+            <Button
+              as="a"
+              variant="ghost"
+              fontSize={24}
+              fontWeight={300}
+              p={[1, 4]}
+            >
+              About
+            </Button>
+          </NextLink>
+        </Box>
+        <Box color="#ffffff" display={['block', 'block', 'none']}>
+          <Button
+            as="button"
+            variant="ghost"
+            fontSize={24}
+            p={[1, 4]}
+            onClick={onOpen}
+          >
+            <Icon name="hamburger" />
           </Button>
-        </NextLink>
-      </Box>
-      <Box>
-        <NextLink href="/" passHref>
-          <Button as="a" variant="ghost" p={[1, 4]}>
-            Home
-          </Button>
-        </NextLink>
-        <NextLink href="/book-overviews" passHref>
-          <Button as="a" variant="ghost" p={[1, 4]}>
-            Book Overviews
-          </Button>
-        </NextLink>
-        <NextLink href="/about" passHref>
-          <Button as="a" variant="ghost" p={[1, 4]}>
-            About
-          </Button>
-        </NextLink>
-      </Box>
+        </Box>
+      </Flex>
+      <DrawerNav />
     </StickyNav>
   );
 };
