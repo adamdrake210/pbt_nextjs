@@ -1,5 +1,6 @@
 import React from 'react';
 import { useColorMode, Heading, Flex, Stack } from '@chakra-ui/core';
+//@ts-ignore
 import { frontMatter as bookOverviewPosts } from '../pages/book-overviews/**/*.mdx';
 import PictureItem from './PictureItem';
 import Link from 'next/link';

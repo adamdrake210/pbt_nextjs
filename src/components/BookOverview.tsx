@@ -8,6 +8,7 @@ import {
   List,
   ListItem,
 } from '@chakra-ui/core';
+// @ts-ignore
 import { frontMatter as bookOverviewPosts } from '../pages/book-overviews/**/*.mdx';
 import Link from 'next/link';
 import { FrontMatterType } from '../types/types';
