@@ -10,16 +10,7 @@ import {
 } from '@chakra-ui/core';
 import { frontMatter as bookOverviewPosts } from '../pages/book-overviews/**/*.mdx';
 import Link from 'next/link';
-
-type FrontMatterType = {
-  title: string;
-  author: string;
-  summary: string;
-  slug: string;
-  category: string;
-  publishedDate: string;
-  published: boolean;
-};
+import { FrontMatterType } from '../types/types';
 
 export default function BookOverview() {
   const [categories, setCategories] = useState([]);
@@ -30,7 +21,7 @@ export default function BookOverview() {
         <Heading as="h2">{category}</Heading>
         <List styleType="disc">
           {bookOverviewPosts.map((frontMatter: FrontMatterType) => {
-            if (category === frontMatter.category) {
+            if (category === frontMatter.category && frontMatter.published) {
               return (
                 <Link
                   key={frontMatter.slug}

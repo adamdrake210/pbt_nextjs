@@ -44,12 +44,12 @@ const Navigation = () => {
             <DrawerBody>
               <Flex color="#000" direction="column">
                 <NextLink href="/book-overviews" passHref>
-                  <Button as="a" variant="ghost" fontSize={24} p={[1, 4]}>
+                  <Button as="a" variant="link" fontSize={24} p={[1, 4]}>
                     Book Overviews
                   </Button>
                 </NextLink>
                 <NextLink href="/about" passHref>
-                  <Button as="a" variant="ghost" fontSize={24} p={[1, 4]}>
+                  <Button as="a" variant="link" fontSize={24} p={[1, 4]}>
                     About
                   </Button>
                 </NextLink>
@@ -64,7 +64,13 @@ const Navigation = () => {
   }
 
   return (
-    <StickyNav width="100%" bg="cyan.600" as="nav" p={[4, 4, 8]}>
+    <StickyNav
+      width="100%"
+      bg="cyan.600"
+      as="nav"
+      p={[4, 4, 8]}
+      fontFamily="Raleway"
+    >
       <Flex
         flexDirection="row"
         justifyContent="space-between"
@@ -77,7 +83,7 @@ const Navigation = () => {
           <NextLink href="/" passHref>
             <Button
               as="a"
-              variant="ghost"
+              variant="link"
               fontSize={[20, 20, 28]}
               fontWeight={500}
               color="white"
@@ -91,10 +97,11 @@ const Navigation = () => {
           <NextLink href="/book-overviews" passHref>
             <Button
               as="a"
-              variant="ghost"
+              variant="link"
               fontSize={24}
               fontWeight={300}
               p={[1, 4]}
+              color="white"
             >
               Book Overviews
             </Button>
@@ -102,10 +109,11 @@ const Navigation = () => {
           <NextLink href="/about" passHref>
             <Button
               as="a"
-              variant="ghost"
+              variant="link"
               fontSize={24}
               fontWeight={300}
               p={[1, 4]}
+              color="white"
             >
               About
             </Button>
@@ -114,7 +122,7 @@ const Navigation = () => {
         <Box color="#ffffff" display={['block', 'block', 'none']}>
           <Button
             as="button"
-            variant="ghost"
+            variant="link"
             fontSize={24}
             p={[1, 4]}
             onClick={onOpen}

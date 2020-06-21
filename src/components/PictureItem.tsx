@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  useColorMode,
-  Heading,
-  Text,
-  Flex,
-  Stack,
-  Box,
-  Image,
-} from '@chakra-ui/core';
+import { Box, Image } from '@chakra-ui/core';
 
 type Props = {
   slug: string;

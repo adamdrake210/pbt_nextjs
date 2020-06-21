@@ -3,7 +3,7 @@ import PageContainer from '../containers/PageContainer';
 import { Heading, Image, Box, Flex, Divider } from '@chakra-ui/core';
 
 export default function Layout(frontMatter) {
-  const { title, slug, author } = frontMatter;
+  const { title, slug, author, writtenBy } = frontMatter;
   return ({ children: content }) => {
     return (
       <PageContainer maxWidth="700px">
@@ -27,6 +27,7 @@ export default function Layout(frontMatter) {
         </Flex>
         <Divider />
         <Box p={[4, 8]}>{content}</Box>
+        <Box p={[4, 8]}>Written By {writtenBy}</Box>
       </PageContainer>
     );
   };
