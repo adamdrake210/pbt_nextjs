@@ -17,8 +17,8 @@ const theme = {
   ...chakraTheme,
   breakpoints: ['30em', '48em', '62em', '80em'],
   fonts: {
-    heading: '"Raleway", sans-serif',
-    body: '"Eczar", sans-serif',
+    heading: '"Eczar", sans-serif',
+    body: '"Raleway", sans-serif',
     mono: 'Menlo, monospace',
   },
   fontWeights: {

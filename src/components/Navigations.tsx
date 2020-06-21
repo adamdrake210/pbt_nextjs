@@ -127,7 +127,7 @@ const Navigation = () => {
             p={[1, 4]}
             onClick={onOpen}
           >
-            <Icon name="hamburger" />
+            <Icon name="hamburger" color="white" />
           </Button>
         </Box>
       </Flex>
