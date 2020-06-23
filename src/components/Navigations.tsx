@@ -66,7 +66,7 @@ const Navigation = () => {
   return (
     <StickyNav
       width="100%"
-      bg="cyan.600"
+      bg="cyan.400"
       as="nav"
       p={[4, 4, 8]}
       fontFamily="Raleway"

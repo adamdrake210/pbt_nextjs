@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  useColorMode,
-  Heading,
-  Text,
-  Flex,
-  Box,
-  List,
-  ListItem,
-} from '@chakra-ui/core';
+import { Heading, Flex, Box, List, ListItem, Image } from '@chakra-ui/core';
 // @ts-ignore
 import { frontMatter as bookOverviewPosts } from '../pages/book-overviews/**/*.mdx';
 import Link from 'next/link';
@@ -18,9 +10,24 @@ export default function BookOverview() {
 
   function makeCategoryList(category: string) {
     return (
-      <Box key={category}>
-        <Heading as="h2">{category}</Heading>
-        <List styleType="disc">
+      <Box key={category} w="100%" maxW={[350, 270]} p={0} m={['16px 0']}>
+        <Heading as="h2" textTransform="capitalize">
+          {category}
+        </Heading>
+        {/* {bookOverviewPosts.map((frontMatter: FrontMatterType) => {
+          if (category === frontMatter.category && frontMatter.published) {
+            return (
+              <Image
+                src={`../../images/book-overviews/${frontMatter.slug}.jpg`}
+                alt={`${frontMatter.author} - ${frontMatter.title}`}
+                w={266}
+                h={400}
+              />
+            );
+          }
+        })} */}
+
+        <List styleType="none">
           {bookOverviewPosts.map((frontMatter: FrontMatterType) => {
             if (category === frontMatter.category && frontMatter.published) {
               return (
@@ -49,17 +56,23 @@ export default function BookOverview() {
   }, [bookOverviewPosts]);
 
   return (
-    <div>
-      <Heading as="h1" size="2xl">
+    <Box p={[4, 8]}>
+      <Heading as="h1" size="2xl" mb={4}>
         Book Overviews
       </Heading>
       {categories && (
-        <Box>
+        <Flex
+          w="100%"
+          justify={['space-between']}
+          alignItems={['flex-start']}
+          direction={['column', 'column', 'row']}
+          flexWrap="wrap"
+        >
           {categories.map(category => {
             return makeCategoryList(category);
           })}
-        </Box>
+        </Flex>
       )}
-    </div>
+    </Box>
   );
 }
