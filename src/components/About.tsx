@@ -1,11 +1,11 @@
 import React from 'react';
-import { useColorMode, Heading, Text, Flex, Stack } from '@chakra-ui/core';
+import { useColorMode, Heading, Text, Flex, Stack, Box } from '@chakra-ui/core';
 
 export default function About() {
   return (
-    <div>
+    <Box p={[4, 8]}>
       <Heading as="h1" size="2xl">
-        About
+        About Us
       </Heading>
       <Text>
         Paperback Travels is a small corner of the internet dedicated to sharing
@@ -18,6 +18,6 @@ export default function About() {
         but each book has helped us grow, and we hope they will help you grow
         too.
       </Text>
-    </div>
+    </Box>
   );
 }

@@ -45,7 +45,10 @@ const Quote = props => {
     <Callout
       mt={4}
       w="98%"
-      bg={bgColor[colorMode]}
+      color="cyan.400"
+      fontSize="20px"
+      fontWeight="600"
+      bg="white"
       variant="left-accent"
       status="info"
       css={{
