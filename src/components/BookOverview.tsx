@@ -27,7 +27,7 @@ export default function BookOverview() {
           }
         })} */}
 
-        <List styleType="none">
+        <List styleType="square">
           {bookOverviewPosts.map((frontMatter: FrontMatterType) => {
             if (category === frontMatter.category && frontMatter.published) {
               return (
