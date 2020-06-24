@@ -1,12 +1,18 @@
 import React from 'react';
 import PageContainer from '../containers/PageContainer';
 import { Heading, Image, Box, Flex, Divider } from '@chakra-ui/core';
+import PageSeo from '../components/PageSeo';
+import { FrontMatterType } from '../types/types';
 
-export default function Layout(frontMatter) {
-  const { title, slug, author, writtenBy } = frontMatter;
+export default function Layout(frontMatter: FrontMatterType) {
+  const { title, slug, author, writtenBy, category } = frontMatter;
   return ({ children: content }) => {
     return (
       <PageContainer maxWidth="700px">
+        <PageSeo
+          {...frontMatter}
+          url={`https://paperbacktravels.com/book-overviews/${category}/${slug}`}
+        />
         <Flex
           p={[4, 8]}
           w="100%"
