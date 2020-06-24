@@ -47,8 +47,8 @@ export default function PageSeo({
       />
       <ArticleJsonLd
         authorName={author}
-        // dateModified={date}
-        // datePublished={date}
+        dateModified={publishedDate}
+        datePublished={publishedDate}
         description={summary}
         publisherLogo="/static/favicon.ico"
         images={[featuredImage.url]}
