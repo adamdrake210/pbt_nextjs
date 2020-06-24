@@ -14,7 +14,7 @@ export default function Homepage() {
     setFilteredBooks(bookOverviewPosts);
   }, []);
 
-  function handleChange(e: Event) {
+  function handleChange(e) {
     let currentList = [];
     let newList = [];
 
