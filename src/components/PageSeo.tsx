@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NextSeo, ArticleJsonLd } from 'next-seo';
 
 type Props = {
@@ -18,11 +18,15 @@ export default function PageSeo({
   url,
   author,
 }: Props) {
-  const date = new Date(publishedDate).toISOString();
+  // const date = new Date(publishedDate).toISOString();
   const featuredImage = {
     url: `./images/book-overviews/${slug}.jpg`,
     alt: title,
   };
+
+  useEffect(() => {
+    console.log(publishedDate);
+  }, []);
 
   return (
     <>
@@ -32,9 +36,9 @@ export default function PageSeo({
         canonical={url}
         openGraph={{
           type: 'article',
-          article: {
-            publishedTime: date,
-          },
+          // article: {
+          //   publishedTime: date,
+          // },
           url,
           title,
           description: summary,
@@ -43,8 +47,8 @@ export default function PageSeo({
       />
       <ArticleJsonLd
         authorName={author}
-        dateModified={date}
-        datePublished={date}
+        // dateModified={date}
+        // datePublished={date}
         description={summary}
         publisherLogo="/static/favicon.ico"
         images={[featuredImage.url]}
