@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Flex,
-  Input,
-  Box,
-  Text,
-  InputGroup,
-  InputLeftElement,
-  Icon,
-} from '@chakra-ui/core';
+import { Flex, Text } from '@chakra-ui/core';
 //@ts-ignore
 import { frontMatter as bookOverviewPosts } from '../pages/book-overviews/**/*.mdx';
 import PictureItem from './PictureItem';
 import Link from 'next/link';
 import { FrontMatterType } from '../types/types';
+import Search from './Search';
 
 export default function Homepage() {
   const [filteredBooks, setFilteredBooks] = useState([]);
@@ -21,7 +14,7 @@ export default function Homepage() {
     setFilteredBooks(bookOverviewPosts);
   }, []);
 
-  function handleChange(e) {
+  function handleChange(e: Event) {
     let currentList = [];
     let newList = [];
 
@@ -44,20 +37,7 @@ export default function Homepage() {
 
   return (
     <Flex m="24px 0 0" w="100%" direction="column" alignItems="center">
-      <Box p="0 32px" w="100%">
-        <InputGroup>
-          <InputLeftElement
-            children={<Icon name="search" color="gray.300" />}
-          />
-          <Input
-            placeholder="Search for a book..."
-            size="lg"
-            variant="flushed"
-            onChange={e => handleChange(e)}
-            color="gray.600"
-          />
-        </InputGroup>
-      </Box>
+      <Search handleChange={handleChange} />
 
       <Flex
         p={[4, 8]}

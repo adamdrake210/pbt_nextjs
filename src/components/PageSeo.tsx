@@ -18,15 +18,10 @@ export default function PageSeo({
   url,
   author,
 }: Props) {
-  // const date = new Date(publishedDate).toISOString();
   const featuredImage = {
     url: `./images/book-overviews/${slug}.jpg`,
     alt: title,
   };
-
-  useEffect(() => {
-    console.log(publishedDate);
-  }, []);
 
   return (
     <>
@@ -36,9 +31,9 @@ export default function PageSeo({
         canonical={url}
         openGraph={{
           type: 'article',
-          // article: {
-          //   publishedTime: date,
-          // },
+          article: {
+            publishedTime: publishedDate,
+          },
           url,
           title,
           description: summary,

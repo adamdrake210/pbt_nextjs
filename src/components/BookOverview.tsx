@@ -33,7 +33,7 @@ export default function BookOverview() {
                 <Link
                   key={frontMatter.slug}
                   passHref
-                  href={`/book-overviews/${frontMatter.category}/${frontMatter.slug}/`}
+                  href={`/book-overviews/${frontMatter.category}/${frontMatter.slug}`}
                 >
                   <a>
                     <ListItem>{`${frontMatter.title} - ${frontMatter.author}`}</ListItem>
