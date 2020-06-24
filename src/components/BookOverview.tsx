@@ -26,7 +26,6 @@ export default function BookOverview() {
             );
           }
         })} */}
-
         <List styleType="square">
           {bookOverviewPosts.map((frontMatter: FrontMatterType) => {
             if (category === frontMatter.category && frontMatter.published) {
