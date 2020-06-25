@@ -18,7 +18,6 @@ export default function Homepage() {
           attempt to guide you towards some of the best combinations of them.
         </Text>
       </Box>
-
       <Box as="section" mt={12} px={[4, 8]}>
         <Heading as="h2" size="xl" m={0}>
           Book Overviews
@@ -26,7 +25,7 @@ export default function Homepage() {
         <Flex
           pb={[4, 8]}
           w="100%"
-          justify={['center', 'center', 'space-between']}
+          justify={['center', 'center', 'space-between', 'flex-start']}
           alignItems={['center']}
           direction={['column', 'row']}
           flexWrap="wrap"
