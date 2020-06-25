@@ -40,7 +40,7 @@ const Navigation = () => {
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader>PAPER BACK TRAVELS</DrawerHeader>
+            <DrawerHeader>PAPERBACK TRAVELS</DrawerHeader>
             <DrawerBody>
               <Flex color="#000" direction="column">
                 <NextLink href="/book-overviews" passHref>
@@ -89,7 +89,7 @@ const Navigation = () => {
               color="white"
               p={[1, 4]}
             >
-              PAPER BACK TRAVELS
+              PAPERBACK TRAVELS
             </Button>
           </NextLink>
         </Box>

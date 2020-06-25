@@ -1,4 +1,4 @@
-export const GA_TRACKING_ID = process.env.FIREBASE_MEASUREMENT_ID;
+export const GA_TRACKING_ID = process.env.GOOGLE_ANALYTICS_WEB;
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = url => {

@@ -13,7 +13,7 @@ type Props = {
 
 export default function Search({ handleChange }: Props) {
   return (
-    <Box p="0 32px" w="100%">
+    <Box px={[0, 4]} w="100%">
       <InputGroup>
         <InputLeftElement children={<Icon name="search" color="gray.300" />} />
         <Input
