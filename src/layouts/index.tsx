@@ -1,11 +1,11 @@
 import React from 'react';
 import PageContainer from '../containers/PageContainer';
-import { Heading, Image, Box, Flex, Divider } from '@chakra-ui/core';
+import { Heading, Image, Box, Flex, Divider, Text } from '@chakra-ui/core';
 import PageSeo from '../components/PageSeo';
 import { FrontMatterType } from '../types/types';
 
 export default function Layout(frontMatter: FrontMatterType) {
-  const { title, slug, author, writtenBy, category } = frontMatter;
+  const { title, slug, author, writtenBy, category, summary } = frontMatter;
   return ({ children: content }) => {
     return (
       <PageContainer maxWidth="700px">
@@ -32,7 +32,12 @@ export default function Layout(frontMatter: FrontMatterType) {
           />
         </Flex>
         <Divider />
-        <Box p={[4, 8]}>{content}</Box>
+        <Box px={[4, 8]} pt={[4, 8]} pb={0}>
+          <Text fontSize="xl" fontWeight={500}>
+            {summary}
+          </Text>
+        </Box>
+        <Box px={[4, 8]}>{content}</Box>
         <Box p={[4, 8]}>Written By {writtenBy}</Box>
       </PageContainer>
     );

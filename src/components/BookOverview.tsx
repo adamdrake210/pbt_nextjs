@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Heading, Flex, Box, List, ListItem, Image } from '@chakra-ui/core';
+import { Heading, Flex, Box, List, ListItem, Link } from '@chakra-ui/core';
 // @ts-ignore
 import { frontMatter as bookOverviewPosts } from '../pages/book-overviews/**/*.mdx';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import { FrontMatterType } from '../types/types';
 import Search from './Search';
 
@@ -46,21 +46,28 @@ export default function BookOverview() {
     return filteredBooks.map((frontMatter: FrontMatterType) => {
       if (category === frontMatter.category && frontMatter.published) {
         return (
-          <Box key={category} w="100%" maxW={[350, 270]} p={0} m={['16px 0']}>
+          <Box
+            key={category}
+            w="100%"
+            maxW={[350, 270]}
+            p={0}
+            my={['16px']}
+            mr={[0, '2.5em']}
+          >
             <>
               <Heading as="h2" textTransform="capitalize">
                 {category};
               </Heading>
               <List styleType="square">
-                <Link
+                <NextLink
                   key={frontMatter.slug}
                   passHref
                   href={`/book-overviews/${frontMatter.category}/${frontMatter.slug}`}
                 >
-                  <a>
+                  <Link _hover={{ textDecoration: 'underline' }}>
                     <ListItem>{`${frontMatter.title} - ${frontMatter.author}`}</ListItem>
-                  </a>
-                </Link>
+                  </Link>
+                </NextLink>
               </List>
             </>
           </Box>
@@ -81,7 +88,7 @@ export default function BookOverview() {
       {categories && (
         <Flex
           w="100%"
-          justify={['space-between']}
+          justify={['flex-start', 'flex-start', 'space-between', 'flex-start']}
           alignItems={['flex-start']}
           direction={['column', 'column', 'row']}
           flexWrap="wrap"
