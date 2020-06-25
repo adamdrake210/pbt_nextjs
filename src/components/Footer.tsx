@@ -16,10 +16,10 @@ export default function Footer() {
         p="5px 0"
         justifyContent="center"
         alignContent="center"
-        backgroundColor="cyan.400"
+        backgroundColor="cyan.600"
         color="white"
       >
-        PaperBackTravels Copyright &#169; {new Date().getFullYear()}
+        PaperBackTravels &#169; {new Date().getFullYear()}
       </Flex>
     </StickyFooter>
   );

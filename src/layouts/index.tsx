@@ -1,6 +1,14 @@
 import React from 'react';
 import PageContainer from '../containers/PageContainer';
-import { Heading, Image, Box, Flex, Divider, Text } from '@chakra-ui/core';
+import {
+  Heading,
+  Image,
+  Box,
+  Flex,
+  Divider,
+  Text,
+  Badge,
+} from '@chakra-ui/core';
 import PageSeo from '../components/PageSeo';
 import { FrontMatterType } from '../types/types';
 
@@ -29,7 +37,9 @@ export default function Layout(frontMatter: FrontMatterType) {
             alt={`${author} - ${title}`}
             w={266}
             h={400}
+            mb={4}
           />
+          <Badge variantColor="purple">{category}</Badge>
         </Flex>
         <Divider />
         <Box px={[4, 8]} pt={[4, 8]} pb={0}>
