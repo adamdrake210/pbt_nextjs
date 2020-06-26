@@ -10,7 +10,7 @@ type Props = {
 
 export default function PictureItem({ slug, title, author, category }: Props) {
   return (
-    <Box my={['24px', '16px']} mr={[0, '2.7em']}>
+    <Box my={['24px', '16px']} w={266}>
       <Image
         src={`./images/book-overviews/${slug}.jpg`}
         alt={`${author} - ${title}`}

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Flex, Text, Heading, Box } from '@chakra-ui/core';
+import { Flex, Text, Heading, Box, Link } from '@chakra-ui/core';
 //@ts-ignore
 import { frontMatter as bookOverviewPosts } from '../pages/book-overviews/**/*.mdx';
 import PictureItem from './PictureItem';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import { FrontMatterType } from '../types/types';
 
 export default function Homepage() {
@@ -34,20 +34,20 @@ export default function Homepage() {
             bookOverviewPosts.map(
               (frontMatter: FrontMatterType) =>
                 frontMatter.published && (
-                  <Link
+                  <NextLink
                     key={frontMatter.slug}
                     passHref
                     href={`/book-overviews/${frontMatter.category}/${frontMatter.slug}`}
                   >
-                    <a>
+                    <Link flex={['1 0 100%', '0 0 33.33%']}>
                       <PictureItem
                         slug={frontMatter.slug}
                         title={frontMatter.title}
                         author={frontMatter.author}
                         category={frontMatter.category}
                       />
-                    </a>
-                  </Link>
+                    </Link>
+                  </NextLink>
                 ),
             )}
           {bookOverviewPosts.length < 1 && (
