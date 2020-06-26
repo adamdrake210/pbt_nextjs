@@ -1,5 +1,5 @@
 import React from 'react';
-import { useColorMode, Heading, Text, Flex, Stack, Box } from '@chakra-ui/core';
+import { Heading, Text, Box } from '@chakra-ui/core';
 
 export default function About() {
   return (
