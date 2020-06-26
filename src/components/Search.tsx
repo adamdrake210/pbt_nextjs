@@ -20,7 +20,9 @@ export default function Search({ handleChange }: Props) {
           placeholder="Search for a book..."
           size="lg"
           variant="flushed"
-          onChange={e => handleChange(e)}
+          onChange={e => {
+            return handleChange(e);
+          }}
           color="gray.600"
         />
       </InputGroup>
