@@ -38,25 +38,41 @@ const Navigation = () => {
           finalFocusRef={btnRef}
         >
           <DrawerOverlay />
-          <DrawerContent>
+          <DrawerContent w={250}>
             <DrawerCloseButton />
-            <DrawerHeader>PAPERBACK TRAVELS</DrawerHeader>
+            <DrawerHeader
+              borderBottomWidth="1px"
+              backgroundColor="cyan.400"
+              color="white"
+            >
+              PAPERBACK TRAVELS
+            </DrawerHeader>
             <DrawerBody>
-              <Flex color="#000" direction="column">
+              <Flex color="#000" direction="column" alignItems="flex-start">
                 <NextLink href="/book-overviews" passHref>
-                  <Button as="a" variant="link" fontSize={24} p={[1, 4]}>
+                  <Button
+                    as="a"
+                    variant="link"
+                    fontSize={18}
+                    py={[3]}
+                    color="cyan.400"
+                  >
                     Book Overviews
                   </Button>
                 </NextLink>
                 <NextLink href="/about" passHref>
-                  <Button as="a" variant="link" fontSize={24} p={[1, 4]}>
+                  <Button
+                    as="a"
+                    variant="link"
+                    fontSize={18}
+                    py={[3]}
+                    color="cyan.400"
+                  >
                     About
                   </Button>
                 </NextLink>
               </Flex>
             </DrawerBody>
-
-            <DrawerFooter>FOOTER</DrawerFooter>
           </DrawerContent>
         </Drawer>
       </>
