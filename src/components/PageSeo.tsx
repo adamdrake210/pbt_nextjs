@@ -26,7 +26,7 @@ export default function PageSeo({
   return (
     <>
       <NextSeo
-        title={`${title} – Paper Back Travels`}
+        title={`${title} – PaperBack Travels`}
         description={summary}
         canonical={url}
         openGraph={{

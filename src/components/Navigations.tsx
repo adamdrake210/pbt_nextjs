@@ -6,7 +6,6 @@ import {
   Box,
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
@@ -38,25 +37,42 @@ const Navigation = () => {
           finalFocusRef={btnRef}
         >
           <DrawerOverlay />
-          <DrawerContent>
+
+          <DrawerContent w={250}>
             <DrawerCloseButton />
-            <DrawerHeader>PAPER BACK TRAVELS</DrawerHeader>
+            <DrawerHeader
+              borderBottomWidth="1px"
+              backgroundColor="cyan.400"
+              color="white"
+            >
+              PAPERBACK TRAVELS
+            </DrawerHeader>
             <DrawerBody>
-              <Flex color="#000" direction="column">
+              <Flex color="#000" direction="column" alignItems="flex-start">
                 <NextLink href="/book-overviews" passHref>
-                  <Button as="a" variant="link" fontSize={24} p={[1, 4]}>
+                  <Button
+                    as="a"
+                    variant="link"
+                    fontSize={18}
+                    py={[3]}
+                    color="cyan.400"
+                  >
                     Book Overviews
                   </Button>
                 </NextLink>
                 <NextLink href="/about" passHref>
-                  <Button as="a" variant="link" fontSize={24} p={[1, 4]}>
+                  <Button
+                    as="a"
+                    variant="link"
+                    fontSize={18}
+                    py={[3]}
+                    color="cyan.400"
+                  >
                     About
                   </Button>
                 </NextLink>
               </Flex>
             </DrawerBody>
-
-            <DrawerFooter>FOOTER</DrawerFooter>
           </DrawerContent>
         </Drawer>
       </>
@@ -89,7 +105,7 @@ const Navigation = () => {
               color="white"
               p={[1, 4]}
             >
-              PAPER BACK TRAVELS
+              PAPERBACK TRAVELS
             </Button>
           </NextLink>
         </Box>

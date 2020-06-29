@@ -9,7 +9,7 @@ function AboutIndex() {
       <Head>
         <title>PaperBackTravels | About</title>
       </Head>
-      <PageContainer maxWidth="900px">
+      <PageContainer maxWidth="700px">
         <About />
       </PageContainer>
     </>
