@@ -1,0 +1,57 @@
+---
+title:
+  'Lost and Founder: A Painfully Honest Field Guide to the Startup World'
+author: 'Rand Fishkin'
+summary:
+  'Lost and Founder is a jarringly candid account of building and running a quite successful startup. Rand Fishkin co-founded Moz with his mother in 2001 as a Search Engine Optimization (SEO) consultancy before moving into creating SEO products.'
+slug: 'rand-fishkin-lost-and-founder'
+category: 'Startups'
+publishedDate: '24-07-2020'
+published: true
+writtenBy: 'James King'
+---
+
+## Summary of main ideas
+
+Lost and Founder is a jarringly candid account of building and running a quite successful startup. Rand Fishkin co-founded [Moz](https://moz.com/) with his mother in 2001 as a Search Engine Optimization (SEO) consultancy before moving into creating SEO products. 
+
+At the time of publishing the book, he was already a well-known figure in the world of marketing, having based the Moz business model on producing a steady stream of practical content to teach marketers about SEO, many of whom would go on to pay for the company’s suite of SEO tools. For a while Moz was the preeminent software company in the SEO space.
+
+With Lost and Founder, Fishkin turns the spotlight on himself and his experiences as a founder, from the exhilaration of seeing his company grow and provide value to its customers, to the crushing lows of having to let people go following bad business decisions, navigating the harsh world of venture capital and dealing with depression.
+
+It is an exceptional book, mainly for the absolute transparency and humility with which Fishkin describes his experiences. He uses these as a backdrop for giving specific advice that may not always fit with the conventional wisdom of the startup world (his nuanced explanations of why the Minimum Viable Product approach can damage a business is a good example). 
+
+And, he makes a point of explaining the nuts and bolts of how things work, such as explaining how the interests of venture capitalists are likely to be very different to those of a startup founder. A particularly interesting section dealt with Fishkin’s decision to turn down an acquisition offer from Hubspot that would have made him a multi-millionaire. He explains that, at the time, he felt the valuation was too low and assumed the opportunity would arise again. Ultimately it did not.
+
+Lost and Founder is certainly not a warning against founding a business. If anything it’s a love letter to entrepreneurship, from someone who has been in love, had their heart broken and allowed themselves to fall in love again. 
+
+
+> He felt the valuation was too low and assumed the opportunity would arise again. 
+> Ultimately it did not.
+
+## How this book can help you
+
+Lost and Founder should be essential reading to anyone who either runs their own business or plans to, but it is also a valuable read to anyone working at a startup in any capacity because it provides a clear roadmap to building good practices in areas such as recruitment, building a company culture and approaching product development decisions. 
+
+Aside from the strategic and tactical perspective, it’s an enjoyable read whoever you are. Fishkin is such an engaging character who has written this book as a human first and business leader second.
+
+
+## Some good further reading/watching/listening
+
+[Watch 7 Lessons That Will Make You a Better Entrepreneur from INBOUND 2018.](https://www.youtube.com/watch?v=p8_aQXEErww).
+
+## Where to get it
+
+[Get Lost and Founder on Amazon.](https://www.amazon.com/Lost-Founder-Painfully-Honest-Startup/dp/0735213321/ref=sr_1_1?dchild=1&keywords=lost+and+founder&qid=1593417605&sr=8-1)
+
+## About the author
+
+Rand Fishkin is an authority in the world of marketing and startups having co-founded MOZ (previously SEO Moz) and, more recently, [SparkToro](https://sparktoro.com/). As well as being a prolific content creator through blogging and videos, he is also a frequent keynote speaker at marketing and startup events around the world.
+
+### Published by
+
+Penguin Books
+
+### Publication Date
+
+February 26, 2018
