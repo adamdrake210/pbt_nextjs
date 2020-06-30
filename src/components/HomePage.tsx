@@ -18,6 +18,7 @@ export default function Homepage() {
           attempt to guide you towards some of the best combinations of them.
         </Text>
       </Box>
+
       <Box as="section" mt={12} px={[4, 8]}>
         <Flex
           pb={[4, 8]}
