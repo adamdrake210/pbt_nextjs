@@ -74,50 +74,55 @@ export default function EmailSubscription() {
 
   return (
     <>
-      {isLoading && (
-        <Flex flexDirection="column" alignItems="center" padding={6} my={12}>
-          <Spinner
-            size="lg"
-            thickness="3px"
-            speed="0.65s"
-            emptyColor="gray.200"
-            color="cyan.600"
-          />
-          <Text mt={4}>Adding you to our mailing list...</Text>
-        </Flex>
-      )}
-      {!isLoading && (
-        <Box
-          border="2px solid"
-          borderColor="cyan.300"
-          bg="cyan.600"
-          borderRadius={12}
-          padding={6}
-          my={12}
-          w="100%"
-        >
-          <Heading color="white">Subscribe to our newsletter</Heading>
-          <Text color="white">Sign up to receive our sporadic newsletter.</Text>
-          <InputGroup size="md" mt={4}>
-            <Input
-              aria-label="Email Newsletter Subscription"
-              placeholder="example@email.com"
-              ref={inputRef}
-              type="email"
+      <Flex flexDirection="column" alignItems="center" padding={6} my={2}>
+        {isLoading && (
+          <>
+            <Spinner
+              size="lg"
+              thickness="3px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="cyan.600"
+              mt={10}
             />
-            <InputRightElement width="6.75rem">
-              <Button
-                fontWeight="bold"
-                h="1.75rem"
-                size="sm"
-                onClick={subscribe}
-              >
-                Subscribe
-              </Button>
-            </InputRightElement>
-          </InputGroup>
-        </Box>
-      )}
+            <Text mt={4}>Adding you to our mailing list...</Text>
+          </>
+        )}
+        {!isLoading && (
+          <Box
+            border="2px solid"
+            borderColor="cyan.300"
+            bg="cyan.600"
+            borderRadius={12}
+            padding={6}
+            my={12}
+            w="100%"
+            maxW={480}
+          >
+            <Heading size="lg" color="white">
+              Subscribe to our sporadic newsletter
+            </Heading>
+            <InputGroup size="md" mt={4}>
+              <Input
+                aria-label="Email Newsletter Subscription"
+                placeholder="example@email.com"
+                ref={inputRef}
+                type="email"
+              />
+              <InputRightElement width="6.75rem">
+                <Button
+                  fontWeight="bold"
+                  h="1.75rem"
+                  size="sm"
+                  onClick={subscribe}
+                >
+                  Subscribe
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+          </Box>
+        )}
+      </Flex>
     </>
   );
 }
