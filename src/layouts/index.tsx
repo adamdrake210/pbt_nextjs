@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/core';
 import PageSeo from '../components/PageSeo';
 import { FrontMatterType } from '../types/types';
+import EmailSubscription from '../components/EmailSubscription';
 
 export default function Layout(frontMatter: FrontMatterType) {
   const { title, slug, author, writtenBy, category, summary } = frontMatter;
@@ -49,6 +50,8 @@ export default function Layout(frontMatter: FrontMatterType) {
         </Box>
         <Box px={[4, 8]}>{content}</Box>
         <Box p={[4, 8]}>Written By {writtenBy}</Box>
+        <Divider />
+        <EmailSubscription />
       </PageContainer>
     );
   };

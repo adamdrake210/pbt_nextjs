@@ -5,6 +5,7 @@ import { frontMatter as bookOverviewPosts } from '../pages/book-overviews/**/*.m
 import PictureItem from './PictureItem';
 import NextLink from 'next/link';
 import { FrontMatterType } from '../types/types';
+import EmailSubscription from './EmailSubscription';
 
 export default function Homepage() {
   return (
@@ -18,6 +19,7 @@ export default function Homepage() {
           attempt to guide you towards some of the best combinations of them.
         </Text>
       </Box>
+
       <Box as="section" mt={12} px={[4, 8]}>
         <Flex
           pb={[4, 8]}
@@ -53,6 +55,9 @@ export default function Homepage() {
             </Text>
           )}
         </Flex>
+      </Box>
+      <Box as="section" px={[4, 8]}>
+        <EmailSubscription />
       </Box>
     </Flex>
   );
