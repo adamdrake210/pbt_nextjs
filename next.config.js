@@ -28,4 +28,12 @@ module.exports = withMdxEnhanced({
     process: (mdxContent, frontMatter) => {},
     phase: 'prebuild|loader|both',
   },
-})(/* your normal nextjs config */);
+})({
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      require('./scripts/generate-sitemap');
+    }
+
+    return config;
+  },
+});
