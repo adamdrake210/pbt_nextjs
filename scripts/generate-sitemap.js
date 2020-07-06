@@ -6,9 +6,9 @@ const prettier = require('prettier');
 (async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc');
   const pages = await globby([
-    'pages/**/*{.js,.tsx,.mdx}',
-    '!pages/_*.js',
-    '!pages/api',
+    'src/pages/**/*{.js,.tsx,.mdx}',
+    '!src/pages/_*.js',
+    '!src/pages/api',
   ]);
   const sitemap = `
         <?xml version="1.0" encoding="UTF-8"?>
