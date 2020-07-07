@@ -36,7 +36,7 @@ export default function Homepage() {
                   <NextLink
                     key={frontMatter.slug}
                     passHref
-                    href={`/book-overviews/${frontMatter.category}/${frontMatter.slug}`}
+                    href={`/book-overviews/${frontMatter.category.toLowerCase()}/${frontMatter.slug.toLowerCase()}`}
                   >
                     <Link flex={['1 0 100%', '0 0 33.33%']}>
                       <PictureItem

@@ -3,7 +3,7 @@ import { NextSeo, ArticleJsonLd } from 'next-seo';
 
 type Props = {
   title: string;
-  summary: string;
+  description: string;
   publishedDate: string;
   slug: string;
   url: string;
@@ -12,7 +12,7 @@ type Props = {
 
 export default function PageSeo({
   title,
-  summary,
+  description,
   publishedDate,
   slug,
   url,
@@ -27,7 +27,7 @@ export default function PageSeo({
     <>
       <NextSeo
         title={`${title} – PaperBack Travels`}
-        description={summary}
+        description={description}
         canonical={url}
         openGraph={{
           type: 'article',
@@ -36,7 +36,7 @@ export default function PageSeo({
           },
           url,
           title,
-          description: summary,
+          description: description,
           images: [featuredImage],
         }}
       />
@@ -44,7 +44,7 @@ export default function PageSeo({
         authorName={author}
         dateModified={publishedDate}
         datePublished={publishedDate}
-        description={summary}
+        description={description}
         publisherLogo="/static/favicon.ico"
         images={[featuredImage.url]}
         publisherName={author}
