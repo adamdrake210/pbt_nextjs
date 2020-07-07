@@ -28,4 +28,13 @@ module.exports = withMdxEnhanced({
     process: (mdxContent, frontMatter) => {},
     phase: 'prebuild|loader|both',
   },
-})(/* your normal nextjs config */);
+})({
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      // eslint-disable-next-line global-require
+      require('./scripts/generate-sitemap');
+    }
+
+    return config;
+  },
+});

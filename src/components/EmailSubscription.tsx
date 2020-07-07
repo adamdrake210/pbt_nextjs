@@ -12,6 +12,7 @@ import {
   Flex,
 } from '@chakra-ui/core';
 import { isValidEmail } from '../helpers/validators';
+import { ga_event } from '../helpers/gtag';
 
 export default function EmailSubscription() {
   const inputRef = useRef(null);
@@ -47,6 +48,12 @@ export default function EmailSubscription() {
           duration: 4000,
           isClosable: true,
         });
+        ga_event({
+          action: 'email_subscription',
+          category: 'form',
+          label: window.location.href,
+          value: `Error: ${realError.detail}`,
+        });
         return;
       }
 
@@ -58,6 +65,11 @@ export default function EmailSubscription() {
         status: 'success',
         duration: 4000,
         isClosable: true,
+      });
+      ga_event({
+        action: 'email_subscription',
+        category: 'form',
+        label: window.location.href,
       });
     } else {
       toast({
