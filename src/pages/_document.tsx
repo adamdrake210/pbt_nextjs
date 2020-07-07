@@ -34,6 +34,11 @@ export default class extends Document {
             href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&display=swap"
             rel="stylesheet"
           />
+          <script
+            data-ad-client="ca-pub-8166643395025819"
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
         </Head>{' '}
         <body>
           <Main />
