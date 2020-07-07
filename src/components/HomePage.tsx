@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Flex, Text, Heading, Box, Link } from '@chakra-ui/core';
 //@ts-ignore
 import { frontMatter as bookOverviewPosts } from '../pages/book-overviews/**/*.mdx';
@@ -8,6 +8,22 @@ import { FrontMatterType } from '../types/types';
 import EmailSubscription from './EmailSubscription';
 
 export default function Homepage() {
+  const [sortedBooks, setSortedBooks] = useState([]);
+
+  function sortNumber(a: FrontMatterType, b: FrontMatterType) {
+    return (
+      new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
+    );
+  }
+
+  const handleSortingBookOrder = () => {
+    setSortedBooks(bookOverviewPosts.sort(sortNumber));
+  };
+
+  useEffect(() => {
+    handleSortingBookOrder();
+  }, [bookOverviewPosts]);
+
   return (
     <Flex mt={12} w="100%" direction="column" alignItems="center">
       <Box as="section" px={[4, 8]}>
@@ -29,14 +45,14 @@ export default function Homepage() {
           direction={['column', 'row']}
           flexWrap="wrap"
         >
-          {bookOverviewPosts &&
-            bookOverviewPosts.map(
+          {sortedBooks &&
+            sortedBooks.map(
               (frontMatter: FrontMatterType) =>
                 frontMatter.published && (
                   <NextLink
                     key={frontMatter.slug}
                     passHref
-                    href={`/book-overviews/${frontMatter.category}/${frontMatter.slug}`}
+                    href={`/book-overviews/${frontMatter.category.toLowerCase()}/${frontMatter.slug.toLowerCase()}`}
                   >
                     <Link flex={['1 0 100%', '0 0 33.33%']}>
                       <PictureItem

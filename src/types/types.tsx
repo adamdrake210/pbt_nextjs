@@ -1,9 +1,11 @@
 export type FrontMatterType = {
   title: string;
+  description: string;
   author: string;
-  summary: string;
+  intro: string;
   slug: string;
   category: string;
+  tags: string;
   publishedDate: string;
   published: boolean;
   writtenBy: string;

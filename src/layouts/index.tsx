@@ -14,13 +14,13 @@ import { FrontMatterType } from '../types/types';
 import EmailSubscription from '../components/EmailSubscription';
 
 export default function Layout(frontMatter: FrontMatterType) {
-  const { title, slug, author, writtenBy, category, summary } = frontMatter;
+  const { title, slug, author, writtenBy, category, intro } = frontMatter;
   return ({ children: content }) => {
     return (
       <PageContainer maxWidth="700px">
         <PageSeo
           {...frontMatter}
-          url={`https://paperbacktravels.com/book-overviews/${category}/${slug}`}
+          url={`https://paperbacktravels.com/book-overviews/${category.toLowerCase()}/${slug.toLowerCase()}`}
         />
         <Flex
           p={[4, 8]}
@@ -45,7 +45,7 @@ export default function Layout(frontMatter: FrontMatterType) {
         <Divider />
         <Box px={[4, 8]} pt={[4, 8]} pb={0}>
           <Text fontSize="xl" fontWeight={500}>
-            {summary}
+            {intro}
           </Text>
         </Box>
         <Box px={[4, 8]}>{content}</Box>
