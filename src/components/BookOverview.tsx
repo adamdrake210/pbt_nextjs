@@ -56,7 +56,7 @@ export default function BookOverview() {
           >
             <>
               <Heading as="h2" textTransform="capitalize">
-                {category};
+                {category}
               </Heading>
               <List styleType="square">
                 <NextLink
@@ -84,7 +84,6 @@ export default function BookOverview() {
       <Box mb={8}>
         <Search handleChange={handleChange} />
       </Box>
-
       {categories && (
         <Flex
           w="100%"

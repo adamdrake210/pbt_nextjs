@@ -24,7 +24,6 @@ export default async (req, res) => {
         error: await response.text(),
       });
     }
-
     return res.status(201).json({ error: '' });
   } catch (error) {
     return res.status(500).json({ error: error.message || error.toString() });
