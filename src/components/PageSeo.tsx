@@ -19,7 +19,7 @@ export default function PageSeo({
   author,
 }: Props) {
   const featuredImage = {
-    url: `./images/book-overviews/${slug}.jpg`,
+    url: `./images/book-summaries/${slug}.jpg`,
     alt: title,
   };
 

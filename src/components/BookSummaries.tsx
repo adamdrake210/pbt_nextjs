@@ -1,32 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { Heading, Flex, Box, List, ListItem, Link } from '@chakra-ui/core';
 // @ts-ignore
-import { frontMatter as bookOverviewPosts } from '../pages/book-overviews/**/*.mdx';
+import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
 import NextLink from 'next/link';
 import { FrontMatterType } from '../types/types';
 import Search from './Search';
 
-export default function BookOverview() {
+export default function BookSummaries() {
   const [categories, setCategories] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
 
   useEffect(() => {
-    setFilteredBooks(bookOverviewPosts);
-    const filterData = bookOverviewPosts.map((frontMatter: FrontMatterType) => {
-      return frontMatter.category;
-    });
+    setFilteredBooks(bookSummariesPosts);
+    const filterData = bookSummariesPosts.map(
+      (frontMatter: FrontMatterType) => {
+        return frontMatter.category;
+      },
+    );
     const removedDuplicates = filterData.filter((item: string, pos: number) => {
       return filterData.indexOf(item) == pos;
     });
     setCategories(removedDuplicates);
-  }, [bookOverviewPosts]);
+  }, [bookSummariesPosts]);
 
   function handleChange(e) {
     let currentList = [];
     let newList = [];
 
     if (e.target.value !== '') {
-      currentList = bookOverviewPosts;
+      currentList = bookSummariesPosts;
       newList = currentList.filter(item => {
         const titleLowerCase = item.title.toLowerCase();
         const authorLowerCase = item.author.toLowerCase();
@@ -37,7 +39,7 @@ export default function BookOverview() {
         );
       });
     } else {
-      newList = bookOverviewPosts;
+      newList = bookSummariesPosts;
     }
     setFilteredBooks(newList);
   }
@@ -62,7 +64,7 @@ export default function BookOverview() {
                 <NextLink
                   key={frontMatter.slug}
                   passHref
-                  href={`/book-overviews/${frontMatter.category}/${frontMatter.slug}`}
+                  href={`/book-summaries/${frontMatter.category}/${frontMatter.slug}`}
                 >
                   <Link _hover={{ textDecoration: 'underline' }}>
                     <ListItem>{`${frontMatter.title} - ${frontMatter.author}`}</ListItem>
@@ -79,7 +81,7 @@ export default function BookOverview() {
   return (
     <Box p={[4, 8]}>
       <Heading as="h1" size="xl" mb={4}>
-        Book Overviews
+        Book Summaries
       </Heading>
       <Box mb={8}>
         <Search handleChange={handleChange} />

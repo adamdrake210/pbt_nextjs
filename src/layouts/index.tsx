@@ -20,7 +20,7 @@ export default function Layout(frontMatter: FrontMatterType) {
       <PageContainer maxWidth="700px">
         <PageSeo
           {...frontMatter}
-          url={`https://paperbacktravels.com/book-overviews/${category.toLowerCase()}/${slug.toLowerCase()}`}
+          url={`https://paperbacktravels.com/book-summaries/${category.toLowerCase()}/${slug.toLowerCase()}`}
         />
         <Flex
           p={[4, 8]}
@@ -34,7 +34,7 @@ export default function Layout(frontMatter: FrontMatterType) {
             {title}
           </Heading>
           <Image
-            src={`../../../images/book-overviews/${slug}.jpg`}
+            src={`../../../images/book-summaries/${slug}.jpg`}
             alt={`${author} - ${title}`}
             w={266}
             h={400}
