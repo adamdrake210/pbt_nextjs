@@ -58,6 +58,7 @@ export default function BookOverview() {
               <Heading as="h2" textTransform="capitalize">
                 {category}
               </Heading>
+
               <List styleType="square">
                 <NextLink
                   key={frontMatter.slug}
