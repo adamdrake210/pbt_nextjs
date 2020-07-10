@@ -49,7 +49,7 @@ const Navigation = () => {
             </DrawerHeader>
             <DrawerBody>
               <Flex color="#000" direction="column" alignItems="flex-start">
-                <NextLink href="/book-overviews" passHref>
+                <NextLink href="/book-summaries" passHref>
                   <Button
                     as="a"
                     variant="link"
@@ -57,7 +57,7 @@ const Navigation = () => {
                     py={[3]}
                     color="cyan.400"
                   >
-                    Book Overviews
+                    Book Summaries
                   </Button>
                 </NextLink>
                 <NextLink href="/about" passHref>
@@ -110,7 +110,7 @@ const Navigation = () => {
           </NextLink>
         </Box>
         <Box color="#ffffff" display={['none', 'none', 'block']}>
-          <NextLink href="/book-overviews" passHref>
+          <NextLink href="/book-summaries" passHref>
             <Button
               as="a"
               variant="link"
@@ -119,7 +119,7 @@ const Navigation = () => {
               p={[1, 4]}
               color="white"
             >
-              Book Overviews
+              Book Summaries
             </Button>
           </NextLink>
           <NextLink href="/about" passHref>

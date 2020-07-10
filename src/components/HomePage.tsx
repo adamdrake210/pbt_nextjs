@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Text, Heading, Box, Link } from '@chakra-ui/core';
 //@ts-ignore
-import { frontMatter as bookOverviewPosts } from '../pages/book-overviews/**/*.mdx';
+import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
 import PictureItem from './PictureItem';
 import NextLink from 'next/link';
 import { FrontMatterType } from '../types/types';
@@ -17,12 +17,12 @@ export default function Homepage() {
   }
 
   const handleSortingBookOrder = () => {
-    setSortedBooks(bookOverviewPosts.sort(sortNumber));
+    setSortedBooks(bookSummariesPosts.sort(sortNumber));
   };
 
   useEffect(() => {
     handleSortingBookOrder();
-  }, [bookOverviewPosts]);
+  }, [bookSummariesPosts]);
 
   return (
     <Flex mt={12} w="100%" direction="column" alignItems="center">
@@ -52,7 +52,7 @@ export default function Homepage() {
                   <NextLink
                     key={frontMatter.slug}
                     passHref
-                    href={`/book-overviews/${frontMatter.category.toLowerCase()}/${frontMatter.slug.toLowerCase()}`}
+                    href={`/book-summaries/${frontMatter.category.toLowerCase()}/${frontMatter.slug.toLowerCase()}`}
                   >
                     <Link flex={['1 0 100%', '0 0 33.33%']}>
                       <PictureItem
@@ -65,7 +65,7 @@ export default function Homepage() {
                   </NextLink>
                 ),
             )}
-          {bookOverviewPosts.length < 1 && (
+          {bookSummariesPosts.length < 1 && (
             <Text fontSize="4xl" color="cyan.500">
               No Books Found.
             </Text>

@@ -1,19 +1,19 @@
 import React from 'react';
 import Head from 'next/head';
 import PageContainer from '../../containers/PageContainer';
-import BookOverview from '../../components/BookOverview';
+import BookSummaries from '../../components/BookSummaries';
 
-function BookOverviewIndex() {
+function BookSummariesIndex() {
   return (
     <>
       <Head>
-        <title>PaperBackTravels | Book Overviews</title>
+        <title>PaperBackTravels | Book Summaries</title>
       </Head>
       <PageContainer maxWidth="1000px">
-        <BookOverview />
+        <BookSummaries />
       </PageContainer>
     </>
   );
 }
 
-export default BookOverviewIndex;
+export default BookSummariesIndex;

@@ -12,7 +12,7 @@ export default function PictureItem({ slug, title, author, category }: Props) {
   return (
     <Box my={['24px', '16px']} w={266}>
       <Image
-        src={`./images/book-overviews/${slug}.jpg`}
+        src={`./images/book-summaries/${slug}.jpg`}
         alt={`${author} - ${title}`}
         w={266}
         h={400}
@@ -21,7 +21,7 @@ export default function PictureItem({ slug, title, author, category }: Props) {
       <Flex justifyContent={'space-between'} alignItems="center">
         <Badge variantColor="purple">{category}</Badge>
         <Tag variantColor="cyan" size="sm">
-          Read Overview
+          Read Summary
         </Tag>
       </Flex>
     </Box>
