@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Heading, Flex, Box, List, ListItem, Link } from '@chakra-ui/core';
+import React, { useEffect, useState, ReactElement } from 'react';
+import { Heading, Flex, Box, Link, Image } from '@chakra-ui/core';
 // @ts-ignore
 import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
 import NextLink from 'next/link';
 import { FrontMatterType } from '../types/types';
-import Search from './Search';
 
 export default function BookSummaries() {
   const [categories, setCategories] = useState([]);
@@ -23,30 +22,55 @@ export default function BookSummaries() {
     setCategories(removedDuplicates);
   }, [bookSummariesPosts]);
 
-  function makeCategoryList(category: string) {
+  function findCategoryImage(category: string): string {
+    const sortedBookSummeries = bookSummariesPosts.map(
+      (frontMatter: FrontMatterType) => {
+        if (frontMatter.category === category) {
+          return frontMatter.slug;
+        }
+      },
+    );
+    const imageUrlArray = sortedBookSummeries.filter(x => x).reverse();
+    console.log(imageUrlArray);
+    return imageUrlArray[0];
+  }
+
+  function makeCategoryList(category: string): ReactElement {
     return (
-      <Box
-        key={category}
-        w="100%"
-        maxW={[350, 270]}
-        p={0}
-        my={['16px']}
-        mr={[0, '2.5em']}
-      >
-        <>
-          <NextLink
-            key={category}
-            passHref
-            href={`/book-summaries/${category}`}
+      <NextLink passHref href={`/book-summaries/${category}`}>
+        <Link
+          _hover={{
+            textDecoration: 'underline',
+            backgroundColor: '#f6f6f6',
+          }}
+          flex={['1 0 100%', '0 0 22%']}
+          key={category}
+          shadow="sm"
+          p={4}
+          my={['8px']}
+          w="100%"
+          minH="230px"
+        >
+          <Flex
+            flexDirection={['column']}
+            alignItems="center"
+            justifyContent="center"
           >
-            <Link _hover={{ textDecoration: 'underline' }}>
-              <Heading as="h2" textTransform="capitalize">
-                {category}
-              </Heading>
-            </Link>
-          </NextLink>
-        </>
-      </Box>
+            <Heading as="h2" fontSize={20} textTransform="capitalize" mb={4}>
+              {category}
+            </Heading>
+            <Image
+              src={`../images/book-summaries/${findCategoryImage(
+                category,
+              )}.jpg`}
+              alt={`Book Category - ${category}`}
+              w={90}
+              h={140}
+              borderRadius="48%"
+            />
+          </Flex>
+        </Link>
+      </NextLink>
     );
   }
 
@@ -58,7 +82,7 @@ export default function BookSummaries() {
       {categories && (
         <Flex
           w="100%"
-          justify={['flex-start', 'flex-start', 'space-between', 'flex-start']}
+          justify={['flex-start', 'flex-start', 'space-between']}
           alignItems={['flex-start']}
           direction={['column', 'column', 'row']}
           flexWrap="wrap"

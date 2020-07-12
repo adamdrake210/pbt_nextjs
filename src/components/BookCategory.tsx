@@ -9,6 +9,7 @@ import {
   Stack,
   Text,
   Image,
+  Tag,
 } from '@chakra-ui/core';
 // @ts-ignore
 import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
@@ -106,6 +107,14 @@ export default function BookCategory({ category }: Props) {
                               mb={-3}
                             >{`${frontMatter.title} - ${frontMatter.author}`}</Heading>
                             <Text mt={4}>{frontMatter.intro}</Text>
+                            <Tag
+                              variantColor="cyan"
+                              size="md"
+                              mt={2}
+                              width="116px"
+                            >
+                              Read Summary
+                            </Tag>
                           </Flex>
                         </Flex>
                       </Box>
