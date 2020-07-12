@@ -23,70 +23,38 @@ export default function BookSummaries() {
     setCategories(removedDuplicates);
   }, [bookSummariesPosts]);
 
-  function handleChange(e) {
-    let currentList = [];
-    let newList = [];
-
-    if (e.target.value !== '') {
-      currentList = bookSummariesPosts;
-      newList = currentList.filter(item => {
-        const titleLowerCase = item.title.toLowerCase();
-        const authorLowerCase = item.author.toLowerCase();
-        const filterLowerCase = e.target.value.toLowerCase();
-        return (
-          titleLowerCase.includes(filterLowerCase) ||
-          authorLowerCase.includes(filterLowerCase)
-        );
-      });
-    } else {
-      newList = bookSummariesPosts;
-    }
-    setFilteredBooks(newList);
-  }
-
   function makeCategoryList(category: string) {
-    return filteredBooks.map((frontMatter: FrontMatterType) => {
-      if (category === frontMatter.category && frontMatter.published) {
-        return (
-          <Box
+    return (
+      <Box
+        key={category}
+        w="100%"
+        maxW={[350, 270]}
+        p={0}
+        my={['16px']}
+        mr={[0, '2.5em']}
+      >
+        <>
+          <NextLink
             key={category}
-            w="100%"
-            maxW={[350, 270]}
-            p={0}
-            my={['16px']}
-            mr={[0, '2.5em']}
+            passHref
+            href={`/book-summaries/${category}`}
           >
-            <>
+            <Link _hover={{ textDecoration: 'underline' }}>
               <Heading as="h2" textTransform="capitalize">
                 {category}
               </Heading>
-
-              <List styleType="square">
-                <NextLink
-                  key={frontMatter.slug}
-                  passHref
-                  href={`/book-summaries/${frontMatter.category}/${frontMatter.slug}`}
-                >
-                  <Link _hover={{ textDecoration: 'underline' }}>
-                    <ListItem>{`${frontMatter.title} - ${frontMatter.author}`}</ListItem>
-                  </Link>
-                </NextLink>
-              </List>
-            </>
-          </Box>
-        );
-      }
-    });
+            </Link>
+          </NextLink>
+        </>
+      </Box>
+    );
   }
 
   return (
     <Box p={[4, 8]}>
       <Heading as="h1" size="xl" mb={4}>
-        Book Summaries
+        Book Summary Categories
       </Heading>
-      <Box mb={8}>
-        <Search handleChange={handleChange} />
-      </Box>
       {categories && (
         <Flex
           w="100%"
