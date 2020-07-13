@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heading, Text, Box } from '@chakra-ui/core';
 
-export default function About() {
+export const About: React.FC = () => {
   return (
     <Box p={[4, 8]}>
       <Heading as="h1" size="2xl" mb={4}>
@@ -25,4 +25,4 @@ export default function About() {
       <Text>Happy reading!</Text>
     </Box>
   );
-}
+};

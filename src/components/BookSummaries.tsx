@@ -30,21 +30,21 @@ export default function BookSummaries() {
         }
       },
     );
-    const imageUrlArray = sortedBookSummeries.filter(x => x).reverse();
-    console.log(imageUrlArray);
+    const imageUrlArray = sortedBookSummeries
+      .filter((x: string) => x)
+      .reverse();
     return imageUrlArray[0];
   }
 
   function makeCategoryList(category: string): ReactElement {
     return (
-      <NextLink passHref href={`/book-summaries/${category}`}>
+      <NextLink passHref href={`/book-summaries/${category}`} key={category}>
         <Link
           _hover={{
             textDecoration: 'underline',
             backgroundColor: '#f6f6f6',
           }}
           flex={['1 0 100%', '0 0 22%']}
-          key={category}
           shadow="sm"
           p={4}
           my={['8px']}

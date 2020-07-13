@@ -15,20 +15,20 @@ import {
 import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
 import NextLink from 'next/link';
 import { FrontMatterType } from '../types/types';
-import Search from './Search';
+import { Search } from './Search';
 
-type Props = {
+interface Props {
   category: string;
-};
+}
 
-export default function BookCategory({ category }: Props) {
+const BookCategory: React.FC<Props> = ({ category }) => {
   const [filteredBooks, setFilteredBooks] = useState([]);
 
   useEffect(() => {
     setFilteredBooks(bookSummariesPosts);
   }, [bookSummariesPosts]);
 
-  function handleChange(e) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     let currentList = [];
     let newList = [];
 
@@ -76,7 +76,6 @@ export default function BookCategory({ category }: Props) {
                   >
                     <Link
                       _hover={{
-                        textDecoration: 'underline',
                         backgroundColor: '#f6f6f6',
                       }}
                       mb={4}
@@ -107,14 +106,16 @@ export default function BookCategory({ category }: Props) {
                               mb={-3}
                             >{`${frontMatter.title} - ${frontMatter.author}`}</Heading>
                             <Text mt={4}>{frontMatter.intro}</Text>
-                            <Tag
-                              variantColor="cyan"
-                              size="md"
-                              mt={2}
-                              width="116px"
-                            >
-                              Read Summary
-                            </Tag>
+                            <Box w="100%" textAlign={['center', 'left']}>
+                              <Tag
+                                variantColor="cyan"
+                                size="md"
+                                mt={2}
+                                width="116px"
+                              >
+                                Read Summary
+                              </Tag>
+                            </Box>
                           </Flex>
                         </Flex>
                       </Box>
@@ -127,4 +128,6 @@ export default function BookCategory({ category }: Props) {
       </Flex>
     </Box>
   );
-}
+};
+
+export default BookCategory;

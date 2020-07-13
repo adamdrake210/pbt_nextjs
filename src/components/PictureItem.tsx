@@ -1,14 +1,19 @@
 import React from 'react';
 import { Box, Image, Badge, Tag, Flex } from '@chakra-ui/core';
 
-type Props = {
+interface Props {
   slug: string;
   title: string;
   author: string;
   category: string;
-};
+}
 
-export default function PictureItem({ slug, title, author, category }: Props) {
+export const PictureItem: React.FC<Props> = ({
+  slug,
+  title,
+  author,
+  category,
+}) => {
   return (
     <Box my={['24px', '16px']} w={266}>
       <Image
@@ -26,4 +31,4 @@ export default function PictureItem({ slug, title, author, category }: Props) {
       </Flex>
     </Box>
   );
-}
+};

@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import PageContainer from '../containers/PageContainer';
-import About from '../components/About';
+import { About } from '../components/About';
 
 function AboutIndex() {
   return (

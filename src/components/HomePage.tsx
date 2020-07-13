@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Flex, Text, Heading, Box, Link } from '@chakra-ui/core';
 //@ts-ignore
 import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
-import PictureItem from './PictureItem';
+import { PictureItem } from './PictureItem';
 import NextLink from 'next/link';
 import { FrontMatterType } from '../types/types';
 import EmailSubscription from './EmailSubscription';
