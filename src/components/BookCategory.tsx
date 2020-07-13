@@ -93,7 +93,7 @@ const BookCategory: React.FC<Props> = ({ category }) => {
                           justifyContent="center"
                         >
                           <Image
-                            src={`../images/book-summaries/${frontMatter.slug}.jpg`}
+                            src={`/images/book-summaries/${frontMatter.slug}.jpg`}
                             alt={`${frontMatter.author} - ${frontMatter.title}`}
                             w={90}
                             h={140}

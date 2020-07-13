@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Flex, Text, Heading, Box, Link } from '@chakra-ui/core';
+import { Flex, Text, Heading, Box, Link, Badge, Tag } from '@chakra-ui/core';
 //@ts-ignore
 import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
 import { PictureItem } from './PictureItem';
@@ -49,20 +49,39 @@ export default function Homepage() {
             sortedBooks.map(
               (frontMatter: FrontMatterType) =>
                 frontMatter.published && (
-                  <NextLink
+                  <Box
+                    flex={['1 0 100%', '0 0 33.33%']}
+                    mb={8}
                     key={frontMatter.slug}
-                    passHref
-                    href={`/book-summaries/${frontMatter.category.toLowerCase()}/${frontMatter.slug.toLowerCase()}`}
                   >
-                    <Link flex={['1 0 100%', '0 0 33.33%']}>
-                      <PictureItem
-                        slug={frontMatter.slug}
-                        title={frontMatter.title}
-                        author={frontMatter.author}
-                        category={frontMatter.category}
-                      />
-                    </Link>
-                  </NextLink>
+                    <NextLink
+                      passHref
+                      href={`/book-summaries/${frontMatter.category.toLowerCase()}`}
+                    >
+                      <Link>
+                        <Flex
+                          justifyContent={['center', 'space-between']}
+                          alignItems="center"
+                        >
+                          <Tag
+                            variantColor="purple"
+                            size="md"
+                            rounded="full"
+                            mb={2}
+                            textTransform="uppercase"
+                          >
+                            {frontMatter.category}
+                          </Tag>
+                        </Flex>
+                      </Link>
+                    </NextLink>
+                    <PictureItem
+                      slug={frontMatter.slug}
+                      title={frontMatter.title}
+                      author={frontMatter.author}
+                      category={frontMatter.category}
+                    />
+                  </Box>
                 ),
             )}
           {bookSummariesPosts.length < 1 && (
