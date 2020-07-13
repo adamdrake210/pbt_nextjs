@@ -23,7 +23,7 @@ const StickyNav = styled(Flex)`
   transition: background-color 0.1 ease-in-out;
 `;
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   function DrawerNav() {
     const btnRef = React.useRef();

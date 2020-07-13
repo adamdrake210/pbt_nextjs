@@ -1,29 +1,45 @@
 import React from 'react';
-import { Box, Image, Badge, Tag, Flex } from '@chakra-ui/core';
+import { Box, Image, Badge, Tag, Flex, Link } from '@chakra-ui/core';
+import NextLink from 'next/link';
 
-type Props = {
+interface Props {
   slug: string;
   title: string;
   author: string;
   category: string;
-};
+}
 
-export default function PictureItem({ slug, title, author, category }: Props) {
+export const PictureItem: React.FC<Props> = ({
+  slug,
+  title,
+  author,
+  category,
+}) => {
   return (
-    <Box my={['24px', '16px']} w={266}>
-      <Image
-        src={`./images/book-summaries/${slug}.jpg`}
-        alt={`${author} - ${title}`}
-        w={266}
-        h={400}
-        mb={2}
-      />
-      <Flex justifyContent={'space-between'} alignItems="center">
-        <Badge variantColor="purple">{category}</Badge>
-        <Tag variantColor="cyan" size="sm">
-          Read Summary
-        </Tag>
-      </Flex>
+    <Box w={266}>
+      <NextLink
+        key={slug}
+        passHref
+        href={`/book-summaries/${category.toLowerCase()}/${slug.toLowerCase()}`}
+      >
+        <Link>
+          <Image
+            src={`./images/book-summaries/${slug}.jpg`}
+            alt={`${author} - ${title}`}
+            w={266}
+            h={400}
+            mb={2}
+          />
+          <Flex
+            justifyContent={['center', 'space-between']}
+            alignItems="center"
+          >
+            <Tag variantColor="cyan" size="sm">
+              Read Summary
+            </Tag>
+          </Flex>
+        </Link>
+      </NextLink>
     </Box>
   );
-}
+};

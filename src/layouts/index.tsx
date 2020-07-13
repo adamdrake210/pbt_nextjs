@@ -7,8 +7,10 @@ import {
   Flex,
   Divider,
   Text,
-  Badge,
+  Link,
+  Tag,
 } from '@chakra-ui/core';
+import NextLink from 'next/link';
 import PageSeo from '../components/PageSeo';
 import { FrontMatterType } from '../types/types';
 import EmailSubscription from '../components/EmailSubscription';
@@ -40,7 +42,27 @@ export default function Layout(frontMatter: FrontMatterType) {
             h={400}
             mb={4}
           />
-          <Badge variantColor="purple">{category}</Badge>
+          <NextLink
+            passHref
+            href={`/book-summaries/${frontMatter.category.toLowerCase()}`}
+          >
+            <Link>
+              <Flex
+                justifyContent={['center', 'space-between']}
+                alignItems="center"
+              >
+                <Tag
+                  variantColor="purple"
+                  size="md"
+                  rounded="full"
+                  mb={2}
+                  textTransform="uppercase"
+                >
+                  {category}
+                </Tag>
+              </Flex>
+            </Link>
+          </NextLink>
         </Flex>
         <Divider />
         <Box px={[4, 8]} pt={[4, 8]} pb={0}>
