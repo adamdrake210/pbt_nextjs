@@ -1,23 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { NextSeo, ArticleJsonLd } from 'next-seo';
 
-type Props = {
+interface Props {
   title: string;
   description: string;
   publishedDate: string;
   slug: string;
   url: string;
   author: string;
-};
+}
 
-export default function PageSeo({
+const PageSeo: React.FC<Props> = ({
   title,
   description,
   publishedDate,
   slug,
   url,
   author,
-}: Props) {
+}) => {
   const featuredImage = {
     url: `./images/book-summaries/${slug}.jpg`,
     alt: title,
@@ -53,4 +53,6 @@ export default function PageSeo({
       />
     </>
   );
-}
+};
+
+export default PageSeo;

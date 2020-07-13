@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Heading, Flex, Box, List, ListItem, Link } from '@chakra-ui/core';
+import React, { useEffect, useState, ReactElement } from 'react';
+import { Heading, Flex, Box, Link, Image } from '@chakra-ui/core';
 // @ts-ignore
 import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
 import NextLink from 'next/link';
 import { FrontMatterType } from '../types/types';
-import Search from './Search';
 
 export default function BookSummaries() {
   const [categories, setCategories] = useState([]);
@@ -23,74 +22,67 @@ export default function BookSummaries() {
     setCategories(removedDuplicates);
   }, [bookSummariesPosts]);
 
-  function handleChange(e) {
-    let currentList = [];
-    let newList = [];
-
-    if (e.target.value !== '') {
-      currentList = bookSummariesPosts;
-      newList = currentList.filter(item => {
-        const titleLowerCase = item.title.toLowerCase();
-        const authorLowerCase = item.author.toLowerCase();
-        const filterLowerCase = e.target.value.toLowerCase();
-        return (
-          titleLowerCase.includes(filterLowerCase) ||
-          authorLowerCase.includes(filterLowerCase)
-        );
-      });
-    } else {
-      newList = bookSummariesPosts;
-    }
-    setFilteredBooks(newList);
+  function findCategoryImage(category: string): string {
+    const sortedBookSummeries = bookSummariesPosts.map(
+      (frontMatter: FrontMatterType) => {
+        if (frontMatter.category === category) {
+          return frontMatter.slug;
+        }
+      },
+    );
+    const imageUrlArray = sortedBookSummeries
+      .filter((x: string) => x)
+      .reverse();
+    return imageUrlArray[0];
   }
 
-  function makeCategoryList(category: string) {
-    return filteredBooks.map((frontMatter: FrontMatterType) => {
-      if (category === frontMatter.category && frontMatter.published) {
-        return (
-          <Box
-            key={category}
-            w="100%"
-            maxW={[350, 270]}
-            p={0}
-            my={['16px']}
-            mr={[0, '2.5em']}
+  function makeCategoryList(category: string): ReactElement {
+    return (
+      <NextLink passHref href={`/book-summaries/${category}`} key={category}>
+        <Link
+          _hover={{
+            textDecoration: 'underline',
+            backgroundColor: '#f6f6f6',
+          }}
+          flex={['1 0 100%', '0 0 22%']}
+          shadow="sm"
+          p={4}
+          my={['8px']}
+          w="100%"
+          minH="230px"
+        >
+          <Flex
+            flexDirection={['column']}
+            alignItems="center"
+            justifyContent="center"
           >
-            <>
-              <Heading as="h2" textTransform="capitalize">
-                {category}
-              </Heading>
-
-              <List styleType="square">
-                <NextLink
-                  key={frontMatter.slug}
-                  passHref
-                  href={`/book-summaries/${frontMatter.category}/${frontMatter.slug}`}
-                >
-                  <Link _hover={{ textDecoration: 'underline' }}>
-                    <ListItem>{`${frontMatter.title} - ${frontMatter.author}`}</ListItem>
-                  </Link>
-                </NextLink>
-              </List>
-            </>
-          </Box>
-        );
-      }
-    });
+            <Heading as="h2" fontSize={20} textTransform="capitalize" mb={4}>
+              {category}
+            </Heading>
+            <Image
+              src={`../images/book-summaries/${findCategoryImage(
+                category,
+              )}.jpg`}
+              alt={`Book Category - ${category}`}
+              w={90}
+              h={140}
+              borderRadius="48%"
+            />
+          </Flex>
+        </Link>
+      </NextLink>
+    );
   }
 
   return (
     <Box p={[4, 8]}>
       <Heading as="h1" size="xl" mb={4}>
-        Book Summaries
+        Book Summary Categories
       </Heading>
-      <Box mb={8}>
-        <Search handleChange={handleChange} />
-      </Box>
       {categories && (
         <Flex
           w="100%"
-          justify={['flex-start', 'flex-start', 'space-between', 'flex-start']}
+          justify={['flex-start', 'flex-start', 'space-between']}
           alignItems={['flex-start']}
           direction={['column', 'column', 'row']}
           flexWrap="wrap"

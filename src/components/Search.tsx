@@ -7,11 +7,11 @@ import {
   Input,
 } from '@chakra-ui/core';
 
-type Props = {
-  handleChange: (e: Event) => void;
-};
+interface Props {
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
-export default function Search({ handleChange }: Props) {
+export const Search: React.FC<Props> = ({ handleChange }) => {
   return (
     <Box px={[0, 4]} w="100%">
       <InputGroup>
@@ -20,7 +20,7 @@ export default function Search({ handleChange }: Props) {
           placeholder="Search for a book..."
           size="lg"
           variant="flushed"
-          onChange={e => {
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             return handleChange(e);
           }}
           color="gray.600"
@@ -28,4 +28,4 @@ export default function Search({ handleChange }: Props) {
       </InputGroup>
     </Box>
   );
-}
+};
