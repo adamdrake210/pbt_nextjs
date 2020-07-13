@@ -1,5 +1,6 @@
 import React from 'react';
-import { Heading, Text, Box } from '@chakra-ui/core';
+import { Heading, Text, Box, Divider } from '@chakra-ui/core';
+import EmailSubscription from './EmailSubscription';
 
 export const About: React.FC = () => {
   return (
@@ -23,6 +24,8 @@ export const About: React.FC = () => {
         day by signing up for our sporadic newsletter using the form below.
       </Text>
       <Text>Happy reading!</Text>
+      <Divider />
+      <EmailSubscription />
     </Box>
   );
 };
