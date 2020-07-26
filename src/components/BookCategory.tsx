@@ -57,6 +57,7 @@ const BookCategory: React.FC<Props> = ({ category }) => {
       <Heading as="h1" size="xl" mb={4} textTransform="capitalize">
         {category}
       </Heading>
+
       <Flex
         w="100%"
         justify={['flex-start', 'flex-start', 'space-between', 'flex-start']}
