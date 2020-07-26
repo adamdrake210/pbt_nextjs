@@ -20,12 +20,12 @@ const prettier = require('prettier');
                   .replace('src/pages', '')
                   .replace('.js', '')
                   .replace('.tsx', '')
-                  .replace('.mdx', '');
-                const route = path === '/index' ? '' : path;
+                  .replace('.mdx', '')
+                  .replace('/index', '');
 
                 return `
                         <url>
-                            <loc>${`https://paperbacktravels.com${route}`}</loc>
+                            <loc>${`https://paperbacktravels.com${path}`}</loc>
                         </url>
                     `;
               })
