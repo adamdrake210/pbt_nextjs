@@ -40,10 +40,10 @@ export default function Layout(frontMatter: FrontMatterType) {
           direction={['column']}
           flexWrap="wrap"
         >
-          <Box textAlign="left" w="100%">
+          <Box textAlign="center" w="100%">
             <Heading as="h1">{title}</Heading>
           </Box>
-          <Flex p={0} mb={8} w="100%">
+          <Flex p={0} mb={8} w="100%" justifyContent="content">
             {readingTime && (
               <>
                 <Text>Written By {writtenBy} - </Text>
