@@ -25,8 +25,10 @@ module.exports = withMdxEnhanced({
   remarkPlugins: [],
   rehypePlugins: [],
   extendFrontMatter: {
-    process: (mdxContent, frontMatter) => {},
-    phase: 'prebuild|loader|both',
+    process: (mdxContent, frontMatter) => ({
+      readingTime: readingTime(mdxContent),
+    }),
+    // phase: 'prebuild|loader|both',
   },
 })({
   webpack: (config, { isServer }) => {

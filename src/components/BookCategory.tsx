@@ -106,7 +106,7 @@ const BookCategory: React.FC<Props> = ({ category }) => {
                               fontSize="xl"
                               mb={-3}
                             >{`${frontMatter.title} - ${frontMatter.author}`}</Heading>
-                            <Text mt={4}>{frontMatter.intro}</Text>
+                            <Text mt={2}>{frontMatter.intro}</Text>
                             <Box w="100%" textAlign={['center', 'left']}>
                               <Tag
                                 variantColor="cyan"
@@ -116,6 +116,9 @@ const BookCategory: React.FC<Props> = ({ category }) => {
                               >
                                 Read Summary
                               </Tag>
+                              <Text fontStyle="italic" color="grey" mt={1}>
+                                {`${frontMatter.readingTime.text}`}
+                              </Text>
                             </Box>
                           </Flex>
                         </Flex>

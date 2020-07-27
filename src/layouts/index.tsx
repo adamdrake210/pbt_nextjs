@@ -16,7 +16,15 @@ import { FrontMatterType } from '../types/types';
 import EmailSubscription from '../components/EmailSubscription';
 
 export default function Layout(frontMatter: FrontMatterType) {
-  const { title, slug, author, writtenBy, category, intro } = frontMatter;
+  const {
+    title,
+    slug,
+    author,
+    writtenBy,
+    category,
+    intro,
+    readingTime,
+  } = frontMatter;
   return ({ children: content }) => {
     return (
       <PageContainer maxWidth="700px">
@@ -32,9 +40,19 @@ export default function Layout(frontMatter: FrontMatterType) {
           direction={['column']}
           flexWrap="wrap"
         >
-          <Heading as="h1" mb={8}>
-            {title}
-          </Heading>
+          <Box textAlign="left" w="100%">
+            <Heading as="h1">{title}</Heading>
+          </Box>
+          <Flex p={0} mb={8} w="100%">
+            {readingTime && (
+              <>
+                <Text>Written By {writtenBy} - </Text>
+                <Text fontStyle="italic" color="grey" ml={1}>
+                  {readingTime.text}
+                </Text>
+              </>
+            )}
+          </Flex>
           <Image
             src={`../../../images/book-summaries/${slug}.jpg`}
             alt={`${author} - ${title}`}
@@ -71,7 +89,6 @@ export default function Layout(frontMatter: FrontMatterType) {
           </Text>
         </Box>
         <Box px={[4, 8]}>{content}</Box>
-        <Box p={[4, 8]}>Written By {writtenBy}</Box>
         <Divider />
         <EmailSubscription />
       </PageContainer>
