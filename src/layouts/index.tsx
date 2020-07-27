@@ -43,7 +43,7 @@ export default function Layout(frontMatter: FrontMatterType) {
           <Box textAlign="center" w="100%">
             <Heading as="h1">{title}</Heading>
           </Box>
-          <Flex p={0} mb={8} w="100%" justifyContent="content">
+          <Flex p={0} mb={8} w="100%" justifyContent="center">
             {readingTime && (
               <>
                 <Text>Written By {writtenBy} - </Text>
