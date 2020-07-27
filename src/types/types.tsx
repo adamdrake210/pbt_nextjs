@@ -9,4 +9,7 @@ export type FrontMatterType = {
   publishedDate: string;
   published: boolean;
   writtenBy: string;
+  readingTime: {
+    text: string;
+  };
 };
