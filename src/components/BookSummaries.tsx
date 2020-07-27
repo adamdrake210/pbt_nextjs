@@ -79,6 +79,7 @@ export default function BookSummaries() {
       <Heading as="h1" size="xl" mb={4}>
         Book Summary Categories
       </Heading>
+
       {categories && (
         <Flex
           w="100%"
