@@ -49,6 +49,17 @@ const Navigation: React.FC = () => {
             </DrawerHeader>
             <DrawerBody>
               <Flex color="#000" direction="column" alignItems="flex-start">
+                {/* <NextLink href="/interviews" passHref>
+                  <Button
+                    as="a"
+                    variant="link"
+                    fontSize={18}
+                    py={[3]}
+                    color="cyan.400"
+                  >
+                    Interviews
+                  </Button>
+                </NextLink> */}
                 <NextLink href="/book-summaries" passHref>
                   <Button
                     as="a"
@@ -110,6 +121,18 @@ const Navigation: React.FC = () => {
           </NextLink>
         </Box>
         <Box color="#ffffff" display={['none', 'none', 'block']}>
+          {/* <NextLink href="/interviews" passHref>
+            <Button
+              as="a"
+              variant="link"
+              fontSize={24}
+              fontWeight={300}
+              p={[1, 4]}
+              color="white"
+            >
+              Interviews
+            </Button>
+          </NextLink> */}
           <NextLink href="/book-summaries" passHref>
             <Button
               as="a"
