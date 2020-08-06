@@ -35,7 +35,7 @@ export default class extends Document {
             rel="stylesheet"
           />
           <script
-            data-ad-client="ca-pub-8166643395025819"
+            data-ad-client="ca-pub-4832083031662579"
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
           ></script>
