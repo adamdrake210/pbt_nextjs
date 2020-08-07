@@ -14,6 +14,7 @@ import NextLink from 'next/link';
 import PageSeo from '../components/PageSeo';
 import { FrontMatterType } from '../types/types';
 import EmailSubscription from '../components/EmailSubscription';
+import ReadMore from '../components/ReadMore';
 
 export default function Layout(frontMatter: FrontMatterType) {
   const {
@@ -24,6 +25,7 @@ export default function Layout(frontMatter: FrontMatterType) {
     category,
     intro,
     readingTime,
+    tags,
   } = frontMatter;
   return ({ children: content }) => {
     return (
@@ -91,6 +93,8 @@ export default function Layout(frontMatter: FrontMatterType) {
         <Box px={[4, 8]}>{content}</Box>
         <Divider />
         <EmailSubscription />
+        <Divider />
+        <ReadMore tags={tags} category={category} />
       </PageContainer>
     );
   };

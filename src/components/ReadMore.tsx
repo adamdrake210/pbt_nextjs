@@ -20,9 +20,10 @@ import BookPreviewCard from './BookPreviewCard';
 
 interface Props {
   category: string;
+  tags: string;
 }
 
-const BookCategory: React.FC<Props> = ({ category }) => {
+const ReadMore: React.FC<Props> = ({ category, tags }) => {
   const [filteredBooks, setFilteredBooks] = useState([]);
 
   useEffect(() => {
@@ -51,12 +52,9 @@ const BookCategory: React.FC<Props> = ({ category }) => {
   }
 
   return (
-    <Box p={[4, 8]}>
-      <Box mb={8}>
-        <Search handleChange={handleChange} />
-      </Box>
-      <Heading as="h1" size="xl" mb={4} textTransform="capitalize">
-        {category}
+    <Box px={4} py={8} mb={4}>
+      <Heading as="h2" size="xl" mb={4}>
+        Some further reading
       </Heading>
 
       <Flex
@@ -101,4 +99,4 @@ const BookCategory: React.FC<Props> = ({ category }) => {
   );
 };
 
-export default BookCategory;
+export default ReadMore;
