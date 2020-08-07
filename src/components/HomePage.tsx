@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Flex, Text, Heading, Box, Link, Badge, Tag } from '@chakra-ui/core';
+import {
+  Flex,
+  Text,
+  Heading,
+  Box,
+  Link,
+  Badge,
+  Tag,
+  Button,
+} from '@chakra-ui/core';
 //@ts-ignore
 import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
 import { PictureItem } from './PictureItem';
@@ -9,6 +18,8 @@ import EmailSubscription from './EmailSubscription';
 
 export default function Homepage() {
   const [sortedBooks, setSortedBooks] = useState([]);
+  const [numberSummaries, setNumberSummaries] = useState(9);
+  const [isLoadButtonVisible, setIsLoadButtonVisible] = useState(true);
 
   function sortNumber(a: FrontMatterType, b: FrontMatterType) {
     return (
@@ -18,6 +29,17 @@ export default function Homepage() {
 
   const handleSortingBookOrder = () => {
     setSortedBooks(bookSummariesPosts.sort(sortNumber));
+  };
+
+  const handleButtonVisibility = (adjustedNumberSummary: number) => {
+    if (adjustedNumberSummary >= sortedBooks.length) {
+      setIsLoadButtonVisible(false);
+    }
+  };
+
+  const handleLoadingMoreBookSummaries = () => {
+    setNumberSummaries(numberSummaries + 9);
+    handleButtonVisibility(numberSummaries + 9);
   };
 
   useEffect(() => {
@@ -46,7 +68,7 @@ export default function Homepage() {
           flexWrap="wrap"
         >
           {sortedBooks &&
-            sortedBooks.map(
+            sortedBooks.slice(0, numberSummaries).map(
               (frontMatter: FrontMatterType) =>
                 frontMatter.published && (
                   <Box
@@ -91,6 +113,17 @@ export default function Homepage() {
           )}
         </Flex>
       </Box>
+      {isLoadButtonVisible && (
+        <Box as="section" px={[4, 8]}>
+          <Button
+            variantColor="cyan"
+            size="md"
+            onClick={handleLoadingMoreBookSummaries}
+          >
+            Load More
+          </Button>
+        </Box>
+      )}
       <Box as="section" px={[4, 8]}>
         <EmailSubscription />
       </Box>

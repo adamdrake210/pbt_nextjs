@@ -16,6 +16,7 @@ import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.
 import NextLink from 'next/link';
 import { FrontMatterType } from '../types/types';
 import { Search } from './Search';
+import BookPreviewCard from './BookPreviewCard';
 
 interface Props {
   category: string;
@@ -81,48 +82,14 @@ const BookCategory: React.FC<Props> = ({ category }) => {
                       }}
                       mb={4}
                     >
-                      <Box
-                        key={category}
-                        w="100%"
-                        shadow="md"
-                        borderWidth="1px"
-                        p={4}
-                      >
-                        <Flex
-                          flexDirection={['column', 'row']}
-                          alignItems="center"
-                          justifyContent="center"
-                        >
-                          <Image
-                            src={`/images/book-summaries/${frontMatter.slug}.jpg`}
-                            alt={`${frontMatter.author} - ${frontMatter.title}`}
-                            w={90}
-                            h={140}
-                            mr={4}
-                            mb={[4, 0]}
-                          />
-                          <Flex flexDirection="column">
-                            <Heading
-                              fontSize="xl"
-                              mb={-3}
-                            >{`${frontMatter.title} - ${frontMatter.author}`}</Heading>
-                            <Text mt={2}>{frontMatter.intro}</Text>
-                            <Box w="100%" textAlign={['center', 'left']}>
-                              <Tag
-                                variantColor="cyan"
-                                size="md"
-                                mt={2}
-                                width="116px"
-                              >
-                                Read Summary
-                              </Tag>
-                              <Text fontStyle="italic" color="grey" mt={1}>
-                                {`${frontMatter.readingTime.text}`}
-                              </Text>
-                            </Box>
-                          </Flex>
-                        </Flex>
-                      </Box>
+                      <BookPreviewCard
+                        category={frontMatter.category}
+                        slug={frontMatter.slug}
+                        author={frontMatter.author}
+                        title={frontMatter.title}
+                        intro={frontMatter.intro}
+                        readingTime={frontMatter.readingTime}
+                      />
                     </Link>
                   </NextLink>
                 );
