@@ -34,11 +34,11 @@ export default class extends Document {
             href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&display=swap"
             rel="stylesheet"
           />
-          <script
+          {/* <script
             data-ad-client="ca-pub-4832083031662579"
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          ></script>
+          ></script> */}
         </Head>{' '}
         <body>
           <Main />
