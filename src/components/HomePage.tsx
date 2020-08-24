@@ -52,7 +52,6 @@ export default function Homepage() {
         <Heading as="h1" size="lg" mb={4} textAlign="center">
           “Reading is a discount ticket to everywhere.” - Mary Schmich
         </Heading>
-
         <Text fontSize="xl" textAlign="center">
           Welcome to Paperback Travels. The world is full of words. This is our
           attempt to guide you towards some of the best combinations of them.
