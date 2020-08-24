@@ -16,7 +16,6 @@ const ReadMore: React.FC<Props> = ({ category, tags }) => {
 
   const randomThreeSummaries = () => {
     const shuffled = bookSummariesPosts.sort(() => 0.5 - Math.random());
-    console.log(shuffled.slice(0, 3));
     setFilteredBooks(shuffled.slice(0, 3));
   };
 
