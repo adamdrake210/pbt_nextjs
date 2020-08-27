@@ -22,6 +22,8 @@ export const About: React.FC = () => {
         site, or if you just want to say hi, we would love to hear from you.
         Please get in touch via info@paperbacktravels.com. You can also make our
         day by signing up for our sporadic newsletter using the form below.
+
+        Disclaimer: Paperback Travels is an Amazon Associate. When you buy through links on our site, we may we earn a commission through qualifying purchases.
       </Text>
       <Text>Happy reading!</Text>
       <Divider />
