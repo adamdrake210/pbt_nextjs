@@ -19,7 +19,7 @@ export default function Footer() {
         backgroundColor="cyan.600"
         color="white"
       >
-        PaperBackTravels &#169; {new Date().getFullYear()}
+        PaperBackTravels &#169; {new Date().getFullYear()} - Paperback Travels is an Amazon Associate. When you buy through links on our site, we may we earn a commission through qualifying purchases.
       </Flex>
     </StickyFooter>
   );
