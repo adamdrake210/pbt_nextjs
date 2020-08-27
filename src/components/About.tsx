@@ -25,7 +25,6 @@ export const About: React.FC = () => {
 
       </Text>
       <Text>Happy reading!</Text>
-      <Text>Disclaimer: Paperback Travels is an Amazon Associate. When you buy through links on our site, we may we earn a commission through qualifying purchases.</Text>
       <Divider />
       <EmailSubscription />
     </Box>
