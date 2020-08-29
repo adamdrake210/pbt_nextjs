@@ -35,6 +35,9 @@ const GlobalStyle = ({ children }) => {
             min-height: 100vh;
             background: white;
           }
+          .iframe-advert-mobile {
+            margin: 0 auto;
+          }
         `}
       />
       {children}
