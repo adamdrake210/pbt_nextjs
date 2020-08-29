@@ -15,6 +15,7 @@ import PageSeo from '../components/PageSeo';
 import { FrontMatterType } from '../types/types';
 import EmailSubscription from '../components/EmailSubscription';
 import ReadMore from '../components/ReadMore';
+import { AmazonAdvert } from '../components/adverts/AmazonAdvert';
 
 export default function Layout(frontMatter: FrontMatterType) {
   const {
@@ -29,7 +30,7 @@ export default function Layout(frontMatter: FrontMatterType) {
   } = frontMatter;
   return ({ children: content }) => {
     return (
-      <PageContainer maxWidth="700px">
+      <PageContainer maxWidth="728px">
         <PageSeo
           {...frontMatter}
           url={`https://paperbacktravels.com/book-summaries/${category.toLowerCase()}/${slug.toLowerCase()}`}
@@ -85,6 +86,7 @@ export default function Layout(frontMatter: FrontMatterType) {
           </NextLink>
         </Flex>
         <Divider />
+        <AmazonAdvert />
         <Box px={[4, 8]} pt={[4, 8]} pb={0}>
           <Text fontSize="xl" fontWeight={500}>
             {intro}
@@ -94,6 +96,7 @@ export default function Layout(frontMatter: FrontMatterType) {
         <Divider />
         <EmailSubscription />
         <Divider />
+        <AmazonAdvert />
         <ReadMore tags={tags} category={category} />
       </PageContainer>
     );
