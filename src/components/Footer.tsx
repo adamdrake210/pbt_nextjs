@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex } from '@chakra-ui/core';
+import { Flex, Text } from '@chakra-ui/core';
 import styled from '@emotion/styled';
 
 const StickyFooter = styled(Flex)`
@@ -13,13 +13,19 @@ export default function Footer() {
     <StickyFooter>
       <Flex
         w="100%"
-        p="5px 0"
+        p="16px 24px"
         justifyContent="center"
         alignContent="center"
+        textAlign="center"
         backgroundColor="cyan.600"
         color="white"
+        flexDirection="column"
       >
-        PaperBackTravels &#169; {new Date().getFullYear()}
+        <Text>PaperBackTravels &#169; {new Date().getFullYear()}</Text>
+        <Text fontSize={12}>
+          Paperback Travels is an Amazon Associate. When you buy through links
+          on our site, we may we earn a commission through qualifying purchases.
+        </Text>
       </Flex>
     </StickyFooter>
   );
