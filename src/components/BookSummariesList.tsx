@@ -5,7 +5,7 @@ import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.
 import NextLink from 'next/link';
 import { FrontMatterType } from '../types/types';
 
-export default function BookSummaries() {
+export default function BookSummariesList() {
   const [categories, setCategories] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
 
@@ -48,6 +48,7 @@ export default function BookSummaries() {
           shadow="sm"
           p={4}
           my={['8px']}
+          marginRight={6}
           w="100%"
           minH="230px"
         >
@@ -82,7 +83,7 @@ export default function BookSummaries() {
       {categories && (
         <Flex
           w="100%"
-          justify={['flex-start', 'flex-start', 'space-between']}
+          justify={['flex-start', 'flex-start', 'flex-start']}
           alignItems={['flex-start']}
           direction={['column', 'column', 'row']}
           flexWrap="wrap"

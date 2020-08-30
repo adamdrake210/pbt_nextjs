@@ -16,13 +16,13 @@ import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.
 import NextLink from 'next/link';
 import { FrontMatterType } from '../types/types';
 import { Search } from './partials/Search';
-import BookPreviewCard from './BookPreviewCard';
+import BookPreviewCard from './cards/BookPreviewCard';
 
 interface Props {
   category: string;
 }
 
-const BookCategory: React.FC<Props> = ({ category }) => {
+const BookCategoryList: React.FC<Props> = ({ category }) => {
   const [filteredBooks, setFilteredBooks] = useState([]);
 
   useEffect(() => {
@@ -101,4 +101,4 @@ const BookCategory: React.FC<Props> = ({ category }) => {
   );
 };
 
-export default BookCategory;
+export default BookCategoryList;

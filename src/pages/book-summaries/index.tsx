@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import PageContainer from '../../containers/PageContainer';
-import BookSummaries from '../../components/BookSummaries';
+import BookSummariesList from '../../components/BookSummariesList';
 
 function BookSummariesIndex() {
   return (
@@ -10,7 +10,7 @@ function BookSummariesIndex() {
         <title>PaperBackTravels | Book Summaries</title>
       </Head>
       <PageContainer maxWidth="1000px">
-        <BookSummaries />
+        <BookSummariesList />
       </PageContainer>
     </>
   );

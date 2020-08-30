@@ -4,7 +4,7 @@ import { Heading, Flex, Box, Link, Stack } from '@chakra-ui/core';
 import { frontMatter as bookSummariesPosts } from '../../pages/book-summaries/**/*.mdx';
 import NextLink from 'next/link';
 import { FrontMatterType } from '../../types/types';
-import BookPreviewCard from '../BookPreviewCard';
+import BookPreviewCard from '../cards/BookPreviewCard';
 
 interface Props {
   category: string;
