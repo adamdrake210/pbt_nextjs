@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Heading, Flex, Box, Link, Stack } from '@chakra-ui/core';
 // @ts-ignore
-import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
+import { frontMatter as bookSummariesPosts } from '../../pages/book-summaries/**/*.mdx';
 import NextLink from 'next/link';
-import { FrontMatterType } from '../types/types';
-import BookPreviewCard from './BookPreviewCard';
+import { FrontMatterType } from '../../types/types';
+import BookPreviewCard from '../BookPreviewCard';
 
 interface Props {
   category: string;

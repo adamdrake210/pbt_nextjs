@@ -14,7 +14,7 @@ import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.
 import { PictureItem } from './PictureItem';
 import NextLink from 'next/link';
 import { FrontMatterType } from '../types/types';
-import EmailSubscription from './EmailSubscription';
+import EmailSubscription from './partials/EmailSubscription';
 
 export default function Homepage() {
   const [sortedBooks, setSortedBooks] = useState([]);

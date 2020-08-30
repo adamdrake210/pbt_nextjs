@@ -1,6 +1,6 @@
 import React from 'react';
 import { Heading, Text, Box, Divider } from '@chakra-ui/core';
-import EmailSubscription from './EmailSubscription';
+import EmailSubscription from './partials/EmailSubscription';
 
 export const About: React.FC = () => {
   return (
@@ -22,7 +22,6 @@ export const About: React.FC = () => {
         site, or if you just want to say hi, we would love to hear from you.
         Please get in touch via info@paperbacktravels.com. You can also make our
         day by signing up for our sporadic newsletter using the form below.
-
       </Text>
       <Text>Happy reading!</Text>
       <Divider />

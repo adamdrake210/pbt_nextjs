@@ -11,10 +11,10 @@ import {
   Tag,
 } from '@chakra-ui/core';
 import NextLink from 'next/link';
-import PageSeo from '../components/PageSeo';
+import PageSeo from '../components/partials/PageSeo';
 import { FrontMatterType } from '../types/types';
-import EmailSubscription from '../components/EmailSubscription';
-import ReadMore from '../components/ReadMore';
+import EmailSubscription from '../components/partials/EmailSubscription';
+import ReadMore from '../components/partials/ReadMore';
 import { AmazonAdvert } from '../components/adverts/AmazonAdvert';
 
 export default function Layout(frontMatter: FrontMatterType) {

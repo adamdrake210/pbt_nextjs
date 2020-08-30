@@ -15,7 +15,7 @@ import {
 import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
 import NextLink from 'next/link';
 import { FrontMatterType } from '../types/types';
-import { Search } from './Search';
+import { Search } from './partials/Search';
 import BookPreviewCard from './BookPreviewCard';
 
 interface Props {

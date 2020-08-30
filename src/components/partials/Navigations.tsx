@@ -49,17 +49,6 @@ const Navigation: React.FC = () => {
             </DrawerHeader>
             <DrawerBody>
               <Flex color="#000" direction="column" alignItems="flex-start">
-                {/* <NextLink href="/interviews" passHref>
-                  <Button
-                    as="a"
-                    variant="link"
-                    fontSize={18}
-                    py={[3]}
-                    color="cyan.400"
-                  >
-                    Interviews
-                  </Button>
-                </NextLink> */}
                 <NextLink href="/book-summaries" passHref>
                   <Button
                     as="a"
@@ -69,6 +58,28 @@ const Navigation: React.FC = () => {
                     color="cyan.400"
                   >
                     Book Summaries
+                  </Button>
+                </NextLink>
+                <NextLink href="/interviews" passHref>
+                  <Button
+                    as="a"
+                    variant="link"
+                    fontSize={18}
+                    py={[3]}
+                    color="cyan.400"
+                  >
+                    Interviews
+                  </Button>
+                </NextLink>
+                <NextLink href="/articles" passHref>
+                  <Button
+                    as="a"
+                    variant="link"
+                    fontSize={18}
+                    py={[3]}
+                    color="cyan.400"
+                  >
+                    Articles
                   </Button>
                 </NextLink>
                 <NextLink href="/about" passHref>
@@ -121,23 +132,11 @@ const Navigation: React.FC = () => {
           </NextLink>
         </Box>
         <Box color="#ffffff" display={['none', 'none', 'block']}>
-          {/* <NextLink href="/interviews" passHref>
-            <Button
-              as="a"
-              variant="link"
-              fontSize={24}
-              fontWeight={300}
-              p={[1, 4]}
-              color="white"
-            >
-              Interviews
-            </Button>
-          </NextLink> */}
           <NextLink href="/book-summaries" passHref>
             <Button
               as="a"
               variant="link"
-              fontSize={24}
+              fontSize={22}
               fontWeight={300}
               p={[1, 4]}
               color="white"
@@ -145,11 +144,37 @@ const Navigation: React.FC = () => {
               Book Summaries
             </Button>
           </NextLink>
+
+          <NextLink href="/interviews" passHref>
+            <Button
+              as="a"
+              variant="link"
+              fontSize={22}
+              fontWeight={300}
+              p={[1, 4]}
+              color="white"
+            >
+              Interviews
+            </Button>
+          </NextLink>
+          <NextLink href="/articles" passHref>
+            <Button
+              as="a"
+              variant="link"
+              fontSize={22}
+              fontWeight={300}
+              p={[1, 4]}
+              color="white"
+            >
+              Articles
+            </Button>
+          </NextLink>
+
           <NextLink href="/about" passHref>
             <Button
               as="a"
               variant="link"
-              fontSize={24}
+              fontSize={22}
               fontWeight={300}
               p={[1, 4]}
               color="white"
@@ -162,7 +187,7 @@ const Navigation: React.FC = () => {
           <Button
             as="button"
             variant="link"
-            fontSize={24}
+            fontSize={22}
             p={[1, 4]}
             onClick={onOpen}
           >
