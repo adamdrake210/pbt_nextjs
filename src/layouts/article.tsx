@@ -12,28 +12,19 @@ import {
 } from '@chakra-ui/core';
 import NextLink from 'next/link';
 import PageSeo from '../components/partials/PageSeo';
-import { FrontMatterBookSummariesType } from '../types/types';
+import { FrontMatterArticlesType } from '../types/types';
 import EmailSubscription from '../components/partials/EmailSubscription';
 import ReadMore from '../components/partials/ReadMore';
 import { AmazonAdvert } from '../components/adverts/AmazonAdvert';
 
-export default function Layout(frontMatter: FrontMatterBookSummariesType) {
-  const {
-    title,
-    slug,
-    author,
-    writtenBy,
-    category,
-    intro,
-    readingTime,
-    tags,
-  } = frontMatter;
+export default function Layout(frontMatter: FrontMatterArticlesType) {
+  const { title, slug, writtenBy, intro, readingTime, tags } = frontMatter;
   return ({ children: content }) => {
     return (
       <PageContainer maxWidth="728px">
         <PageSeo
           {...frontMatter}
-          url={`https://paperbacktravels.com/book-summaries/${category.toLowerCase()}/${slug.toLowerCase()}`}
+          url={`https://paperbacktravels.com/articles/${slug}`}
         />
         <Flex
           p={[4, 8]}
@@ -56,34 +47,6 @@ export default function Layout(frontMatter: FrontMatterBookSummariesType) {
               </>
             )}
           </Flex>
-          <Image
-            src={`../../../images/book-summaries/${slug}.jpg`}
-            alt={`${author} - ${title}`}
-            w={266}
-            h={400}
-            mb={4}
-          />
-          <NextLink
-            passHref
-            href={`/book-summaries/${frontMatter.category.toLowerCase()}`}
-          >
-            <Link>
-              <Flex
-                justifyContent={['center', 'space-between']}
-                alignItems="center"
-              >
-                <Tag
-                  variantColor="purple"
-                  size="md"
-                  rounded="full"
-                  mb={2}
-                  textTransform="uppercase"
-                >
-                  {category}
-                </Tag>
-              </Flex>
-            </Link>
-          </NextLink>
         </Flex>
         <Divider />
         <AmazonAdvert />
@@ -97,7 +60,6 @@ export default function Layout(frontMatter: FrontMatterBookSummariesType) {
         <EmailSubscription />
         <Divider />
         <AmazonAdvert />
-        <ReadMore tags={tags} category={category} />
       </PageContainer>
     );
   };

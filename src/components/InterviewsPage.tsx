@@ -4,13 +4,13 @@ import { Flex, Text, Heading, Box, Link, Badge, Tag } from '@chakra-ui/core';
 import { frontMatter as interviewPosts } from '../pages/interviews/**/*.mdx';
 import { PictureItem } from './PictureItem';
 import NextLink from 'next/link';
-import { FrontMatterType } from '../types/types';
+import { FrontMatterBookSummariesType } from '../types/types';
 import EmailSubscription from './partials/EmailSubscription';
 
 export default function InterviewsPage() {
   // const [sortedBooks, setSortedBooks] = useState([]);
 
-  // function sortNumber(a: FrontMatterType, b: FrontMatterType) {
+  // function sortNumber(a: FrontMatterBookSummariesType, b: FrontMatterBookSummariesType) {
   //   return (
   //     new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
   //   );

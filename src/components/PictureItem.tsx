@@ -6,7 +6,7 @@ interface Props {
   slug: string;
   title: string;
   author: string;
-  category: string;
+  category?: string;
 }
 
 export const PictureItem: React.FC<Props> = ({

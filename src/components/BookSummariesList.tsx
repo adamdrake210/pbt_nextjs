@@ -3,7 +3,7 @@ import { Heading, Flex, Box, Link, Image } from '@chakra-ui/core';
 // @ts-ignore
 import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
 import NextLink from 'next/link';
-import { FrontMatterType } from '../types/types';
+import { FrontMatterBookSummariesType } from '../types/types';
 
 export default function BookSummariesList() {
   const [categories, setCategories] = useState([]);
@@ -12,7 +12,7 @@ export default function BookSummariesList() {
   useEffect(() => {
     setFilteredBooks(bookSummariesPosts);
     const filterData = bookSummariesPosts.map(
-      (frontMatter: FrontMatterType) => {
+      (frontMatter: FrontMatterBookSummariesType) => {
         return frontMatter.category;
       },
     );
@@ -24,7 +24,7 @@ export default function BookSummariesList() {
 
   function findCategoryImage(category: string): string {
     const sortedBookSummeries = bookSummariesPosts.map(
-      (frontMatter: FrontMatterType) => {
+      (frontMatter: FrontMatterBookSummariesType) => {
         if (frontMatter.category === category) {
           return frontMatter.slug;
         }

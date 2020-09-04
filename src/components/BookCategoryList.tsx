@@ -14,7 +14,7 @@ import {
 // @ts-ignore
 import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
 import NextLink from 'next/link';
-import { FrontMatterType } from '../types/types';
+import { FrontMatterBookSummariesType } from '../types/types';
 import { Search } from './partials/Search';
 import BookPreviewCard from './cards/BookPreviewCard';
 
@@ -68,7 +68,7 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
       >
         <Stack spacing={8}>
           {filteredBooks &&
-            filteredBooks.map((frontMatter: FrontMatterType) => {
+            filteredBooks.map((frontMatter: FrontMatterBookSummariesType) => {
               if (category === frontMatter.category && frontMatter.published) {
                 return (
                   <NextLink

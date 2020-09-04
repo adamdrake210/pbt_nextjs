@@ -13,7 +13,7 @@ import {
 import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
 import { PictureItem } from './PictureItem';
 import NextLink from 'next/link';
-import { FrontMatterType } from '../types/types';
+import { FrontMatterBookSummariesType } from '../types/types';
 import EmailSubscription from './partials/EmailSubscription';
 
 export default function Homepage() {
@@ -21,7 +21,10 @@ export default function Homepage() {
   const [numberSummaries, setNumberSummaries] = useState(9);
   const [isLoadButtonVisible, setIsLoadButtonVisible] = useState(true);
 
-  function sortNumber(a: FrontMatterType, b: FrontMatterType) {
+  function sortNumber(
+    a: FrontMatterBookSummariesType,
+    b: FrontMatterBookSummariesType,
+  ) {
     return (
       new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
     );
@@ -69,7 +72,7 @@ export default function Homepage() {
         >
           {sortedBooks &&
             sortedBooks.slice(0, numberSummaries).map(
-              (frontMatter: FrontMatterType) =>
+              (frontMatter: FrontMatterBookSummariesType) =>
                 frontMatter.published && (
                   <Box
                     flex={['1 0 100%', '0 0 33.33%']}

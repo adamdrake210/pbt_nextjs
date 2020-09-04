@@ -3,7 +3,7 @@ import { Heading, Flex, Box, Link, Stack } from '@chakra-ui/core';
 // @ts-ignore
 import { frontMatter as bookSummariesPosts } from '../../pages/book-summaries/**/*.mdx';
 import NextLink from 'next/link';
-import { FrontMatterType } from '../../types/types';
+import { FrontMatterBookSummariesType } from '../../types/types';
 import BookPreviewCard from '../cards/BookPreviewCard';
 
 interface Props {
@@ -38,7 +38,7 @@ const ReadMore: React.FC<Props> = ({ category, tags }) => {
       >
         <Stack spacing={8}>
           {filteredBooks &&
-            filteredBooks.map((frontMatter: FrontMatterType) => {
+            filteredBooks.map((frontMatter: FrontMatterBookSummariesType) => {
               return (
                 <NextLink
                   key={frontMatter.slug}
