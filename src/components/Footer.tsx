@@ -24,7 +24,7 @@ export default function Footer() {
         <Text>PaperBackTravels &#169; {new Date().getFullYear()}</Text>
         <Text fontSize={12}>
           Paperback Travels is an Amazon Associate. When you buy through links
-          on our site, we may we earn a commission through qualifying purchases.
+          on our site, we may earn a commission through qualifying purchases.
         </Text>
       </Flex>
     </StickyFooter>
