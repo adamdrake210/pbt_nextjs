@@ -85,7 +85,6 @@ export default function Layout(frontMatter: FrontMatterBookSummariesType) {
             </Link>
           </NextLink>
         </Flex>
-        <Divider />
         <AmazonAdvert />
         <Box px={[4, 8]} pt={[4, 8]} pb={0}>
           <Text fontSize="xl" fontWeight={500}>
@@ -93,10 +92,8 @@ export default function Layout(frontMatter: FrontMatterBookSummariesType) {
           </Text>
         </Box>
         <Box px={[4, 8]}>{content}</Box>
-        <Divider />
-        <EmailSubscription />
-        <Divider />
         <AmazonAdvert />
+        <EmailSubscription />
         <ReadMore tags={tags} category={category} />
       </PageContainer>
     );
