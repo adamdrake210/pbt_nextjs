@@ -1,27 +1,16 @@
 import React from 'react';
 import PageContainer from '../containers/PageContainer';
-import {
-  Heading,
-  Image,
-  Box,
-  Flex,
-  Divider,
-  Text,
-  Link,
-  Tag,
-} from '@chakra-ui/core';
-import NextLink from 'next/link';
+import { Heading, Box, Flex, Text } from '@chakra-ui/core';
 import PageSeo from '../components/partials/PageSeo';
 import { FrontMatterInterviewsType } from '../types/types';
 import EmailSubscription from '../components/partials/EmailSubscription';
-import ReadMore from '../components/partials/ReadMore';
 import { AmazonAdvert } from '../components/adverts/AmazonAdvert';
 import { ImageFlexCenter } from '../components/partials/ImageFlexCenter';
 
 export default function InterviewLayout(
   frontMatter: FrontMatterInterviewsType,
 ) {
-  const { title, slug, intro, readingTime, tags } = frontMatter;
+  const { title, slug, readingTime } = frontMatter;
   return ({ children: content }) => {
     return (
       <PageContainer maxWidth="728px">
@@ -29,8 +18,14 @@ export default function InterviewLayout(
           {...frontMatter}
           url={`https://paperbacktravels.com/interviews/${slug}`}
         />
+        <ImageFlexCenter
+          src={`interviews/${slug}`}
+          altText="Brian Schæfer Dreyer"
+          width={728}
+        />
         <Flex
           p={[4, 8]}
+          pt={[0, 0]}
           w="100%"
           justify={['center']}
           alignItems={['center']}
@@ -50,11 +45,6 @@ export default function InterviewLayout(
             )}
           </Flex>
         </Flex>
-        <ImageFlexCenter
-          src={`interviews/${slug}`}
-          altText="Brian Schæfer Dreyer"
-          width={728}
-        />
         <AmazonAdvert />
         <Box px={[4, 8]} mb={6}>
           {content}

@@ -71,7 +71,7 @@ const Navigation: React.FC = () => {
                     Interviews
                   </Button>
                 </NextLink>
-                <NextLink href="/articles" passHref>
+                {/* <NextLink href="/articles" passHref>
                   <Button
                     as="a"
                     variant="link"
@@ -81,7 +81,7 @@ const Navigation: React.FC = () => {
                   >
                     Articles
                   </Button>
-                </NextLink>
+                </NextLink> */}
                 <NextLink href="/about" passHref>
                   <Button
                     as="a"
@@ -157,7 +157,7 @@ const Navigation: React.FC = () => {
               Interviews
             </Button>
           </NextLink>
-          <NextLink href="/articles" passHref>
+          {/* <NextLink href="/articles" passHref>
             <Button
               as="a"
               variant="link"
@@ -168,7 +168,7 @@ const Navigation: React.FC = () => {
             >
               Articles
             </Button>
-          </NextLink>
+          </NextLink> */}
 
           <NextLink href="/about" passHref>
             <Button
