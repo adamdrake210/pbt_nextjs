@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Flex, Text, Box, Link, Tag, Image } from '@chakra-ui/core';
+import { Flex, Text, Box, Link, Tag, Image, Heading } from '@chakra-ui/core';
 //@ts-ignore
 import { frontMatter as interviewPosts } from '../pages/interviews/*.mdx';
 import NextLink from 'next/link';
 import { FrontMatterInterviewsType } from '../types/types';
 import EmailSubscription from './partials/EmailSubscription';
+import InterviewPreviewCard from './cards/InterviewPreviewCard';
 
 export default function InterviewsPage() {
   return (
     <Flex mt={12} w="100%" direction="column" alignItems="center">
-      <Box as="section" mt={12} px={[4, 8]}>
+      <Box as="section" px={[4, 8]}>
+        <Heading as="h1" size="xl" mb={4}>
+          Interviews
+        </Heading>
         <Flex
           pb={[4, 8]}
           w="100%"
@@ -22,34 +26,19 @@ export default function InterviewsPage() {
             interviewPosts.map(
               (frontMatter: FrontMatterInterviewsType) =>
                 frontMatter.published && (
-                  <Box
-                    flex={['1 0 100%', '0 0 33.33%']}
-                    mb={8}
-                    key={frontMatter.slug}
-                  >
+                  <Box flex={['1 0 100%']} mb={8} key={frontMatter.slug}>
                     <NextLink passHref href={`/interviews/${frontMatter.slug}`}>
                       <Link>
                         <Flex
                           justifyContent={['center', 'space-between']}
                           alignItems="center"
                         ></Flex>
-                        <Box w={266}>
-                          <Image
-                            src={`./images/book-summaries/cal-newport-deep-work.jpg`}
-                            alt="cal-newport-deep-work"
-                            w={266}
-                            h={400}
-                            mb={2}
-                          />
-                          <Flex
-                            justifyContent={['center', 'space-between']}
-                            alignItems="center"
-                          >
-                            <Tag variantColor="cyan" size="sm">
-                              Read Interview
-                            </Tag>
-                          </Flex>
-                        </Box>
+                        <InterviewPreviewCard
+                          slug={frontMatter.slug}
+                          title={frontMatter.title}
+                          description={frontMatter.description}
+                          readingTime={frontMatter.readingTime}
+                        />
                       </Link>
                     </NextLink>
                   </Box>
