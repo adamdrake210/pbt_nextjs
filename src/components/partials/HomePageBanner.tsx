@@ -10,6 +10,7 @@ export default function HomePageBanner({ post }) {
       shadow={['none', 'none', 'none', 'md']}
       borderWidth={[0, 0, 0, '1px']}
       p={4}
+      mb={8}
     >
       <NextLink passHref href={`/interviews/${slug}`} key={slug}>
         <Link
