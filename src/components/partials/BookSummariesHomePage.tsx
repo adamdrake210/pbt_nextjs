@@ -49,18 +49,17 @@ export default function Homepage() {
   }, [bookSummariesPosts]);
 
   return (
-    <Flex mt={12} w="100%" direction="column" alignItems="center">
-      <Box as="section" px={[4, 8]}>
-        <Heading as="h1" size="lg" mb={4} textAlign="center">
-          “Reading is a discount ticket to everywhere.” - Mary Schmich
-        </Heading>
-
-        <Text fontSize="xl" textAlign="center">
-          Welcome to Paperback Travels. The world is full of words. This is our
-          attempt to guide you towards some of the best combinations of them.
-        </Text>
-      </Box>
-      <Box as="section" mt={12} px={[4, 8]}>
+    <Flex mt={8} w="100%" direction="column" alignItems="center">
+      <Heading
+        as="h1"
+        fontSize={['4xl', '5xl']}
+        mb={4}
+        textAlign="center"
+        color="cyan.900"
+      >
+        Book Summaries
+      </Heading>
+      <Box as="section" mt={1} px={[4, 8]}>
         <Flex
           pb={[4, 8]}
           w="100%"

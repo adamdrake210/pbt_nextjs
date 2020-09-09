@@ -56,7 +56,13 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
         <Search handleChange={handleChange} />
       </Box>
 
-      <Heading as="h1" size="xl" mb={4} textTransform="capitalize">
+      <Heading
+        as="h1"
+        size="xl"
+        mb={4}
+        textTransform="capitalize"
+        color="cyan.900"
+      >
         {category}
       </Heading>
       <Flex

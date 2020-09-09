@@ -25,7 +25,7 @@ const ReadMore: React.FC<Props> = ({ category, tags }) => {
 
   return (
     <Box px={[4, 0]} py={8} mb={4}>
-      <Heading as="h2" size="xl" mb={4}>
+      <Heading as="h2" size="xl" mb={4} color="cyan.900">
         Some further reading
       </Heading>
 

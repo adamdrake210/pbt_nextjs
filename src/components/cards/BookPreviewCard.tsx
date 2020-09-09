@@ -25,7 +25,11 @@ const BookPreviewCard = ({
           mb={[4, 0]}
         />
         <Flex flexDirection="column">
-          <Heading fontSize="xl" mb={-2}>{`${title} - ${author}`}</Heading>
+          <Heading
+            color="cyan.900"
+            fontSize="xl"
+            mb={-2}
+          >{`${title} - ${author}`}</Heading>
           <Text mt={2}>{intro}</Text>
           <Box w="100%" textAlign={['center', 'left']}>
             <Tag variantColor="cyan" size="md" mt={2} width="116px">

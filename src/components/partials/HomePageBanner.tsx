@@ -5,32 +5,39 @@ import NextLink from 'next/link';
 export default function HomePageBanner({ post }) {
   const { category, slug, title, description, readingTime } = post;
   return (
-    <NextLink passHref href={`/interviews/${slug}`} key={slug}>
-      <Link
-        _hover={{
-          backgroundColor: '#f6f6f6',
-        }}
-        w="100%"
-      >
-        <Box w="100%" shadow="md" borderWidth="1px" p={4}>
+    <Box
+      w="100%"
+      shadow={['none', 'none', 'none', 'md']}
+      borderWidth={[0, 0, 0, '1px']}
+      p={4}
+    >
+      <NextLink passHref href={`/interviews/${slug}`} key={slug}>
+        <Link
+          _hover={{
+            backgroundColor: '#f6f6f6',
+          }}
+          w="100%"
+        >
           <Flex
-            flexDirection={['column', 'row']}
+            flexDirection={['column', 'column', 'column', 'row']}
             alignItems="flex-start"
             justifyContent="flex-start"
           >
             <Image
               src={`/images/interviews/${slug}.jpg`}
               alt={`${title}`}
-              w={['100%', '50%']}
-              mr={[0, 4]}
-              mb={[4, 0]}
+              w={['100%', '100%', '100%', '50%']}
+              mr={[0, 0, 0, 4]}
+              mb={[4, 4, 4, 0]}
             />
             <Flex
               flexDirection="column"
               alignItems="flex-start"
               justifyContent="flex-start"
             >
-              <Heading fontSize={40}>{title}</Heading>
+              <Heading fontSize={40} color="cyan.900">
+                {title}
+              </Heading>
               <Text mt={2} fontSize={20}>
                 {description}
               </Text>
@@ -44,8 +51,8 @@ export default function HomePageBanner({ post }) {
               </Box>
             </Flex>
           </Flex>
-        </Box>
-      </Link>
-    </NextLink>
+        </Link>
+      </NextLink>
+    </Box>
   );
 }

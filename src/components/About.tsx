@@ -5,7 +5,7 @@ import EmailSubscription from './partials/EmailSubscription';
 export const About: React.FC = () => {
   return (
     <Box p={[4, 8]}>
-      <Heading as="h1" size="2xl" mb={4}>
+      <Heading as="h1" size="2xl" mb={4} color="cyan.900">
         About Us
       </Heading>
       <Text mb={4}>

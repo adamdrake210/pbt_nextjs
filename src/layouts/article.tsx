@@ -35,7 +35,9 @@ export default function ArticleLayout(frontMatter: FrontMatterArticlesType) {
           flexWrap="wrap"
         >
           <Box textAlign="center" w="100%">
-            <Heading as="h1">{title}</Heading>
+            <Heading color="cyan.900" as="h1">
+              {title}
+            </Heading>
           </Box>
           <Flex p={0} mb={8} w="100%" justifyContent="center">
             {readingTime && (

@@ -44,7 +44,9 @@ export default function Layout(frontMatter: FrontMatterBookSummariesType) {
           flexWrap="wrap"
         >
           <Box textAlign="center" w="100%">
-            <Heading as="h1">{title}</Heading>
+            <Heading as="h1" color="cyan.900">
+              {title}
+            </Heading>
           </Box>
           <Flex p={0} mb={8} w="100%" justifyContent="center">
             {readingTime && (

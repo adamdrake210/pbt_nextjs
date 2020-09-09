@@ -57,7 +57,13 @@ export default function BookSummariesList() {
             alignItems="center"
             justifyContent="center"
           >
-            <Heading as="h2" fontSize={20} textTransform="capitalize" mb={4}>
+            <Heading
+              as="h2"
+              fontSize={20}
+              textTransform="capitalize"
+              mb={4}
+              color="cyan.900"
+            >
               {category}
             </Heading>
             <Image
@@ -77,7 +83,7 @@ export default function BookSummariesList() {
 
   return (
     <Box p={[4, 8]}>
-      <Heading as="h1" size="xl" mb={4}>
+      <Heading as="h1" size="xl" mb={4} color="cyan.900">
         Book Summary Categories
       </Heading>
       {categories && (

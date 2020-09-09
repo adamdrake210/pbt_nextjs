@@ -5,12 +5,13 @@ import { frontMatter as interviewPosts } from '../pages/interviews/*.mdx';
 import HomePageBanner from './partials/HomePageBanner';
 import BookSummariesHomePage from './partials/BookSummariesHomePage';
 import EmailSubscription from './partials/EmailSubscription';
+import Quote from './partials/Quote';
 
 export default function Homepage() {
   return (
-    <Flex mt={12} w="100%" direction="column" alignItems="center">
+    <Flex mt={[2, 2, 2, 12]} w="100%" direction="column" alignItems="center">
       <HomePageBanner post={interviewPosts[0]} />
-      <Divider />
+      <Quote />
       <BookSummariesHomePage />
       <Box as="section" px={[4, 8]}>
         <EmailSubscription />

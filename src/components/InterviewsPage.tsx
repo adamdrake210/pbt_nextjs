@@ -11,7 +11,7 @@ export default function InterviewsPage() {
   return (
     <Flex mt={12} w="100%" direction="column" alignItems="center">
       <Box as="section" px={[4, 8]}>
-        <Heading as="h1" size="xl" mb={4}>
+        <Heading as="h1" size="xl" mb={4} color="cyan.900">
           Interviews
         </Heading>
         <Flex
