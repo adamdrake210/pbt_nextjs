@@ -1,35 +1,29 @@
 import React from 'react';
 import { Heading, Flex, Box, Text, Image, Tag } from '@chakra-ui/core';
-// @ts-ignore
-const BookPreviewCard = ({
-  category,
-  slug,
-  author,
-  title,
-  intro,
-  readingTime,
-}) => {
+
+const InterviewPreviewCard = ({ slug, title, description, readingTime }) => {
   return (
-    <Box key={category} w="100%" shadow="md" borderWidth="1px" p={4}>
+    <Box key={slug} w="100%" shadow="md" borderWidth="1px" p={4}>
       <Flex
         flexDirection={['column', 'row']}
         alignItems="center"
         justifyContent="center"
       >
         <Image
-          src={`/images/book-summaries/${slug}.jpg`}
-          alt={`${author} - ${title}`}
-          w={90}
-          h={140}
+          src={`/images/interviews/${slug}.jpg`}
+          alt={title}
+          w={300}
           mr={4}
           mb={[4, 0]}
         />
         <Flex flexDirection="column">
-          <Heading fontSize="xl" mb={-2}>{`${title} - ${author}`}</Heading>
-          <Text mt={2}>{intro}</Text>
+          <Heading fontSize="xl" mb={-2} color="cyan.900">
+            {title}
+          </Heading>
+          <Text mt={2}>{description}</Text>
           <Box w="100%" textAlign={['center', 'left']}>
             <Tag variantColor="cyan" size="md" mt={2} width="116px">
-              Read Summary
+              Read Interview
             </Tag>
             <Text fontStyle="italic" color="grey" mt={1}>
               {`${readingTime.text}`}
@@ -41,4 +35,4 @@ const BookPreviewCard = ({
   );
 };
 
-export default BookPreviewCard;
+export default InterviewPreviewCard;

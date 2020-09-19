@@ -4,6 +4,7 @@ import { Box, Divider } from '@chakra-ui/core';
 export const AmazonAdvert: React.FC = () => {
   return (
     <>
+      <Divider />
       <Box py={[4]} display={['none', 'none', 'block']}>
         <iframe
           src="//rcm-na.amazon-adsystem.com/e/cm?o=1&p=48&l=ur1&category=audiblefreetrial&banner=04YSFJHVY8QYH4YVBXG2&f=ifr&linkID=a96c4db3d412a7fc20c06233ff1193ab&t=paperbacktrav-20&tracking_id=paperbacktrav-20"

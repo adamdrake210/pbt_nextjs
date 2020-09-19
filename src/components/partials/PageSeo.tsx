@@ -7,7 +7,7 @@ interface Props {
   publishedDate: string;
   slug: string;
   url: string;
-  author: string;
+  author?: string;
 }
 
 const PageSeo: React.FC<Props> = ({
@@ -41,7 +41,7 @@ const PageSeo: React.FC<Props> = ({
         }}
       />
       <ArticleJsonLd
-        authorName={author}
+        authorName={author || null}
         dateModified={publishedDate}
         datePublished={publishedDate}
         description={description}

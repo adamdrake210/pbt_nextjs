@@ -11,8 +11,8 @@ import {
   Spinner,
   Flex,
 } from '@chakra-ui/core';
-import { isValidEmail } from '../helpers/validators';
-import { ga_event } from '../helpers/gtag';
+import { isValidEmail } from '../../helpers/validators';
+import { ga_event } from '../../helpers/gtag';
 
 export default function EmailSubscription() {
   const inputRef = useRef(null);

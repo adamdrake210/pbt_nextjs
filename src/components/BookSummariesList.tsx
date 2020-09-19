@@ -3,16 +3,16 @@ import { Heading, Flex, Box, Link, Image } from '@chakra-ui/core';
 // @ts-ignore
 import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
 import NextLink from 'next/link';
-import { FrontMatterType } from '../types/types';
+import { FrontMatterBookSummariesType } from '../types/types';
 
-export default function BookSummaries() {
+export default function BookSummariesList() {
   const [categories, setCategories] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
 
   useEffect(() => {
     setFilteredBooks(bookSummariesPosts);
     const filterData = bookSummariesPosts.map(
-      (frontMatter: FrontMatterType) => {
+      (frontMatter: FrontMatterBookSummariesType) => {
         return frontMatter.category;
       },
     );
@@ -24,7 +24,7 @@ export default function BookSummaries() {
 
   function findCategoryImage(category: string): string {
     const sortedBookSummeries = bookSummariesPosts.map(
-      (frontMatter: FrontMatterType) => {
+      (frontMatter: FrontMatterBookSummariesType) => {
         if (frontMatter.category === category) {
           return frontMatter.slug;
         }
@@ -48,6 +48,7 @@ export default function BookSummaries() {
           shadow="sm"
           p={4}
           my={['8px']}
+          marginRight={6}
           w="100%"
           minH="230px"
         >
@@ -56,7 +57,13 @@ export default function BookSummaries() {
             alignItems="center"
             justifyContent="center"
           >
-            <Heading as="h2" fontSize={20} textTransform="capitalize" mb={4}>
+            <Heading
+              as="h2"
+              fontSize={20}
+              textTransform="capitalize"
+              mb={4}
+              color="cyan.900"
+            >
               {category}
             </Heading>
             <Image
@@ -76,13 +83,13 @@ export default function BookSummaries() {
 
   return (
     <Box p={[4, 8]}>
-      <Heading as="h1" size="xl" mb={4}>
+      <Heading as="h1" size="xl" mb={4} color="cyan.900">
         Book Summary Categories
       </Heading>
       {categories && (
         <Flex
           w="100%"
-          justify={['flex-start', 'flex-start', 'space-between']}
+          justify={['flex-start', 'flex-start', 'flex-start']}
           alignItems={['flex-start']}
           direction={['column', 'column', 'row']}
           flexWrap="wrap"
