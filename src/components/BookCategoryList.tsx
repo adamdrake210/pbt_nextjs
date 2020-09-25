@@ -55,7 +55,6 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
       <Box mb={8}>
         <Search handleChange={handleChange} />
       </Box>
-
       <Heading
         as="h1"
         size="xl"
@@ -63,7 +62,7 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
         textTransform="capitalize"
         color="cyan.900"
       >
-        {category}
+        {category.replace(/-/g, ' ')}
       </Heading>
       <Flex
         w="100%"
