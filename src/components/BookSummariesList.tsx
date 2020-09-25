@@ -64,7 +64,6 @@ export default function BookSummariesList() {
               mb={4}
               color="cyan.900"
             >
-              {/* @ts-ignore */}
               {category.replace(/-/g, ' ')}
             </Heading>
             <Image
