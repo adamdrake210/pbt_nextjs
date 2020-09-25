@@ -94,7 +94,7 @@ export default function Homepage() {
                             mb={2}
                             textTransform="uppercase"
                           >
-                            {frontMatter.category}
+                            {frontMatter.category.replace(/-/g, ' ')}
                           </Tag>
                         </Flex>
                       </Link>

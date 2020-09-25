@@ -65,7 +65,7 @@ export default function BookSummariesList() {
               color="cyan.900"
             >
               {/* @ts-ignore */}
-              {category.replaceAll('-', ' ')}
+              {category.replace(/-/g, ' ')}
             </Heading>
             <Image
               src={`../images/book-summaries/${findCategoryImage(
