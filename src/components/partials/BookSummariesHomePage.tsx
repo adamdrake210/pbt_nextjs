@@ -59,7 +59,6 @@ export default function Homepage() {
       >
         Book Summaries
       </Heading>
-
       <Box as="section" mt={1} px={[4, 8]}>
         <Flex
           pb={[4, 8]}
