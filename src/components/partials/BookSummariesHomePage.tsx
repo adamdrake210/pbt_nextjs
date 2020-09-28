@@ -59,6 +59,7 @@ export default function Homepage() {
       >
         Book Summaries
       </Heading>
+
       <Box as="section" mt={1} px={[4, 8]}>
         <Flex
           pb={[4, 8]}
@@ -93,7 +94,7 @@ export default function Homepage() {
                             mb={2}
                             textTransform="uppercase"
                           >
-                            {frontMatter.category}
+                            {frontMatter.category.replace(/-/g, ' ')}
                           </Tag>
                         </Flex>
                       </Link>
