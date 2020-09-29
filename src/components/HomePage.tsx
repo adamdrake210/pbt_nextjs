@@ -12,6 +12,7 @@ export default function Homepage() {
     <Flex mt={[2, 2, 2, 12]} w="100%" direction="column" alignItems="center">
       <HomePageBanner post={interviewPosts[0]} />
       <Quote />
+
       <BookSummariesHomePage />
       <Box as="section" px={[4, 8]}>
         <EmailSubscription />
