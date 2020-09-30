@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Flex,
-  Text,
-  Heading,
-  Box,
-  Link,
-  Badge,
-  Tag,
-  Button,
-} from '@chakra-ui/core';
+import { Flex, Text, Heading, Box, Link, Button } from '@chakra-ui/core';
 //@ts-ignore
 import { frontMatter as bookSummariesPosts } from '../../pages/book-summaries/**/*.mdx';
 import { PictureItem } from '../PictureItem';
 import NextLink from 'next/link';
 import { FrontMatterBookSummariesType } from '../../types/types';
+import CategoryTag from './CategoryTag';
 
 export default function Homepage() {
   const [sortedBooks, setSortedBooks] = useState([]);
@@ -30,7 +22,9 @@ export default function Homepage() {
   }
 
   const handleSortingBookOrder = () => {
-    setSortedBooks(bookSummariesPosts.sort(sortNumber));
+    const sortedArray = bookSummariesPosts.sort(sortNumber);
+    console.log('sortedArray: ', sortedArray);
+    setSortedBooks(sortedArray);
   };
 
   const handleButtonVisibility = (adjustedNumberSummary: number) => {
@@ -86,15 +80,7 @@ export default function Homepage() {
                           justifyContent={['center', 'space-between']}
                           alignItems="center"
                         >
-                          <Tag
-                            variantColor="purple"
-                            size="md"
-                            rounded="full"
-                            mb={2}
-                            textTransform="uppercase"
-                          >
-                            {frontMatter.category.replace(/-/g, ' ')}
-                          </Tag>
+                          <CategoryTag category={frontMatter.category} />
                         </Flex>
                       </Link>
                     </NextLink>

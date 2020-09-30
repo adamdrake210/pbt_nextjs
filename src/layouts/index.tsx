@@ -1,21 +1,13 @@
 import React from 'react';
 import PageContainer from '../containers/PageContainer';
-import {
-  Heading,
-  Image,
-  Box,
-  Flex,
-  Divider,
-  Text,
-  Link,
-  Tag,
-} from '@chakra-ui/core';
+import { Heading, Image, Box, Flex, Text, Link } from '@chakra-ui/core';
 import NextLink from 'next/link';
 import PageSeo from '../components/partials/PageSeo';
 import { FrontMatterBookSummariesType } from '../types/types';
 import EmailSubscription from '../components/partials/EmailSubscription';
 import ReadMore from '../components/partials/ReadMore';
 import { AmazonAdvert } from '../components/adverts/AmazonAdvert';
+import CategoryTag from '../components/partials/CategoryTag';
 
 export default function Layout(frontMatter: FrontMatterBookSummariesType) {
   const {
@@ -74,15 +66,7 @@ export default function Layout(frontMatter: FrontMatterBookSummariesType) {
                 justifyContent={['center', 'space-between']}
                 alignItems="center"
               >
-                <Tag
-                  variantColor="purple"
-                  size="md"
-                  rounded="full"
-                  mb={2}
-                  textTransform="uppercase"
-                >
-                  {category}
-                </Tag>
+                <CategoryTag category={category} />
               </Flex>
             </Link>
           </NextLink>
