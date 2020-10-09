@@ -5,6 +5,7 @@ import PageSeo from '../components/partials/PageSeo';
 import { FrontMatterArticlesType } from '../types/types';
 import EmailSubscription from '../components/partials/EmailSubscription';
 import { AmazonAdvert } from '../components/adverts/AmazonAdvert';
+import { ImageFlexCenter } from '../components/partials/ImageFlexCenter';
 
 export default function ArticleLayout(frontMatter: FrontMatterArticlesType) {
   const { title, slug, intro, readingTime } = frontMatter;
@@ -14,6 +15,11 @@ export default function ArticleLayout(frontMatter: FrontMatterArticlesType) {
         <PageSeo
           {...frontMatter}
           url={`https://paperbacktravels.com/articles/${slug}`}
+        />
+        <ImageFlexCenter
+          src={`articles/${slug}`}
+          altText="Brian Schæfer Dreyer"
+          width={728}
         />
         <Flex
           p={[4, 8]}
