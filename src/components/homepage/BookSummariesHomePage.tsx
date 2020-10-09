@@ -5,7 +5,7 @@ import { frontMatter as bookSummariesPosts } from '../../pages/book-summaries/**
 import { PictureItem } from '../partials/PictureItem';
 import NextLink from 'next/link';
 import { FrontMatterBookSummariesType } from '../../types/types';
-import CategoryTag from './CategoryTag';
+import CategoryTag from '../partials/CategoryTag';
 
 export default function Homepage() {
   const [sortedBooks, setSortedBooks] = useState([]);
