@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/core';
 //@ts-ignore
 import { frontMatter as bookSummariesPosts } from '../../pages/book-summaries/**/*.mdx';
-import { PictureItem } from '../PictureItem';
+import { PictureItem } from '../partials/PictureItem';
 import NextLink from 'next/link';
 import { FrontMatterBookSummariesType } from '../../types/types';
 

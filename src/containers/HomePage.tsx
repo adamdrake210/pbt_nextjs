@@ -2,10 +2,10 @@ import React from 'react';
 import { Flex, Box, Divider } from '@chakra-ui/core';
 // @ts-ignore
 import { frontMatter as interviewPosts } from '../pages/interviews/*.mdx';
-import HomePageBanner from './partials/HomePageBanner';
-import BookSummariesHomePage from './partials/BookSummariesHomePage';
-import EmailSubscription from './partials/EmailSubscription';
-import Quote from './partials/Quote';
+import HomePageBanner from '../components/homepage/HomePageBanner';
+import BookSummariesHomePage from '../components/homepage/BookSummariesHomePage';
+import EmailSubscription from '../components/partials/EmailSubscription';
+import Quote from '../components/partials/Quote';
 
 export default function Homepage() {
   return (

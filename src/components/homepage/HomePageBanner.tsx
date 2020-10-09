@@ -3,7 +3,7 @@ import { Flex, Text, Box, Link, Tag, Image, Heading } from '@chakra-ui/core';
 import NextLink from 'next/link';
 
 export default function HomePageBanner({ post }) {
-  const { category, slug, title, description, readingTime } = post;
+  const { slug, title, description, readingTime } = post;
   return (
     <Box
       w="100%"

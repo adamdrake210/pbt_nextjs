@@ -15,13 +15,13 @@ export const ImageFlexCenter: React.FC<Props> = ({
   height,
 }) => {
   return (
-    <Flex justifyContent="center" alignItems="center" my={6}>
+    <Flex justifyContent="center" alignItems="center" mt={10}>
       <Image
         src={`/images/${src}.jpg`}
         alt={altText}
         w={width}
         h={height}
-        mb={2}
+        mb={4}
       />
     </Flex>
   );

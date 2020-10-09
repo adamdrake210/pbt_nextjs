@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, Badge, Tag, Flex, Link } from '@chakra-ui/core';
+import { Box, Image, Tag, Flex, Link } from '@chakra-ui/core';
 import NextLink from 'next/link';
 
 interface Props {
