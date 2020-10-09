@@ -1,6 +1,6 @@
 import React from 'react';
 import { useColorMode, Flex, Stack, Box } from '@chakra-ui/core';
-import Navigation from '../components/partials/Navigations';
+import Navigation from '../components/Navigations';
 import Footer from '../components/partials/Footer';
 
 type Props = {

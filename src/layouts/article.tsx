@@ -1,24 +1,13 @@
 import React from 'react';
 import PageContainer from '../containers/PageContainer';
-import {
-  Heading,
-  Image,
-  Box,
-  Flex,
-  Divider,
-  Text,
-  Link,
-  Tag,
-} from '@chakra-ui/core';
-import NextLink from 'next/link';
+import { Heading, Box, Flex, Text } from '@chakra-ui/core';
 import PageSeo from '../components/partials/PageSeo';
 import { FrontMatterArticlesType } from '../types/types';
 import EmailSubscription from '../components/partials/EmailSubscription';
-import ReadMore from '../components/partials/ReadMore';
 import { AmazonAdvert } from '../components/adverts/AmazonAdvert';
 
 export default function ArticleLayout(frontMatter: FrontMatterArticlesType) {
-  const { title, slug, intro, readingTime, tags } = frontMatter;
+  const { title, slug, intro, readingTime } = frontMatter;
   return ({ children: content }) => {
     return (
       <PageContainer maxWidth="728px">
@@ -49,7 +38,6 @@ export default function ArticleLayout(frontMatter: FrontMatterArticlesType) {
             )}
           </Flex>
         </Flex>
-        <Divider />
         <AmazonAdvert />
         <Box px={[4, 8]} pt={[4, 8]} pb={0}>
           <Text fontSize="xl" fontWeight={500}>
@@ -57,9 +45,7 @@ export default function ArticleLayout(frontMatter: FrontMatterArticlesType) {
           </Text>
         </Box>
         <Box px={[4, 8]}>{content}</Box>
-        <Divider />
         <EmailSubscription />
-        <Divider />
         <AmazonAdvert />
       </PageContainer>
     );
