@@ -49,17 +49,18 @@ export default function Homepage() {
   }, [bookSummariesPosts]);
 
   return (
-    <Flex mt={8} w="100%" direction="column" alignItems="center">
+    <Flex mt={8} w="100%" direction="column" alignItems="center" px={[4, 4]}>
       <Heading
-        as="h1"
+        as="h2"
         fontSize={['4xl', '5xl']}
         mb={4}
-        textAlign="center"
+        w="100%"
+        textAlign={['center', 'center', 'left']}
         color="cyan.900"
       >
         Book Summaries
       </Heading>
-      <Box as="section" mt={1} px={[4, 8]}>
+      <Box as="section" mt={1}>
         <Flex
           pb={[4, 8]}
           w="100%"
