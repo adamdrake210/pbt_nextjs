@@ -44,11 +44,19 @@ const Navigation: React.FC = () => {
               borderBottomWidth="1px"
               backgroundColor="cyan.400"
               color="white"
+              fontWeight={600}
+              fontFamily="Eczar"
             >
               PAPERBACK TRAVELS
             </DrawerHeader>
             <DrawerBody>
-              <Flex color="#000" direction="column" alignItems="flex-start">
+              <Flex
+                color="#000"
+                direction="column"
+                alignItems="flex-start"
+                fontWeight={600}
+                textTransform="uppercase"
+              >
                 <NextLink href="/book-summaries" passHref>
                   <Button
                     as="a"
@@ -56,6 +64,7 @@ const Navigation: React.FC = () => {
                     fontSize={18}
                     py={[3]}
                     color="cyan.400"
+                    fontWeight={600}
                   >
                     Book Summaries
                   </Button>
@@ -67,6 +76,7 @@ const Navigation: React.FC = () => {
                     fontSize={18}
                     py={[3]}
                     color="cyan.400"
+                    fontWeight={600}
                   >
                     Interviews
                   </Button>
@@ -78,6 +88,7 @@ const Navigation: React.FC = () => {
                     fontSize={18}
                     py={[3]}
                     color="cyan.400"
+                    fontWeight={600}
                   >
                     Articles
                   </Button>
@@ -89,6 +100,7 @@ const Navigation: React.FC = () => {
                     fontSize={18}
                     py={[3]}
                     color="cyan.400"
+                    fontWeight={600}
                   >
                     About
                   </Button>
@@ -106,8 +118,9 @@ const Navigation: React.FC = () => {
       width="100%"
       bg="cyan.400"
       as="nav"
-      p={[4, 4, 8]}
+      p={[2]}
       fontFamily="Raleway"
+      shadow="lg"
     >
       <Flex
         flexDirection="row"
@@ -122,24 +135,29 @@ const Navigation: React.FC = () => {
             <Button
               as="a"
               variant="link"
-              fontSize={[20, 20, 28]}
-              fontWeight={500}
+              fontSize={[20, 20, 36]}
+              fontWeight={700}
               color="white"
-              p={[1, 4]}
+              p={[1, 2]}
+              fontFamily="Eczar"
             >
               PAPERBACK TRAVELS
             </Button>
           </NextLink>
         </Box>
-        <Box color="#ffffff" display={['none', 'none', 'block']}>
+        <Box
+          color="#ffffff"
+          display={['none', 'none', 'none', 'block']}
+          fontWeight={600}
+          textTransform="uppercase"
+        >
           <NextLink href="/book-summaries" passHref>
             <Button
               as="a"
               variant="link"
-              fontSize={22}
-              fontWeight={300}
+              color="#ffffff"
+              fontSize={20}
               p={[1, 4]}
-              color="white"
             >
               Book Summaries
             </Button>
@@ -149,8 +167,7 @@ const Navigation: React.FC = () => {
             <Button
               as="a"
               variant="link"
-              fontSize={22}
-              fontWeight={300}
+              fontSize={20}
               p={[1, 4]}
               color="white"
             >
@@ -161,8 +178,7 @@ const Navigation: React.FC = () => {
             <Button
               as="a"
               variant="link"
-              fontSize={22}
-              fontWeight={300}
+              fontSize={20}
               p={[1, 4]}
               color="white"
             >
@@ -174,8 +190,7 @@ const Navigation: React.FC = () => {
             <Button
               as="a"
               variant="link"
-              fontSize={22}
-              fontWeight={300}
+              fontSize={20}
               p={[1, 4]}
               color="white"
             >
@@ -183,7 +198,7 @@ const Navigation: React.FC = () => {
             </Button>
           </NextLink>
         </Box>
-        <Box color="#ffffff" display={['block', 'block', 'none']}>
+        <Box color="#ffffff" display={['block', 'block', 'block', 'none']}>
           <Button
             as="button"
             variant="link"
