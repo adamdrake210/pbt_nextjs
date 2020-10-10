@@ -11,7 +11,13 @@ import Quote from '../components/partials/Quote';
 
 export default function Homepage() {
   return (
-    <Flex mt={[2, 2, 2, 12]} w="100%" direction="column" alignItems="center">
+    <Flex
+      mt={[2, 2, 2, 12]}
+      px={4}
+      w="100%"
+      direction="column"
+      alignItems="center"
+    >
       <HomePageBanner
         post={articlePosts[0]}
         pageCategory="articles"
