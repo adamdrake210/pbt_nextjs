@@ -4,13 +4,14 @@ import NextLink from 'next/link';
 
 export default function HomePageBanner({ post, pageCategory, cta }) {
   const { slug, title, description, readingTime } = post;
+
   return (
     <Box
       w="100%"
-      shadow={['none', 'none', 'none', 'md']}
-      borderWidth={[0, 0, 0, '1px']}
+      shadow={['none', 'none', 'none', 'sm']}
       p={4}
       mb={8}
+      borderBottom="5px solid #00A3C4"
     >
       <NextLink passHref href={`/${pageCategory}/${slug}`} key={slug}>
         <Link

@@ -3,7 +3,7 @@ import { Heading, Flex, Box, Text, Image, Tag } from '@chakra-ui/core';
 
 const ArticlePreviewCard = ({ slug, title, description, readingTime }) => {
   return (
-    <Box key={slug} w="100%" shadow="md" borderWidth="1px" p={4}>
+    <Box key={slug} w="100%" shadow="sm" p={4} borderBottom="5px solid #00A3C4">
       <Flex
         flexDirection={['column', 'row']}
         alignItems="center"
