@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import HomePage from '../components/HomePage';
+import HomePage from '../containers/HomePage';
 import PageContainer from '../containers/PageContainer';
 
 function PageIndex() {

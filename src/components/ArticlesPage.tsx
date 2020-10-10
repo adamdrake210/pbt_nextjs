@@ -5,6 +5,7 @@ import { frontMatter as articlePosts } from '../pages/articles/*.mdx';
 import NextLink from 'next/link';
 import { FrontMatterArticlesType } from '../types/types';
 import EmailSubscription from './partials/EmailSubscription';
+import ArticlePreviewCard from './cards/ArticlePreviewCard';
 
 export default function ArticlesPage() {
   return (
@@ -22,34 +23,19 @@ export default function ArticlesPage() {
             articlePosts.map(
               (frontMatter: FrontMatterArticlesType) =>
                 frontMatter.published && (
-                  <Box
-                    flex={['1 0 100%', '0 0 33.33%']}
-                    mb={8}
-                    key={frontMatter.slug}
-                  >
+                  <Box flex={['1 0 100%']} mb={8} key={frontMatter.slug}>
                     <NextLink passHref href={`/articles/${frontMatter.slug}`}>
                       <Link>
                         <Flex
                           justifyContent={['center', 'space-between']}
                           alignItems="center"
                         ></Flex>
-                        <Box w={266}>
-                          <Image
-                            src={`./images/book-summaries/cal-newport-deep-work.jpg`}
-                            alt="cal-newport-deep-work"
-                            w={266}
-                            h={400}
-                            mb={2}
-                          />
-                          <Flex
-                            justifyContent={['center', 'space-between']}
-                            alignItems="center"
-                          >
-                            <Tag variantColor="cyan" size="sm">
-                              Read Article
-                            </Tag>
-                          </Flex>
-                        </Box>
+                        <ArticlePreviewCard
+                          slug={frontMatter.slug}
+                          title={frontMatter.title}
+                          description={frontMatter.description}
+                          readingTime={frontMatter.readingTime}
+                        />
                       </Link>
                     </NextLink>
                   </Box>
@@ -62,7 +48,6 @@ export default function ArticlesPage() {
           )}
         </Flex>
       </Box>
-
       <Box as="section" px={[4, 8]}>
         <EmailSubscription />
       </Box>
