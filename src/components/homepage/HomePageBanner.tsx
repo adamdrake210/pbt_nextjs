@@ -4,6 +4,7 @@ import NextLink from 'next/link';
 
 export default function HomePageBanner({ post, pageCategory, cta }) {
   const { slug, title, description, readingTime } = post;
+
   return (
     <Box
       w="100%"
