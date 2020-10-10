@@ -7,11 +7,12 @@ export default function Quote() {
       as="section"
       px={[2, 2, 2, 8]}
       py={[4]}
-      backgroundColor="cyan.500"
+      backgroundColor="cyan.400"
       color="white"
       mb={8}
+      borderBottom="5px solid #00A3C4"
     >
-      <Heading as="h3" size="md" mb={4} textAlign="center">
+      <Heading as="h3" size="md" mb={2} textAlign="center">
         “Reading is a discount ticket to everywhere.” - Mary Schmich
       </Heading>
 
