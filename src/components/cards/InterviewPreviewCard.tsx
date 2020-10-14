@@ -12,8 +12,8 @@ const InterviewPreviewCard = ({ slug, title, description, readingTime }) => {
         <Image
           src={`/images/interviews/${slug}.jpg`}
           alt={title}
-          w={300}
-          mr={4}
+          w={['100%', 300]}
+          mr={[0, 0, 4]}
           mb={[4, 0]}
         />
         <Flex flexDirection="column">
