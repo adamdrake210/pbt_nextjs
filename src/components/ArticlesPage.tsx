@@ -20,7 +20,7 @@ export default function ArticlesPage() {
           flexWrap="wrap"
         >
           {articlePosts &&
-            articlePosts.map(
+            articlePosts.reverse().map(
               (frontMatter: FrontMatterArticlesType) =>
                 frontMatter.published && (
                   <Box flex={['1 0 100%']} mb={8} key={frontMatter.slug}>

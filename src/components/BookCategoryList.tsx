@@ -64,6 +64,7 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
       >
         {category.replace(/-/g, ' ')}
       </Heading>
+
       <Flex
         w="100%"
         justify={['flex-start', 'flex-start', 'space-between', 'flex-start']}
@@ -73,33 +74,38 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
       >
         <Stack spacing={8}>
           {filteredBooks &&
-            filteredBooks.map((frontMatter: FrontMatterBookSummariesType) => {
-              if (category === frontMatter.category && frontMatter.published) {
-                return (
-                  <NextLink
-                    key={frontMatter.slug}
-                    passHref
-                    href={`/book-summaries/${category}/${frontMatter.slug}`}
-                  >
-                    <Link
-                      _hover={{
-                        backgroundColor: '#f6f6f6',
-                      }}
-                      mb={4}
+            filteredBooks
+              .reverse()
+              .map((frontMatter: FrontMatterBookSummariesType) => {
+                if (
+                  category === frontMatter.category &&
+                  frontMatter.published
+                ) {
+                  return (
+                    <NextLink
+                      key={frontMatter.slug}
+                      passHref
+                      href={`/book-summaries/${category}/${frontMatter.slug}`}
                     >
-                      <BookPreviewCard
-                        category={frontMatter.category}
-                        slug={frontMatter.slug}
-                        author={frontMatter.author}
-                        title={frontMatter.title}
-                        intro={frontMatter.intro}
-                        readingTime={frontMatter.readingTime}
-                      />
-                    </Link>
-                  </NextLink>
-                );
-              }
-            })}
+                      <Link
+                        _hover={{
+                          backgroundColor: '#f6f6f6',
+                        }}
+                        mb={4}
+                      >
+                        <BookPreviewCard
+                          category={frontMatter.category}
+                          slug={frontMatter.slug}
+                          author={frontMatter.author}
+                          title={frontMatter.title}
+                          intro={frontMatter.intro}
+                          readingTime={frontMatter.readingTime}
+                        />
+                      </Link>
+                    </NextLink>
+                  );
+                }
+              })}
         </Stack>
       </Flex>
     </Box>
