@@ -1,5 +1,5 @@
-import React from 'react';
-import { Flex, Box, Divider, Heading } from '@chakra-ui/core';
+import React, { useEffect, useState } from 'react';
+import { Flex, Box, Heading } from '@chakra-ui/core';
 // @ts-ignore
 import { frontMatter as interviewPosts } from '../pages/interviews/*.mdx';
 // @ts-ignore
@@ -10,19 +10,23 @@ import EmailSubscription from '../components/partials/EmailSubscription';
 import Quote from '../components/partials/Quote';
 
 export default function Homepage() {
+  const [interviewArr, setInterviewArr] = useState([]);
+  const [articleArr, setArticleArr] = useState([]);
+
+  useEffect(() => {
+    setInterviewArr(interviewPosts.reverse());
+    setArticleArr(articlePosts.reverse());
+  }, [interviewPosts]);
+
   return (
-    <Flex
-      mt={[2, 2, 2, 12]}
-      px={4}
-      w="100%"
-      direction="column"
-      alignItems="center"
-    >
-      <HomePageBanner
-        post={articlePosts[0]}
-        pageCategory="articles"
-        cta="Read Article"
-      />
+    <Flex mt={[2, 2, 2, 12]} w="100%" direction="column" alignItems="center">
+      {articleArr.length && (
+        <HomePageBanner
+          post={articlePosts[0]}
+          pageCategory="articles"
+          cta="Read Article"
+        />
+      )}
       <Quote />
       <Heading
         as="h2"
@@ -35,11 +39,13 @@ export default function Homepage() {
       >
         Latest Interview
       </Heading>
-      <HomePageBanner
-        post={interviewPosts[0]}
-        pageCategory="interviews"
-        cta="Read Interview"
-      />
+      {interviewArr.length && (
+        <HomePageBanner
+          post={interviewArr[0]}
+          pageCategory="interviews"
+          cta="Read Interview"
+        />
+      )}
 
       <BookSummariesHomePage />
       <Box as="section" px={[4, 8]}>
