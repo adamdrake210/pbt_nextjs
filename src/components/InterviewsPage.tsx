@@ -24,7 +24,7 @@ export default function InterviewsPage() {
           flexWrap="wrap"
         >
           {interviewPosts &&
-            interviewPosts.map(
+            interviewPosts.reverse().map(
               (frontMatter: FrontMatterInterviewsType) =>
                 frontMatter.published && (
                   <Box flex={['1 0 100%']} mb={8} key={frontMatter.slug}>

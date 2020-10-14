@@ -66,6 +66,7 @@ export default function BookSummariesList() {
             >
               {category.replace(/-/g, ' ')}
             </Heading>
+
             <Image
               src={`../images/book-summaries/${findCategoryImage(
                 category,
