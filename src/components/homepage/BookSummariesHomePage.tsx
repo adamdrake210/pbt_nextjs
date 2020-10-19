@@ -23,7 +23,6 @@ export default function Homepage() {
 
   const handleSortingBookOrder = () => {
     const sortedArray = bookSummariesPosts.sort(sortNumber);
-    console.log('sortedArray: ', sortedArray);
     setSortedBooks(sortedArray);
   };
 
