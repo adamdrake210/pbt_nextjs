@@ -16,11 +16,7 @@ export default function ArticleLayout(frontMatter: FrontMatterArticlesType) {
           {...frontMatter}
           url={`https://paperbacktravels.com/articles/${slug}`}
         />
-        <ImageFlexCenter
-          src={`articles/${slug}`}
-          altText="Brian Schæfer Dreyer"
-          width={728}
-        />
+        <ImageFlexCenter src={`articles/${slug}`} altText={slug} width={728} />
         <Flex
           p={[4, 8]}
           w="100%"
