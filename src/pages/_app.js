@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/core';
 import { Global, css } from '@emotion/core';
 import theme from '../styles/theme';
-import MDXComponents from '../components/MDXComponents';
+import MDXComponents from '../components/MDXComponents.tsx';
 
 const GlobalStyle = ({ children }) => {
   const { colorMode } = useColorMode();

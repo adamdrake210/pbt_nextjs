@@ -8,21 +8,23 @@ import HomePageBanner from '../components/homepage/HomePageBanner';
 import BookSummariesHomePage from '../components/homepage/BookSummariesHomePage';
 import EmailSubscription from '../components/partials/EmailSubscription';
 import Quote from '../components/partials/Quote';
+import { sortNumberByPublishedDate } from '../helpers/sortNumberByPublishedDate';
+
 
 export default function Homepage() {
   const [interviewArr, setInterviewArr] = useState([]);
   const [articleArr, setArticleArr] = useState([]);
-
+  
   useEffect(() => {
-    setInterviewArr(interviewPosts.reverse());
-    setArticleArr(articlePosts.reverse());
-  }, [interviewPosts]);
+    setInterviewArr(interviewPosts.sort(sortNumberByPublishedDate));
+    setArticleArr(articlePosts.sort(sortNumberByPublishedDate));
+  }, []);
 
   return (
     <Flex mt={[2, 2, 2, 12]} w="100%" direction="column" alignItems="center">
       {articleArr.length && (
         <HomePageBanner
-          post={articlePosts[0]}
+          post={articleArr[0]}
           pageCategory="articles"
           cta="Read Article"
         />
