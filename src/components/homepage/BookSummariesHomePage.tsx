@@ -6,23 +6,15 @@ import { PictureItem } from '../partials/PictureItem';
 import NextLink from 'next/link';
 import { FrontMatterBookSummariesType } from '../../types/types';
 import CategoryTag from '../partials/CategoryTag';
+import { sortNumberByPublishedDate } from '../../helpers/sortNumberByPublishedDate';
 
 export default function Homepage() {
   const [sortedBooks, setSortedBooks] = useState([]);
   const [numberSummaries, setNumberSummaries] = useState(9);
   const [isLoadButtonVisible, setIsLoadButtonVisible] = useState(true);
 
-  function sortNumber(
-    a: FrontMatterBookSummariesType,
-    b: FrontMatterBookSummariesType,
-  ) {
-    return (
-      new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
-    );
-  }
-
-  const handleSortingBookOrder = () => {
-    const sortedArray = bookSummariesPosts.sort(sortNumber);
+  const handleSortingOrder = () => {
+    const sortedArray = bookSummariesPosts.sort(sortNumberByPublishedDate);
     setSortedBooks(sortedArray);
   };
 
@@ -38,7 +30,7 @@ export default function Homepage() {
   };
 
   useEffect(() => {
-    handleSortingBookOrder();
+    handleSortingOrder();
   }, [bookSummariesPosts]);
 
   return (
