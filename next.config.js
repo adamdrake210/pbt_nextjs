@@ -21,11 +21,10 @@ module.exports = {
 module.exports = withMdxEnhanced({
   layoutPath: 'src/layouts',
   defaultLayout: true,
-  fileExtensions: ['mdx'],
   remarkPlugins: [],
   rehypePlugins: [],
   extendFrontMatter: {
-    process: (mdxContent, frontMatter) => ({
+    process: (mdxContent) => ({
       readingTime: readingTime(mdxContent),
     }),
     // phase: 'prebuild|loader|both',

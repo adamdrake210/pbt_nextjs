@@ -9,7 +9,12 @@ import ReadMore from '../components/partials/ReadMore';
 import { AmazonAdvert } from '../components/adverts/AmazonAdvert';
 import CategoryTag from '../components/partials/CategoryTag';
 
-export default function Layout(frontMatter: FrontMatterBookSummariesType) {
+interface Props {
+  frontMatter: FrontMatterBookSummariesType;
+  children: any;
+}
+
+export default function Layout({frontMatter, children}: Props) {
   const {
     title,
     slug,
@@ -20,7 +25,6 @@ export default function Layout(frontMatter: FrontMatterBookSummariesType) {
     readingTime,
     tags,
   } = frontMatter;
-  return ({ children: content }) => {
     return (
       <PageContainer maxWidth="728px">
         <PageSeo
@@ -77,11 +81,11 @@ export default function Layout(frontMatter: FrontMatterBookSummariesType) {
             {intro}
           </Text>
         </Box>
-        <Box px={[4, 8]}>{content}</Box>
+        <Box px={[4, 8]}>{children}</Box>
         <AmazonAdvert />
         <EmailSubscription />
         <ReadMore tags={tags} category={category} />
       </PageContainer>
     );
   };
-}
+
