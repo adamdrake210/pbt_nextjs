@@ -7,11 +7,13 @@ import EmailSubscription from '../components/partials/EmailSubscription';
 import { AmazonAdvert } from '../components/adverts/AmazonAdvert';
 import { ImageFlexCenter } from '../components/partials/ImageFlexCenter';
 
-export default function InterviewLayout(
-  frontMatter: FrontMatterInterviewsType,
-) {
+interface Props {
+  frontMatter: FrontMatterInterviewsType;
+  children: any;
+}
+
+export default function InterviewLayout({frontMatter, children}: Props) {
   const { title, slug, readingTime } = frontMatter;
-  return ({ children: content }) => {
     return (
       <PageContainer maxWidth="728px">
         <PageSeo
@@ -49,11 +51,11 @@ export default function InterviewLayout(
         </Flex>
         <AmazonAdvert />
         <Box px={[4, 8]} mb={6}>
-          {content}
+          {children}
         </Box>
         <AmazonAdvert />
         <EmailSubscription />
       </PageContainer>
     );
   };
-}
+
