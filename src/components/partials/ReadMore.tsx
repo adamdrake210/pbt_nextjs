@@ -11,7 +11,7 @@ interface Props {
   tags: string;
 }
 
-const ReadMore: React.FC<Props> = ({ category }) => {
+const ReadMore: React.FC<Props> = () => {
   const [filteredBooks, setFilteredBooks] = useState([]);
 
   const randomThreeSummaries = () => {
@@ -43,7 +43,7 @@ const ReadMore: React.FC<Props> = ({ category }) => {
                 <NextLink
                   key={frontMatter.slug}
                   passHref
-                  href={`/book-summaries/${category}/${frontMatter.slug}`}
+                  href={`/book-summaries/${frontMatter.category}/${frontMatter.slug}`}
                 >
                   <Link
                     _hover={{
