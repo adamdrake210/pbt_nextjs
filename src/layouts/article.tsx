@@ -7,9 +7,14 @@ import EmailSubscription from '../components/partials/EmailSubscription';
 import { AmazonAdvert } from '../components/adverts/AmazonAdvert';
 import { ImageFlexCenter } from '../components/partials/ImageFlexCenter';
 
-export default function ArticleLayout(frontMatter: FrontMatterArticlesType) {
+interface Props {
+  frontMatter: FrontMatterArticlesType;
+  children: any;
+}
+
+export default function ArticleLayout({frontMatter, children}: Props) {
   const { title, slug, intro, readingTime } = frontMatter;
-  return ({ children: content }) => {
+  
     return (
       <PageContainer maxWidth="728px">
         <PageSeo
@@ -46,10 +51,10 @@ export default function ArticleLayout(frontMatter: FrontMatterArticlesType) {
             {intro}
           </Text>
         </Box>
-        <Box px={[4, 8]}>{content}</Box>
+        <Box px={[4, 8]}>{children}</Box>
         <EmailSubscription />
-        <AmazonAdvert />
+        <AmazonAdvert /> 
       </PageContainer>
     );
   };
-}
+

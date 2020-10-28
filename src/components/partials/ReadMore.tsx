@@ -11,7 +11,7 @@ interface Props {
   tags: string;
 }
 
-const ReadMore: React.FC<Props> = ({ category, tags }) => {
+const ReadMore: React.FC<Props> = ({ category }) => {
   const [filteredBooks, setFilteredBooks] = useState([]);
 
   const randomThreeSummaries = () => {
