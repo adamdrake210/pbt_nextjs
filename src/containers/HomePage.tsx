@@ -10,11 +10,9 @@ import EmailSubscription from '../components/partials/EmailSubscription';
 import Quote from '../components/partials/Quote';
 import { sortNumberByPublishedDate } from '../helpers/sortNumberByPublishedDate';
 
-
 export default function Homepage() {
   const [interviewArr, setInterviewArr] = useState([]);
   const [articleArr, setArticleArr] = useState([]);
-  
   useEffect(() => {
     setInterviewArr(interviewPosts.sort(sortNumberByPublishedDate));
     setArticleArr(articlePosts.sort(sortNumberByPublishedDate));
