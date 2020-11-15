@@ -1,7 +1,13 @@
 import React from 'react';
 import { Heading, Flex, Box, Text, Image, Tag } from '@chakra-ui/core';
 
-const ArticlePreviewCard = ({ slug, title, description, readingTime }) => {
+const ArticlePreviewCard = ({
+  slug,
+  title,
+  imageUniqueIdentifier,
+  description,
+  readingTime,
+}) => {
   return (
     <Box key={slug} w="100%" shadow="sm" p={4} borderBottom="5px solid #00A3C4">
       <Flex
@@ -10,7 +16,7 @@ const ArticlePreviewCard = ({ slug, title, description, readingTime }) => {
         justifyContent="center"
       >
         <Image
-          src={`/images/articles/${slug}.jpg`}
+          src={`https://res.cloudinary.com/dg2r37ygd/image/upload/c_scale,h_205,w_300/v1605448173/images/articles/${slug}_${imageUniqueIdentifier}.jpg`}
           alt={title}
           w={['100%', 300]}
           mr={[0, 0, 4]}

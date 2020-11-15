@@ -14,14 +14,12 @@ export const Image960x660: React.FC<Props> = ({
   imageCategory,
 }) => {
   return (
-    <Flex justifyContent="center" alignItems="center" mt={10}>
-      <ImageFlexCenter
-        src={src}
-        altText={altText}
-        imageCategory={imageCategory}
-        imageSize="c_scale,h_660,w_960"
-        width={728}
-      />
-    </Flex>
+    <ImageFlexCenter
+      src={src}
+      altText={altText}
+      imageCategory={imageCategory}
+      imageSize="c_scale,h_660,w_960"
+      width={728}
+    />
   );
 };

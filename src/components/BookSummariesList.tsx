@@ -26,7 +26,7 @@ export default function BookSummariesList() {
     const sortedBookSummeries = bookSummariesPosts.map(
       (frontMatter: FrontMatterBookSummariesType) => {
         if (frontMatter.category === category) {
-          return frontMatter.slug;
+          return `${frontMatter.slug}_${frontMatter.imageUniqueIdentifier}`;
         }
       },
     );
@@ -68,7 +68,7 @@ export default function BookSummariesList() {
             </Heading>
 
             <Image
-              src={`../images/book-summaries/${findCategoryImage(
+              src={`https://res.cloudinary.com/dg2r37ygd/image/upload/c_scale,h_205,w_300/v1605448173/images/book-summaries/${findCategoryImage(
                 category,
               )}.jpg`}
               alt={`Book Category - ${category}`}

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Flex, Text, Heading, Box, Link, Button } from '@chakra-ui/core';
+import { Flex, Text, Heading, Box, Link, Button, Tag } from '@chakra-ui/core';
 //@ts-ignore
 import { frontMatter as bookSummariesPosts } from '../../pages/book-summaries/**/*.mdx';
-import { PictureItem } from '../partials/PictureItem';
 import NextLink from 'next/link';
 import { FrontMatterBookSummariesType } from '../../types/types';
 import CategoryTag from '../partials/CategoryTag';
 import { sortNumberByPublishedDate } from '../../helpers/sortNumberByPublishedDate';
+import { Image266x400 } from '../image_components/Image266x400';
 
 export default function Homepage() {
   const [sortedBooks, setSortedBooks] = useState([]);
@@ -76,12 +76,29 @@ export default function Homepage() {
                         </Flex>
                       </Link>
                     </NextLink>
-                    <PictureItem
-                      slug={frontMatter.slug}
-                      title={frontMatter.title}
-                      author={frontMatter.author}
-                      category={frontMatter.category}
-                    />
+                    <Box w={266}>
+                      <NextLink
+                        key={frontMatter.slug}
+                        passHref
+                        href={`/book-summaries/${frontMatter.category.toLowerCase()}/${frontMatter.slug.toLowerCase()}`}
+                      >
+                        <Link>
+                          <Image266x400
+                            src={`${frontMatter.slug}_${frontMatter.imageUniqueIdentifier}`}
+                            altText={`${frontMatter.author} - ${frontMatter.title}`}
+                            imageCategory="book-summaries"
+                          />
+                          <Flex
+                            justifyContent={['center', 'space-between']}
+                            alignItems="center"
+                          >
+                            <Tag variantColor="cyan" size="sm">
+                              Read Summary
+                            </Tag>
+                          </Flex>
+                        </Link>
+                      </NextLink>
+                    </Box>
                   </Box>
                 ),
             )}

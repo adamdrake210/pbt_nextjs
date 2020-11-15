@@ -54,6 +54,7 @@ const ReadMore: React.FC<Props> = () => {
                     <BookPreviewCard
                       category={frontMatter.category}
                       slug={frontMatter.slug}
+                      imageUniqueIdentifier={frontMatter.imageUniqueIdentifier}
                       author={frontMatter.author}
                       title={frontMatter.title}
                       intro={frontMatter.intro}

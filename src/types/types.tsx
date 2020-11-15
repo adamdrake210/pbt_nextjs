@@ -4,6 +4,7 @@ export type FrontMatterBookSummariesType = {
   author: string;
   intro: string;
   slug: string;
+  imageUniqueIdentifier;
   category: string;
   tags: string;
   publishedDate: string;
