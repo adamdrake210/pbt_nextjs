@@ -1,16 +1,28 @@
 import React from 'react';
 import { Heading, Flex, Box, Text, Image, Tag } from '@chakra-ui/core';
 
-const InterviewPreviewCard = ({ slug, title, description, readingTime }) => {
+const InterviewPreviewCard = ({
+  slug,
+  title,
+  description,
+  readingTime,
+  imageUniqueIdentifier,
+}) => {
   return (
-    <Box key={slug} w="100%" shadow="sm" borderBottom="5px solid #00A3C4" p={4}>
+    <Box
+      key={imageUniqueIdentifier}
+      w="100%"
+      shadow="sm"
+      borderBottom="5px solid #00A3C4"
+      p={4}
+    >
       <Flex
         flexDirection={['column', 'row']}
         alignItems="center"
         justifyContent="center"
       >
         <Image
-          src={`/images/interviews/${slug}.jpg`}
+          src={`https://res.cloudinary.com/dg2r37ygd/image/upload/c_scale,h_205,w_300/v1605448173/images/interviews/${slug}_${imageUniqueIdentifier}.jpg`}
           alt={title}
           w={['100%', 300]}
           mr={[0, 0, 4]}

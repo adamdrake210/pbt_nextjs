@@ -1,6 +1,6 @@
 import React from 'react';
 import { Heading, Flex, Box, Text, Image, Tag } from '@chakra-ui/core';
-// @ts-ignore
+
 const BookPreviewCard = ({
   category,
   slug,
@@ -8,6 +8,7 @@ const BookPreviewCard = ({
   title,
   intro,
   readingTime,
+  imageUniqueIdentifier,
 }) => {
   return (
     <Box
@@ -23,7 +24,7 @@ const BookPreviewCard = ({
         justifyContent="center"
       >
         <Image
-          src={`/images/book-summaries/${slug}.jpg`}
+          src={`https://res.cloudinary.com/dg2r37ygd/image/upload/c_scale,h_90,w_140/v1605448126/images/book-summaries/${slug}_${imageUniqueIdentifier}.jpg`}
           alt={`${author} - ${title}`}
           w={90}
           h={140}

@@ -5,7 +5,7 @@ import PageSeo from '../components/partials/PageSeo';
 import { FrontMatterInterviewsType } from '../types/types';
 import EmailSubscription from '../components/partials/EmailSubscription';
 import { AmazonAdvert } from '../components/adverts/AmazonAdvert';
-import { ImageFlexCenter } from '../components/partials/ImageFlexCenter';
+import { Image960x660 } from '../components/image_components/Image960x660';
 
 interface Props {
   frontMatter: FrontMatterInterviewsType;
@@ -13,14 +13,18 @@ interface Props {
 }
 
 export default function InterviewLayout({ frontMatter, children }: Props) {
-  const { title, slug, readingTime } = frontMatter;
+  const { title, slug, readingTime, imageUniqueIdentifier } = frontMatter;
   return (
     <PageContainer maxWidth="728px">
       <PageSeo
         {...frontMatter}
         url={`https://paperbacktravels.com/interviews/${slug}`}
       />
-      <ImageFlexCenter src={`interviews/${slug}`} altText={slug} width={728} />
+      <Image960x660
+        src={`${slug}_${imageUniqueIdentifier}`}
+        imageCategory="interviews"
+        altText={slug}
+      />
       <Flex
         p={[4, 8]}
         pt={[0, 0]}

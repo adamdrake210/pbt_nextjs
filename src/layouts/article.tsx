@@ -5,56 +5,65 @@ import PageSeo from '../components/partials/PageSeo';
 import { FrontMatterArticlesType } from '../types/types';
 import EmailSubscription from '../components/partials/EmailSubscription';
 import { AmazonAdvert } from '../components/adverts/AmazonAdvert';
-import { ImageFlexCenter } from '../components/partials/ImageFlexCenter';
+import { Image960x660 } from '../components/image_components/Image960x660';
 
 interface Props {
   frontMatter: FrontMatterArticlesType;
   children: any;
 }
 
-export default function ArticleLayout({frontMatter, children}: Props) {
-  const { title, slug, intro, readingTime } = frontMatter;
-  
-    return (
-      <PageContainer maxWidth="728px">
-        <PageSeo
-          {...frontMatter}
-          url={`https://paperbacktravels.com/articles/${slug}`}
-        />
-        <ImageFlexCenter src={`articles/${slug}`} altText={slug} width={728} />
-        <Flex
-          p={[4, 8]}
-          w="100%"
-          justify={['center']}
-          alignItems={['center']}
-          direction={['column']}
-          flexWrap="wrap"
-        >
-          <Box textAlign="center" w="100%">
-            <Heading color="cyan.900" as="h1">
-              {title}
-            </Heading>
-          </Box>
-          <Flex p={0} mb={8} w="100%" justifyContent="center">
-            {readingTime && (
-              <>
-                <Text fontStyle="italic" color="grey" ml={1}>
-                  {readingTime.text}
-                </Text>
-              </>
-            )}
-          </Flex>
-        </Flex>
-        <AmazonAdvert />
-        <Box px={[4, 8]} pt={[4, 8]} pb={0}>
-          <Text fontSize="xl" fontWeight={500}>
-            {intro}
-          </Text>
-        </Box>
-        <Box px={[4, 8]}>{children}</Box>
-        <EmailSubscription />
-        <AmazonAdvert /> 
-      </PageContainer>
-    );
-  };
+export default function ArticleLayout({ frontMatter, children }: Props) {
+  const {
+    title,
+    slug,
+    intro,
+    readingTime,
+    imageUniqueIdentifier,
+  } = frontMatter;
 
+  return (
+    <PageContainer maxWidth="728px">
+      <PageSeo
+        {...frontMatter}
+        url={`https://paperbacktravels.com/articles/${slug}`}
+      />
+      <Image960x660
+        src={`${slug}_${imageUniqueIdentifier}`}
+        imageCategory="articles"
+        altText={slug}
+      />
+      <Flex
+        p={[4, 8]}
+        w="100%"
+        justify={['center']}
+        alignItems={['center']}
+        direction={['column']}
+        flexWrap="wrap"
+      >
+        <Box textAlign="center" w="100%">
+          <Heading color="cyan.900" as="h1">
+            {title}
+          </Heading>
+        </Box>
+        <Flex p={0} mb={8} w="100%" justifyContent="center">
+          {readingTime && (
+            <>
+              <Text fontStyle="italic" color="grey" ml={1}>
+                {readingTime.text}
+              </Text>
+            </>
+          )}
+        </Flex>
+      </Flex>
+      <AmazonAdvert />
+      <Box px={[4, 8]} pt={[4, 8]} pb={0}>
+        <Text fontSize="xl" fontWeight={500}>
+          {intro}
+        </Text>
+      </Box>
+      <Box px={[4, 8]}>{children}</Box>
+      <EmailSubscription />
+      <AmazonAdvert />
+    </PageContainer>
+  );
+}
