@@ -48,6 +48,9 @@ export default function InterviewsPage() {
                         <InterviewPreviewCard
                           slug={frontMatter.slug}
                           title={frontMatter.title}
+                          imageUniqueIdentifier={
+                            frontMatter.imageUniqueIdentifier
+                          }
                           description={frontMatter.description}
                           readingTime={frontMatter.readingTime}
                         />
