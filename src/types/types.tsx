@@ -4,6 +4,7 @@ export type FrontMatterBookSummariesType = {
   author: string;
   intro: string;
   slug: string;
+  imageUniqueIdentifier;
   category: string;
   tags: string;
   publishedDate: string;
@@ -19,6 +20,7 @@ export type FrontMatterArticlesType = {
   description: string;
   intro: string;
   slug: string;
+  imageUniqueIdentifier: string;
   tags: string;
   publishedDate: string;
   published: boolean;
@@ -34,6 +36,7 @@ export type FrontMatterInterviewsType = {
   description: string;
   intro: string;
   slug: string;
+  imageUniqueIdentifier: string;
   category: string;
   tags: string;
   publishedDate: string;

@@ -9,7 +9,6 @@ import ArticlePreviewCard from './cards/ArticlePreviewCard';
 import { sortNumberByPublishedDate } from '../helpers/sortNumberByPublishedDate';
 
 export default function ArticlesPage() {
-
   const [sortedPosts, setSortedPosts] = useState([]);
 
   const handleSortingOrder = () => {
@@ -44,6 +43,9 @@ export default function ArticlesPage() {
                         ></Flex>
                         <ArticlePreviewCard
                           slug={frontMatter.slug}
+                          imageUniqueIdentifier={
+                            frontMatter.imageUniqueIdentifier
+                          }
                           title={frontMatter.title}
                           description={frontMatter.description}
                           readingTime={frontMatter.readingTime}
