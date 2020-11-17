@@ -20,14 +20,6 @@ export default function Homepage() {
 
   return (
     <Flex mt={[2, 2, 2, 12]} w="100%" direction="column" alignItems="center">
-      {articleArr.length && (
-        <HomePageBanner
-          post={articleArr[0]}
-          pageCategory="articles"
-          cta="Read Article"
-        />
-      )}
-      <Quote />
       <Heading
         as="h2"
         fontSize={['4xl', '5xl']}
@@ -46,7 +38,26 @@ export default function Homepage() {
           cta="Read Interview"
         />
       )}
+      <Quote />
 
+      <Heading
+        as="h2"
+        fontSize={['4xl', '5xl']}
+        mb={4}
+        w="100%"
+        textAlign={['center', 'center', 'left']}
+        color="cyan.900"
+        px={[4]}
+      >
+        Latest Article
+      </Heading>
+      {articleArr.length && (
+        <HomePageBanner
+          post={articleArr[0]}
+          pageCategory="articles"
+          cta="Read Article"
+        />
+      )}
       <BookSummariesHomePage />
       <Box as="section" px={[4, 8]}>
         <EmailSubscription />
