@@ -1,8 +1,6 @@
-export function sortNumberByPublishedDate(
-  a: any,
-  b: any,
-) {
+export function sortNumberByPublishedDate(a: any, b: any) {
   return (
-    new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
+    new Date(b.publishedDate.replace(/-/g, '/')).getTime() -
+    new Date(a.publishedDate.replace(/-/g, '/')).getTime()
   );
 }
