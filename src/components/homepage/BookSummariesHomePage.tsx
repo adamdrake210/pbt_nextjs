@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Text, Heading, Box, Link, Button, Tag } from '@chakra-ui/core';
-//@ts-ignore
-import { frontMatter as bookSummariesPosts } from '../../pages/book-summaries/**/*.mdx';
 import NextLink from 'next/link';
 import { FrontMatterBookSummariesType } from '../../types/types';
 import CategoryTag from '../partials/CategoryTag';
 import { sortNumberByPublishedDate } from '../../helpers/sortNumberByPublishedDate';
 import { Image266x400 } from '../image_components/Image266x400';
 
-export default function Homepage() {
+export default function BookSummariesHomepage({ bookSummariesPosts }) {
   const [sortedBooks, setSortedBooks] = useState([]);
   const [numberSummaries, setNumberSummaries] = useState(9);
   const [isLoadButtonVisible, setIsLoadButtonVisible] = useState(true);
