@@ -17,16 +17,22 @@ import NextLink from 'next/link';
 import { FrontMatterBookSummariesType } from '../types/types';
 import { Search } from './partials/Search';
 import BookPreviewCard from './cards/BookPreviewCard';
+import { sortNumberByPublishedDate } from '../helpers/sortNumberByPublishedDate';
 
 interface Props {
   category: string;
 }
 
 const BookCategoryList: React.FC<Props> = ({ category }) => {
-  const [filteredBooks, setFilteredBooks] = useState([]);
+  const [sortedBooks, setSortedBooks] = useState([]);
+
+  const handleSortingOrder = () => {
+    const sortedArray = bookSummariesPosts.sort(sortNumberByPublishedDate);
+    setSortedBooks(sortedArray);
+  };
 
   useEffect(() => {
-    setFilteredBooks(bookSummariesPosts);
+    handleSortingOrder();
   }, [bookSummariesPosts]);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -47,7 +53,7 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
     } else {
       newList = bookSummariesPosts;
     }
-    setFilteredBooks(newList);
+    setSortedBooks(newList);
   }
 
   return (
@@ -72,42 +78,37 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
         flexWrap="wrap"
       >
         <Stack spacing={8}>
-          {filteredBooks &&
-            filteredBooks
-              .reverse()
-              .map((frontMatter: FrontMatterBookSummariesType) => {
-                if (
-                  category === frontMatter.category &&
-                  frontMatter.published
-                ) {
-                  return (
-                    <NextLink
-                      key={frontMatter.slug}
-                      passHref
-                      href={`/book-summaries/${category}/${frontMatter.slug}`}
+          {sortedBooks &&
+            sortedBooks.map((frontMatter: FrontMatterBookSummariesType) => {
+              if (category === frontMatter.category && frontMatter.published) {
+                return (
+                  <NextLink
+                    key={frontMatter.slug}
+                    passHref
+                    href={`/book-summaries/${category}/${frontMatter.slug}`}
+                  >
+                    <Link
+                      _hover={{
+                        backgroundColor: '#f6f6f6',
+                      }}
+                      mb={4}
                     >
-                      <Link
-                        _hover={{
-                          backgroundColor: '#f6f6f6',
-                        }}
-                        mb={4}
-                      >
-                        <BookPreviewCard
-                          category={frontMatter.category}
-                          slug={frontMatter.slug}
-                          imageUniqueIdentifier={
-                            frontMatter.imageUniqueIdentifier
-                          }
-                          author={frontMatter.author}
-                          title={frontMatter.title}
-                          intro={frontMatter.intro}
-                          readingTime={frontMatter.readingTime}
-                        />
-                      </Link>
-                    </NextLink>
-                  );
-                }
-              })}
+                      <BookPreviewCard
+                        category={frontMatter.category}
+                        slug={frontMatter.slug}
+                        imageUniqueIdentifier={
+                          frontMatter.imageUniqueIdentifier
+                        }
+                        author={frontMatter.author}
+                        title={frontMatter.title}
+                        intro={frontMatter.intro}
+                        readingTime={frontMatter.readingTime}
+                      />
+                    </Link>
+                  </NextLink>
+                );
+              }
+            })}
         </Stack>
       </Flex>
     </Box>
