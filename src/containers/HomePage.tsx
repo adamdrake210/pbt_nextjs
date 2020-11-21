@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Flex, Box, Heading } from '@chakra-ui/core';
-// @ts-ignore
-import { frontMatter as interviewPosts } from '../pages/interviews/*.mdx';
-// @ts-ignore
-import { frontMatter as articlePosts } from '../pages/articles/*.mdx';
 import HomePageBanner from '../components/homepage/HomePageBanner';
 import BookSummariesHomePage from '../components/homepage/BookSummariesHomePage';
 import EmailSubscription from '../components/partials/EmailSubscription';
 import Quote from '../components/partials/Quote';
 import { sortNumberByPublishedDate } from '../helpers/sortNumberByPublishedDate';
 
-export default function Homepage() {
+export default function Homepage({
+  interviewPosts,
+  articlePosts,
+  bookSummariesPosts,
+}) {
   const [interviewArr, setInterviewArr] = useState([]);
   const [articleArr, setArticleArr] = useState([]);
   useEffect(() => {
@@ -58,7 +58,7 @@ export default function Homepage() {
           cta="Read Article"
         />
       )}
-      <BookSummariesHomePage />
+      <BookSummariesHomePage bookSummariesPosts={bookSummariesPosts} />
       <Box as="section" px={[4, 8]}>
         <EmailSubscription />
       </Box>
