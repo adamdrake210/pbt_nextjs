@@ -64,7 +64,6 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
       >
         {category.replace(/-/g, ' ')}
       </Heading>
-
       <Flex
         w="100%"
         justify={['flex-start', 'flex-start', 'space-between', 'flex-start']}
