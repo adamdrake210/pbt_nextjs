@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Text, Box, Link, Tag, Image, Heading } from '@chakra-ui/core';
-//@ts-ignore
-import { frontMatter as interviewPosts } from '../pages/interviews/*.mdx';
 import NextLink from 'next/link';
 import { FrontMatterInterviewsType } from '../types/types';
 import EmailSubscription from './partials/EmailSubscription';
 import InterviewPreviewCard from './cards/InterviewPreviewCard';
 import { sortNumberByPublishedDate } from '../helpers/sortNumberByPublishedDate';
 
-export default function InterviewsPage() {
+export default function InterviewsPage({ interviewPosts }) {
   const [sortedPosts, setSortedPosts] = useState([]);
 
   const handleSortingOrder = () => {
