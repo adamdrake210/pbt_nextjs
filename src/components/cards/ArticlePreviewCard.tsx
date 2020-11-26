@@ -16,7 +16,7 @@ const ArticlePreviewCard = ({
         justifyContent="center"
       >
         <Image
-          src={`https://res.cloudinary.com/dg2r37ygd/image/upload/c_scale,h_300,w_205/v1605448173/images/articles/${slug}_${imageUniqueIdentifier}.jpg`}
+          src={`https://res.cloudinary.com/dg2r37ygd/image/upload/c_scale,h_205,w_300/v1605448173/images/articles/${slug}_${imageUniqueIdentifier}.jpg`}
           alt={title}
           w={['100%', 300]}
           mr={[0, 0, 4]}

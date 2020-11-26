@@ -18,6 +18,8 @@ export default function Homepage({
     setArticleArr(articlePosts.sort(sortNumberByPublishedDate));
   }, []);
 
+  console.log('interviewArr: ', interviewArr);
+
   return (
     <Flex mt={[2, 2, 2, 12]} w="100%" direction="column" alignItems="center">
       <Heading
@@ -39,7 +41,6 @@ export default function Homepage({
         />
       )}
       <Quote />
-
       <Heading
         as="h2"
         fontSize={['4xl', '5xl']}

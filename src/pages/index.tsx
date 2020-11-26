@@ -15,6 +15,7 @@ function PageIndex() {
       <Head>
         <title>PaperBackTravels | Home</title>
       </Head>
+
       <PageContainer maxWidth="1000px">
         <HomePage
           interviewPosts={interviewPosts}
