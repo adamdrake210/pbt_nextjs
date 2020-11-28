@@ -32,17 +32,19 @@ export type FrontMatterArticlesType = {
 };
 
 export type FrontMatterInterviewsType = {
-  title: string;
-  description: string;
-  intro: string;
-  slug: string;
-  imageUniqueIdentifier: string;
-  category: string;
-  tags: string;
-  publishedDate: string;
-  published: boolean;
-  layout: string;
-  readingTime: {
-    text: string;
+  data: {
+    title: string;
+    description: string;
+    intro: string;
+    slug: string;
+    imageUniqueIdentifier: string;
+    category: string;
+    tags: string;
+    publishedDate: string;
+    published: boolean;
+    layout: string;
+    readingTime: {
+      text: string;
+    };
   };
 };

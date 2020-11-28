@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Flex, Text, Box, Link, Tag, Image, Heading } from '@chakra-ui/core';
+import { Flex, Text, Box, Link, Heading } from '@chakra-ui/core';
 import NextLink from 'next/link';
 import { FrontMatterInterviewsType } from '../types/types';
 import EmailSubscription from './partials/EmailSubscription';
 import InterviewPreviewCard from './cards/InterviewPreviewCard';
-import { sortNumberByPublishedDate } from '../helpers/sortNumberByPublishedDate';
+import { sortNumberByPublishedDateRemote } from '../helpers/sortNumberByPublishedDate';
 
 export default function InterviewsPage({ interviewPosts }) {
   const [sortedPosts, setSortedPosts] = useState([]);
 
   const handleSortingOrder = () => {
-    return interviewPosts.sort(sortNumberByPublishedDate);
+    return interviewPosts.sort(sortNumberByPublishedDateRemote);
   };
 
   useEffect(() => {
@@ -34,23 +34,21 @@ export default function InterviewsPage({ interviewPosts }) {
         >
           {sortedPosts &&
             sortedPosts.map(
-              (frontMatter: FrontMatterInterviewsType) =>
-                frontMatter.published && (
-                  <Box flex={['1 0 100%']} mb={8} key={frontMatter.slug}>
-                    <NextLink passHref href={`/interviews/${frontMatter.slug}`}>
+              ({ data }: FrontMatterInterviewsType) =>
+                data.published && (
+                  <Box flex={['1 0 100%']} mb={8} key={data.slug}>
+                    <NextLink passHref href={`/interviews/${data.slug}`}>
                       <Link>
                         <Flex
                           justifyContent={['center', 'space-between']}
                           alignItems="center"
                         ></Flex>
                         <InterviewPreviewCard
-                          slug={frontMatter.slug}
-                          title={frontMatter.title}
-                          imageUniqueIdentifier={
-                            frontMatter.imageUniqueIdentifier
-                          }
-                          description={frontMatter.description}
-                          readingTime={frontMatter.readingTime}
+                          slug={data.slug}
+                          title={data.title}
+                          imageUniqueIdentifier={data.imageUniqueIdentifier}
+                          description={data.description}
+                          // readingTime={data.readingTime}
                         />
                       </Link>
                     </NextLink>

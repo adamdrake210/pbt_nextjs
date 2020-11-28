@@ -4,7 +4,10 @@ import HomePageBanner from '../components/homepage/HomePageBanner';
 import BookSummariesHomePage from '../components/homepage/BookSummariesHomePage';
 import EmailSubscription from '../components/partials/EmailSubscription';
 import Quote from '../components/partials/Quote';
-import { sortNumberByPublishedDate } from '../helpers/sortNumberByPublishedDate';
+import {
+  sortNumberByPublishedDate,
+  sortNumberByPublishedDateRemote,
+} from '../helpers/sortNumberByPublishedDate';
 
 export default function Homepage({
   interviewPosts,
@@ -14,11 +17,9 @@ export default function Homepage({
   const [interviewArr, setInterviewArr] = useState([]);
   const [articleArr, setArticleArr] = useState([]);
   useEffect(() => {
-    setInterviewArr(interviewPosts.sort(sortNumberByPublishedDate));
+    setInterviewArr(interviewPosts.sort(sortNumberByPublishedDateRemote));
     setArticleArr(articlePosts.sort(sortNumberByPublishedDate));
   }, []);
-
-  console.log('interviewArr: ', interviewArr);
 
   return (
     <Flex mt={[2, 2, 2, 12]} w="100%" direction="column" alignItems="center">
@@ -35,7 +36,7 @@ export default function Homepage({
       </Heading>
       {interviewArr.length && (
         <HomePageBanner
-          post={interviewArr[0]}
+          post={interviewArr[0].data}
           pageCategory="interviews"
           cta="Read Interview"
         />

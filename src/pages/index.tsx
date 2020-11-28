@@ -3,8 +3,6 @@ import Head from 'next/head';
 import HomePage from '../containers/HomePage';
 import PageContainer from '../containers/PageContainer';
 // @ts-ignore
-import { frontMatter as interviewPosts } from './interviews/*.mdx';
-// @ts-ignore
 import { frontMatter as articlePosts } from './articles/*.mdx';
 // @ts-ignore
 import { frontMatter as bookSummariesPosts } from './book-summaries/**/*.mdx';
@@ -14,7 +12,6 @@ import { interviewFilePaths, INTERVIEW_PATH } from '../utils/mdxUtils';
 import matter from 'gray-matter';
 import fs from 'fs';
 import path from 'path';
-import Link from 'next/link';
 
 export default function PageIndex({ interviewPostsRemote }) {
   return (
@@ -24,7 +21,7 @@ export default function PageIndex({ interviewPostsRemote }) {
       </Head>
 
       <PageContainer maxWidth="1000px">
-        <ul>
+        {/* <ul>
           {interviewPostsRemote.map(post => (
             <li key={post.filePath}>
               <Link
@@ -35,7 +32,7 @@ export default function PageIndex({ interviewPostsRemote }) {
               </Link>
             </li>
           ))}
-        </ul>
+        </ul> */}
         <HomePage
           interviewPosts={interviewPostsRemote}
           articlePosts={articlePosts}
@@ -60,3 +57,7 @@ export function getStaticProps() {
 
   return { props: { interviewPostsRemote } };
 }
+
+// Test how fast on build
+// CTA Button
+// Reading Time

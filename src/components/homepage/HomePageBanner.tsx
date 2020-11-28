@@ -48,9 +48,9 @@ export default function HomePageBanner({ post, pageCategory, cta }) {
                 <Tag variantColor="cyan" size="lg" mt={2}>
                   {cta}
                 </Tag>
-                <Text fontStyle="italic" color="grey" mt={1}>
+                {/* <Text fontStyle="italic" color="grey" mt={1}>
                   {`${readingTime.text}`}
-                </Text>
+                </Text> */}
               </Box>
             </Flex>
           </Flex>
