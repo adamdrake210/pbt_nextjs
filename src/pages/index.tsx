@@ -58,6 +58,8 @@ export function getStaticProps() {
   return { props: { interviewPostsRemote } };
 }
 
-// Test how fast on build
 // CTA Button
 // Reading Time
+// Try adding articles too
+// Clean up files
+// Update Types
