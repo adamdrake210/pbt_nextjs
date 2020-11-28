@@ -24,7 +24,7 @@ module.exports = withMdxEnhanced({
   remarkPlugins: [],
   rehypePlugins: [],
   extendFrontMatter: {
-    process: (mdxContent) => ({
+    process: mdxContent => ({
       readingTime: readingTime(mdxContent),
     }),
     // phase: 'prebuild|loader|both',

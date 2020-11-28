@@ -9,7 +9,14 @@ import { frontMatter as articlePosts } from './articles/*.mdx';
 // @ts-ignore
 import { frontMatter as bookSummariesPosts } from './book-summaries/**/*.mdx';
 
-function PageIndex() {
+// mdx-remote files
+import { interviewFilePaths, INTERVIEW_PATH } from '../utils/mdxUtils';
+import matter from 'gray-matter';
+import fs from 'fs';
+import path from 'path';
+import Link from 'next/link';
+
+export default function PageIndex({ interviewPostsRemote }) {
   return (
     <>
       <Head>
@@ -17,8 +24,20 @@ function PageIndex() {
       </Head>
 
       <PageContainer maxWidth="1000px">
+        <ul>
+          {interviewPostsRemote.map(post => (
+            <li key={post.filePath}>
+              <Link
+                as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
+                href={`/posts/[slug]`}
+              >
+                <a>{post.data.title}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
         <HomePage
-          interviewPosts={interviewPosts}
+          interviewPosts={interviewPostsRemote}
           articlePosts={articlePosts}
           bookSummariesPosts={bookSummariesPosts}
         />
@@ -27,4 +46,17 @@ function PageIndex() {
   );
 }
 
-export default PageIndex;
+export function getStaticProps() {
+  const interviewPostsRemote = interviewFilePaths.map(filePath => {
+    const source = fs.readFileSync(path.join(INTERVIEW_PATH, filePath));
+    const { content, data } = matter(source);
+
+    return {
+      content,
+      data,
+      filePath,
+    };
+  });
+
+  return { props: { interviewPostsRemote } };
+}

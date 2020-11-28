@@ -13,7 +13,7 @@ import {
 import { jsx } from '@emotion/core';
 import NextLink from 'next/link';
 
-const CustomLink = props => {
+export const CustomLink = props => {
   const { colorMode } = useColorMode();
   const color = {
     light: 'hsl(208, 99%, 44%)',

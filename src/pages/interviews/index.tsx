@@ -3,9 +3,14 @@ import Head from 'next/head';
 import PageContainer from '../../containers/PageContainer';
 import InterviewsPage from '../../components/InterviewsPage';
 //@ts-ignore
-import { frontMatter as interviewPosts } from './*.mdx';
+// import { frontMatter as interviewPosts } from './*.mdx';
 
-function InterviewsIndex() {
+import { interviewFilePaths, INTERVIEW_PATH } from '../../utils/mdxUtils';
+import fs from 'fs';
+import matter from 'gray-matter';
+import path from 'path';
+
+export default function InterviewsIndex({ interviewPosts }) {
   return (
     <>
       <Head>
@@ -18,4 +23,17 @@ function InterviewsIndex() {
   );
 }
 
-export default InterviewsIndex;
+export function getStaticProps() {
+  const interviewPosts = interviewFilePaths.map(filePath => {
+    const source = fs.readFileSync(path.join(INTERVIEW_PATH, filePath));
+    const { content, data } = matter(source);
+
+    return {
+      content,
+      data,
+      filePath,
+    };
+  });
+
+  return { props: { interviewPosts } };
+}
