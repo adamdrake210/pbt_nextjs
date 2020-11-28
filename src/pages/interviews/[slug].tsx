@@ -39,14 +39,13 @@ const components = {
 };
 
 export default function InterviewLayout({ frontMatter, source }: Props) {
-  const { data } = frontMatter;
-  const { title, slug, readingTime, imageUniqueIdentifier } = data;
+  const { title, slug, readingTime, imageUniqueIdentifier } = frontMatter;
   const content = hydrate(source, { components });
 
   return (
     <PageContainer maxWidth="728px">
       <PageSeo
-        {...data}
+        {...frontMatter}
         url={`https://paperbacktravels.com/interviews/${slug}`}
       />
       <Image960x660

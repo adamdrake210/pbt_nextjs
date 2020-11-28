@@ -34,21 +34,26 @@ export default function InterviewsPage({ interviewPosts }) {
         >
           {sortedPosts &&
             sortedPosts.map(
-              ({ data }: FrontMatterInterviewsType) =>
-                data.published && (
-                  <Box flex={['1 0 100%']} mb={8} key={data.slug}>
-                    <NextLink passHref href={`/interviews/${data.slug}`}>
+              (frontMatter: any) =>
+                frontMatter.data.published && (
+                  <Box flex={['1 0 100%']} mb={8} key={frontMatter.data.slug}>
+                    <NextLink
+                      passHref
+                      href={`/interviews/${frontMatter.data.slug}`}
+                    >
                       <Link>
                         <Flex
                           justifyContent={['center', 'space-between']}
                           alignItems="center"
                         ></Flex>
                         <InterviewPreviewCard
-                          slug={data.slug}
-                          title={data.title}
-                          imageUniqueIdentifier={data.imageUniqueIdentifier}
-                          description={data.description}
-                          // readingTime={data.readingTime}
+                          slug={frontMatter.data.slug}
+                          title={frontMatter.data.title}
+                          imageUniqueIdentifier={
+                            frontMatter.data.imageUniqueIdentifier
+                          }
+                          description={frontMatter.data.description}
+                          // readingTime={frontMatter.data.readingTime}
                         />
                       </Link>
                     </NextLink>
