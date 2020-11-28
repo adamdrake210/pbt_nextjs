@@ -7,7 +7,6 @@ import { FrontMatterInterviewsType } from '../../types/types';
 import EmailSubscription from '../../components/partials/EmailSubscription';
 import { AmazonAdvert } from '../../components/adverts/AmazonAdvert';
 import { Image960x660 } from '../../components/image_components/Image960x660';
-import { CustomLink } from '../../components/MDXComponents';
 
 import { AmazonCta } from '../../components/partials/AmazonCta';
 import { Image266x400 } from '../../components/image_components/Image266x400';
@@ -40,13 +39,14 @@ const components = {
 };
 
 export default function InterviewLayout({ frontMatter, source }: Props) {
-  const { title, slug, readingTime, imageUniqueIdentifier } = frontMatter;
+  const { data } = frontMatter;
+  const { title, slug, readingTime, imageUniqueIdentifier } = data;
   const content = hydrate(source, { components });
 
   return (
     <PageContainer maxWidth="728px">
       <PageSeo
-        {...frontMatter}
+        {...data}
         url={`https://paperbacktravels.com/interviews/${slug}`}
       />
       <Image960x660
