@@ -43,7 +43,6 @@ export default function HomePageBanner({ post, pageCategory, cta }) {
               <Text mt={2} fontSize={20}>
                 {description}
               </Text>
-
               <Box w="100%" textAlign={['center', 'left']}>
                 <Tag variantColor="cyan" size="lg" mt={2}>
                   {cta}
