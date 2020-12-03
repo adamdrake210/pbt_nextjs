@@ -1,6 +1,6 @@
 import React from 'react';
 import PageContainer from '../containers/PageContainer';
-import { Heading, Box, Flex, Text } from '@chakra-ui/core';
+import { Heading, Box, Flex, Text } from '@chakra-ui/react';
 import PageSeo from '../components/partials/PageSeo';
 import { FrontMatterArticlesType } from '../types/types';
 import EmailSubscription from '../components/partials/EmailSubscription';

@@ -1,4 +1,4 @@
-import { Tag } from '@chakra-ui/core';
+import { Tag } from '@chakra-ui/react';
 import React from 'react';
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 export default function CategoryTag({ category }: Props) {
   return (
     <Tag
-      variantColor="purple"
+      colorScheme="purple"
       size="md"
       rounded="full"
       mb={2}

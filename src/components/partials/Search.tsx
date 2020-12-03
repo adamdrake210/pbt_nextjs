@@ -5,7 +5,7 @@ import {
   InputLeftElement,
   Icon,
   Input,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 
 interface Props {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;

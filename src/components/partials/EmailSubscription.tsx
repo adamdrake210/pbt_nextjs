@@ -10,7 +10,7 @@ import {
   useToast,
   Spinner,
   Flex,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { isValidEmail } from '../../helpers/validators';
 import { ga_event } from '../../helpers/gtag';
 

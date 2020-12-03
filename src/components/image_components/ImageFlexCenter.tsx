@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Flex } from '@chakra-ui/core';
+import { Image, Flex } from '@chakra-ui/react';
 
 interface Props {
   src: string;

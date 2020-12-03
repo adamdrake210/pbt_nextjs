@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Heading, Flex, Box, Link, Stack } from '@chakra-ui/core';
+import { Heading, Flex, Box, Link, Stack } from '@chakra-ui/react';
 // @ts-ignore
 import { frontMatter as bookSummariesPosts } from '../../pages/book-summaries/**/*.mdx';
 import NextLink from 'next/link';

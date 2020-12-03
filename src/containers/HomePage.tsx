@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Flex, Box, Heading } from '@chakra-ui/core';
+import { Flex, Box, Heading } from '@chakra-ui/react';
 import HomePageBanner from '../components/homepage/HomePageBanner';
 import BookSummariesHomePage from '../components/homepage/BookSummariesHomePage';
 import EmailSubscription from '../components/partials/EmailSubscription';

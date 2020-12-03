@@ -1,5 +1,6 @@
 import React from 'react';
-import { theme as chakraTheme } from '@chakra-ui/core';
+import { extendTheme, theme as chakraTheme } from '@chakra-ui/react';
+import { createBreakpoints } from '@chakra-ui/theme-tools';
 
 const customIcons = {
   hamburger: {
@@ -13,9 +14,16 @@ const customIcons = {
   },
 };
 
-const theme = {
+const breakpoints = createBreakpoints({
+  sm: '30em',
+  md: '48em',
+  lg: '63em',
+  xl: '80em',
+});
+
+const theme = extendTheme({
   ...chakraTheme,
-  breakpoints: ['30em', '48em', '62em', '80em'],
+  breakpoints,
   fonts: {
     heading: '"Eczar", sans-serif',
     body: '"Raleway", sans-serif',
@@ -43,6 +51,6 @@ const theme = {
     ...chakraTheme.icons,
     ...customIcons,
   },
-};
+});
 
 export default theme;

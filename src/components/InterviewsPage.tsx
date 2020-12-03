@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Flex, Text, Box, Link, Heading } from '@chakra-ui/core';
+import { Flex, Text, Box, Link, Heading } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { FrontMatterInterviewsType } from '../types/types';
 import EmailSubscription from './partials/EmailSubscription';

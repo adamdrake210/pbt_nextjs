@@ -12,7 +12,7 @@ import {
   DrawerCloseButton,
   useDisclosure,
   Icon,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import styled from '@emotion/styled';
 
 const StickyNav = styled(Flex)`

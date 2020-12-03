@@ -1,6 +1,14 @@
 import React from 'react';
 import PageContainer from '../../containers/PageContainer';
-import { Heading, Box, Button, Flex, Image, Text, Link } from '@chakra-ui/core';
+import {
+  Heading,
+  Box,
+  Button,
+  Flex,
+  Image,
+  Text,
+  Link,
+} from '@chakra-ui/react';
 import PageSeo from '../../components/partials/PageSeo';
 import dynamic from 'next/dynamic';
 import { FrontMatterInterviewsType } from '../../types/types';

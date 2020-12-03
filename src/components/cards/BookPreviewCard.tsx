@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Flex, Box, Text, Image, Tag } from '@chakra-ui/core';
+import { Heading, Flex, Box, Text, Image, Tag } from '@chakra-ui/react';
 
 const BookPreviewCard = ({
   category,
@@ -39,7 +39,7 @@ const BookPreviewCard = ({
           >{`${title} - ${author}`}</Heading>
           <Text mt={2}>{intro}</Text>
           <Box w="100%" textAlign={['center', 'left']}>
-            <Tag variantColor="cyan" size="md" mt={2} width="116px">
+            <Tag colorScheme="cyan" size="md" mt={2} width="116px">
               Read Summary
             </Tag>
             <Text fontStyle="italic" color="grey" mt={1}>

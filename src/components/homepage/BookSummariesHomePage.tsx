@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Flex, Text, Heading, Box, Link, Button, Tag } from '@chakra-ui/core';
+import { Flex, Text, Heading, Box, Link, Button, Tag } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { FrontMatterBookSummariesType } from '../../types/types';
 import CategoryTag from '../partials/CategoryTag';
@@ -90,7 +90,7 @@ export default function BookSummariesHomepage({ bookSummariesPosts }) {
                             justifyContent={['center', 'space-between']}
                             alignItems="center"
                           >
-                            <Tag variantColor="cyan" size="sm">
+                            <Tag colorScheme="cyan" size="sm">
                               Read Summary
                             </Tag>
                           </Flex>
@@ -110,7 +110,7 @@ export default function BookSummariesHomepage({ bookSummariesPosts }) {
       {isLoadButtonVisible && (
         <Box as="section" px={[4, 8]}>
           <Button
-            variantColor="cyan"
+            colorScheme="cyan"
             size="md"
             onClick={handleLoadingMoreBookSummaries}
           >

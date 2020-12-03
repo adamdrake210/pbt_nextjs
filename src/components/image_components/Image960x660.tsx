@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Flex } from '@chakra-ui/core';
+import { Image, Flex } from '@chakra-ui/react';
 import { ImageFlexCenter } from './ImageFlexCenter';
 
 interface Props {

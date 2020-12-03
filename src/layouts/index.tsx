@@ -1,6 +1,6 @@
 import React from 'react';
 import PageContainer from '../containers/PageContainer';
-import { Heading, Image, Box, Flex, Text, Link } from '@chakra-ui/core';
+import { Heading, Image, Box, Flex, Text, Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import PageSeo from '../components/partials/PageSeo';
 import { FrontMatterBookSummariesType } from '../types/types';
