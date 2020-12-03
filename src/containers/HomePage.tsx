@@ -33,6 +33,7 @@ export default function Homepage({
       >
         Latest Interview
       </Heading>
+
       {interviewArr.length && (
         <HomePageBanner
           post={interviewArr[0]}
@@ -52,6 +53,7 @@ export default function Homepage({
       >
         Latest Article
       </Heading>
+
       {articleArr.length && (
         <HomePageBanner
           post={articleArr[0]}
