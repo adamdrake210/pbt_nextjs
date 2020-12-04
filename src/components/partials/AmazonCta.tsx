@@ -9,7 +9,7 @@ type Props = {
 export const AmazonCta: React.FC<Props> = ({ link, bookSummary }) => {
   return (
     <Link href={link} isExternal _hover={{ textDecoration: 'none' }}>
-      <Button colorScheme="blue" size="lg" mt={4}>
+      <Button colorScheme="cyan" color="#fff" size="lg" my={8}>
         Get this book on{' '}
         <Image
           src={`../${bookSummary ? '../' : ''}amazon-white-logo.png`}
