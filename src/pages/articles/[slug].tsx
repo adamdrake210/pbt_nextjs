@@ -15,7 +15,11 @@ import { Image266x400 } from '../../components/image_components/Image266x400';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
-import { interviewFilePaths, INTERVIEW_PATH } from '../../utils/mdxUtils';
+import {
+  articleFilePaths,
+  ARTICLE_PATH,
+  interviewFilePaths,
+} from '../../utils/mdxUtils';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 
@@ -41,11 +45,11 @@ export default function InterviewLayout({ frontMatter, source }: Props) {
     <PageContainer maxWidth="728px">
       <PageSeo
         {...frontMatter}
-        url={`https://paperbacktravels.com/interviews/${slug}`}
+        url={`https://paperbacktravels.com/articles/${slug}`}
       />
       <Image960x660
         src={`${slug}_${imageUniqueIdentifier}`}
-        imageCategory="interviews"
+        imageCategory="articles"
         altText={slug}
       />
       <Flex
@@ -83,8 +87,8 @@ export default function InterviewLayout({ frontMatter, source }: Props) {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const interviewFilePath = path.join(INTERVIEW_PATH, `${params.slug}.mdx`);
-  const source = fs.readFileSync(interviewFilePath);
+  const articleFilePaths = path.join(ARTICLE_PATH, `${params.slug}.mdx`);
+  const source = fs.readFileSync(articleFilePaths);
 
   const { content, data } = matter(source);
 
@@ -107,7 +111,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = interviewFilePaths
+  const paths = articleFilePaths
     // Remove file extensions for page paths
     .map(path => path.replace(/\.mdx?$/, ''))
     // Map the path into the static paths object required by Next.js

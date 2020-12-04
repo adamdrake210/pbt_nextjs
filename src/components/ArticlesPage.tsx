@@ -4,13 +4,13 @@ import NextLink from 'next/link';
 import { FrontMatterArticlesType } from '../types/types';
 import EmailSubscription from './partials/EmailSubscription';
 import ArticlePreviewCard from './cards/ArticlePreviewCard';
-import { sortNumberByPublishedDate } from '../helpers/sortNumberByPublishedDate';
+import { sortNumberByPublishedDateRemote } from '../helpers/sortNumberByPublishedDate';
 
 export default function ArticlesPage({ articlePosts }) {
   const [sortedPosts, setSortedPosts] = useState([]);
 
   const handleSortingOrder = () => {
-    return articlePosts.sort(sortNumberByPublishedDate);
+    return articlePosts.sort(sortNumberByPublishedDateRemote);
   };
 
   useEffect(() => {
@@ -30,23 +30,26 @@ export default function ArticlesPage({ articlePosts }) {
         >
           {sortedPosts &&
             sortedPosts.map(
-              (frontMatter: FrontMatterArticlesType) =>
-                frontMatter.published && (
-                  <Box flex={['1 0 100%']} mb={8} key={frontMatter.slug}>
-                    <NextLink passHref href={`/articles/${frontMatter.slug}`}>
+              (frontMatter: any) =>
+                frontMatter.data.published && (
+                  <Box flex={['1 0 100%']} mb={8} key={frontMatter.data.slug}>
+                    <NextLink
+                      passHref
+                      href={`/articles/${frontMatter.data.slug}`}
+                    >
                       <Link>
                         <Flex
                           justifyContent={['center', 'space-between']}
                           alignItems="center"
                         ></Flex>
                         <ArticlePreviewCard
-                          slug={frontMatter.slug}
+                          slug={frontMatter.data.slug}
                           imageUniqueIdentifier={
-                            frontMatter.imageUniqueIdentifier
+                            frontMatter.data.imageUniqueIdentifier
                           }
-                          title={frontMatter.title}
-                          description={frontMatter.description}
-                          readingTime={frontMatter.readingTime}
+                          title={frontMatter.data.title}
+                          description={frontMatter.data.description}
+                          readingTime={frontMatter.data.readingTime}
                         />
                       </Link>
                     </NextLink>

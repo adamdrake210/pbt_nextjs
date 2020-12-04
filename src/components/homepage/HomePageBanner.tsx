@@ -13,7 +13,10 @@ export default function HomePageBanner({ post, pageCategory, cta }) {
       mb={8}
       borderBottom="5px solid #00A3C4"
     >
-      <NextLink as={`/${pageCategory}/${slug}`} href={`/interviews/[slug]`}>
+      <NextLink
+        as={`/${pageCategory}/${slug}`}
+        href={`/${pageCategory}/[slug]`}
+      >
         <Link
           _hover={{
             backgroundColor: '#f6f6f6',
