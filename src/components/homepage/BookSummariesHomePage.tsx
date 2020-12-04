@@ -111,6 +111,7 @@ export default function BookSummariesHomepage({ bookSummariesPosts }) {
         <Box as="section" px={[4, 8]}>
           <Button
             colorScheme="cyan"
+            color="#fff"
             size="md"
             onClick={handleLoadingMoreBookSummaries}
           >

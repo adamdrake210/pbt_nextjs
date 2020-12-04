@@ -23,7 +23,7 @@ const Container = ({ children, maxWidth }: Props) => {
   return (
     <>
       <Navigation />
-      <Flex minH="100%" flexGrow={1} as="main">
+      <Flex minH="100%" grow={1} as="main">
         <Box
           w="100%"
           m="0 auto"

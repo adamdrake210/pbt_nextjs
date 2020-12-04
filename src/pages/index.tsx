@@ -3,17 +3,23 @@ import Head from 'next/head';
 import HomePage from '../containers/HomePage';
 import PageContainer from '../containers/PageContainer';
 // @ts-ignore
-import { frontMatter as articlePosts } from './articles/*.mdx';
-// @ts-ignore
 import { frontMatter as bookSummariesPosts } from './book-summaries/**/*.mdx';
 
 // mdx-remote files
-import { interviewFilePaths, INTERVIEW_PATH } from '../utils/mdxUtils';
+import {
+  interviewFilePaths,
+  INTERVIEW_PATH,
+  articleFilePaths,
+  ARTICLE_PATH,
+} from '../utils/mdxUtils';
 import matter from 'gray-matter';
 import fs from 'fs';
 import path from 'path';
 
-export default function PageIndex({ interviewPostsRemote }) {
+export default function PageIndex({
+  interviewPostsRemote,
+  articlePostsRemote,
+}) {
   return (
     <>
       <Head>
@@ -21,21 +27,9 @@ export default function PageIndex({ interviewPostsRemote }) {
       </Head>
 
       <PageContainer maxWidth="1000px">
-        {/* <ul>
-          {interviewPostsRemote.map(post => (
-            <li key={post.filePath}>
-              <Link
-                as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
-                href={`/posts/[slug]`}
-              >
-                <a>{post.data.title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul> */}
         <HomePage
           interviewPosts={interviewPostsRemote}
-          articlePosts={articlePosts}
+          articlePosts={articlePostsRemote}
           bookSummariesPosts={bookSummariesPosts}
         />
       </PageContainer>
@@ -55,7 +49,18 @@ export function getStaticProps() {
     };
   });
 
-  return { props: { interviewPostsRemote } };
+  const articlePostsRemote = articleFilePaths.map(filePath => {
+    const source = fs.readFileSync(path.join(ARTICLE_PATH, filePath));
+    const { content, data } = matter(source);
+
+    return {
+      content,
+      data,
+      filePath,
+    };
+  });
+
+  return { props: { interviewPostsRemote, articlePostsRemote } };
 }
 
 // CTA Button

@@ -4,10 +4,7 @@ import HomePageBanner from '../components/homepage/HomePageBanner';
 import BookSummariesHomePage from '../components/homepage/BookSummariesHomePage';
 import EmailSubscription from '../components/partials/EmailSubscription';
 import Quote from '../components/partials/Quote';
-import {
-  sortNumberByPublishedDate,
-  sortNumberByPublishedDateRemote,
-} from '../helpers/sortNumberByPublishedDate';
+import { sortNumberByPublishedDateRemote } from '../helpers/sortNumberByPublishedDate';
 
 export default function Homepage({
   interviewPosts,
@@ -18,7 +15,7 @@ export default function Homepage({
   const [articleArr, setArticleArr] = useState([]);
   useEffect(() => {
     setInterviewArr(interviewPosts.sort(sortNumberByPublishedDateRemote));
-    setArticleArr(articlePosts.sort(sortNumberByPublishedDate));
+    setArticleArr(articlePosts.sort(sortNumberByPublishedDateRemote));
   }, []);
 
   return (
@@ -57,7 +54,7 @@ export default function Homepage({
 
       {articleArr.length && (
         <HomePageBanner
-          post={articleArr[0]}
+          post={articleArr[0].data}
           pageCategory="articles"
           cta="Read Article"
         />
