@@ -20,6 +20,7 @@ export const Image960x660: React.FC<Props> = ({
       imageCategory={imageCategory}
       imageSize="c_scale,h_660,w_960"
       width={728}
+      marginTop={8}
     />
   );
 };

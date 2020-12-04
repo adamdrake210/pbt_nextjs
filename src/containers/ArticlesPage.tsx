@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Flex, Text, Box, Link, Heading } from '@chakra-ui/react';
+import { Flex, Text, Box, Link, Tag, Image } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { FrontMatterInterviewsType } from '../types/types';
-import EmailSubscription from './partials/EmailSubscription';
-import InterviewPreviewCard from './cards/InterviewPreviewCard';
+import { FrontMatterArticlesType } from '../types/types';
+import EmailSubscription from '../components/partials/EmailSubscription';
+import ArticlePreviewCard from '../components/cards/ArticlePreviewCard';
 import { sortNumberByPublishedDateRemote } from '../helpers/sortNumberByPublishedDate';
 
-export default function InterviewsPage({ interviewPosts }) {
+export default function ArticlesPage({ articlePosts }) {
   const [sortedPosts, setSortedPosts] = useState([]);
 
   const handleSortingOrder = () => {
-    return interviewPosts.sort(sortNumberByPublishedDateRemote);
+    return articlePosts.sort(sortNumberByPublishedDateRemote);
   };
 
   useEffect(() => {
@@ -19,10 +19,7 @@ export default function InterviewsPage({ interviewPosts }) {
 
   return (
     <Flex mt={12} w="100%" direction="column" alignItems="center">
-      <Box as="section" px={[4, 8]}>
-        <Heading as="h1" size="xl" mb={4} color="cyan.900">
-          Interviews
-        </Heading>
+      <Box as="section" mt={12} px={[4, 8]}>
         <Flex
           pb={[4, 8]}
           w="100%"
@@ -38,21 +35,21 @@ export default function InterviewsPage({ interviewPosts }) {
                   <Box flex={['1 0 100%']} mb={8} key={frontMatter.data.slug}>
                     <NextLink
                       passHref
-                      href={`/interviews/${frontMatter.data.slug}`}
+                      href={`/articles/${frontMatter.data.slug}`}
                     >
                       <Link>
                         <Flex
                           justifyContent={['center', 'space-between']}
                           alignItems="center"
                         ></Flex>
-                        <InterviewPreviewCard
+                        <ArticlePreviewCard
                           slug={frontMatter.data.slug}
-                          title={frontMatter.data.title}
                           imageUniqueIdentifier={
                             frontMatter.data.imageUniqueIdentifier
                           }
+                          title={frontMatter.data.title}
                           description={frontMatter.data.description}
-                          // readingTime={frontMatter.data.readingTime}
+                          readingTime={frontMatter.data.readingTime}
                         />
                       </Link>
                     </NextLink>
@@ -61,12 +58,11 @@ export default function InterviewsPage({ interviewPosts }) {
             )}
           {sortedPosts.length < 1 && (
             <Text fontSize="4xl" color="cyan.500">
-              No Interviews Found. Coming soon...
+              No Articles Found. Coming soon...
             </Text>
           )}
         </Flex>
       </Box>
-
       <Box as="section" px={[4, 8]}>
         <EmailSubscription />
       </Box>

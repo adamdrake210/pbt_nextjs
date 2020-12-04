@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import PageContainer from '../../containers/PageContainer';
-import InterviewsPage from '../../components/InterviewsPage';
+import InterviewsPage from '../../containers/InterviewsPage';
 //@ts-ignore
 // import { frontMatter as interviewPosts } from './*.mdx';
 
