@@ -11,6 +11,8 @@ import {
   INTERVIEW_PATH,
   articleFilePaths,
   ARTICLE_PATH,
+  bookSummaryFilePaths,
+  BOOK_SUMMARY_PATH,
 } from '../utils/mdxUtils';
 import matter from 'gray-matter';
 import fs from 'fs';
@@ -19,6 +21,7 @@ import path from 'path';
 export default function PageIndex({
   interviewPostsRemote,
   articlePostsRemote,
+  bookSummaryPostsRemote,
 }) {
   return (
     <>
@@ -30,7 +33,7 @@ export default function PageIndex({
         <HomePage
           interviewPosts={interviewPostsRemote}
           articlePosts={articlePostsRemote}
-          bookSummariesPosts={bookSummariesPosts}
+          bookSummariesPosts={bookSummaryPostsRemote}
         />
       </PageContainer>
     </>
@@ -60,7 +63,20 @@ export function getStaticProps() {
     };
   });
 
-  return { props: { interviewPostsRemote, articlePostsRemote } };
+  const bookSummaryPostsRemote = bookSummaryFilePaths.flat(1).map(filePath => {
+    const source = fs.readFileSync(path.join(BOOK_SUMMARY_PATH, filePath));
+    const { content, data } = matter(source);
+
+    return {
+      content,
+      data,
+      filePath,
+    };
+  });
+
+  return {
+    props: { interviewPostsRemote, articlePostsRemote, bookSummaryPostsRemote },
+  };
 }
 
 // CTA Button

@@ -3,7 +3,7 @@ import { Flex, Text, Heading, Box, Link, Button, Tag } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { FrontMatterBookSummariesType } from '../../types/types';
 import CategoryTag from '../partials/CategoryTag';
-import { sortNumberByPublishedDate } from '../../helpers/sortNumberByPublishedDate';
+import { sortNumberByPublishedDateRemote } from '../../helpers/sortNumberByPublishedDate';
 import { Image266x400 } from '../image_components/Image266x400';
 
 export default function BookSummariesHomepage({ bookSummariesPosts }) {
@@ -12,7 +12,9 @@ export default function BookSummariesHomepage({ bookSummariesPosts }) {
   const [isLoadButtonVisible, setIsLoadButtonVisible] = useState(true);
 
   const handleSortingOrder = () => {
-    const sortedArray = bookSummariesPosts.sort(sortNumberByPublishedDate);
+    const sortedArray = bookSummariesPosts.sort(
+      sortNumberByPublishedDateRemote,
+    );
     setSortedBooks(sortedArray);
   };
 
@@ -54,36 +56,36 @@ export default function BookSummariesHomepage({ bookSummariesPosts }) {
         >
           {sortedBooks &&
             sortedBooks.slice(0, numberSummaries).map(
-              (frontMatter: FrontMatterBookSummariesType) =>
-                frontMatter.published && (
+              (frontMatter: any) =>
+                frontMatter.data.published && (
                   <Box
                     flex={['1 0 100%', '0 0 33.33%']}
                     mb={8}
-                    key={frontMatter.slug}
+                    key={frontMatter.data.slug}
                   >
                     <NextLink
                       passHref
-                      href={`/book-summaries/${frontMatter.category.toLowerCase()}`}
+                      href={`/book-summaries/${frontMatter.data.category.toLowerCase()}`}
                     >
                       <Link>
                         <Flex
                           justifyContent={['center', 'space-between']}
                           alignItems="center"
                         >
-                          <CategoryTag category={frontMatter.category} />
+                          <CategoryTag category={frontMatter.data.category} />
                         </Flex>
                       </Link>
                     </NextLink>
                     <Box w={266}>
                       <NextLink
-                        key={frontMatter.slug}
+                        key={frontMatter.data.slug}
                         passHref
-                        href={`/book-summaries/${frontMatter.category.toLowerCase()}/${frontMatter.slug.toLowerCase()}`}
+                        href={`/book-summaries/${frontMatter.data.category.toLowerCase()}/${frontMatter.data.slug.toLowerCase()}`}
                       >
                         <Link>
                           <Image266x400
-                            src={`${frontMatter.slug}_${frontMatter.imageUniqueIdentifier}`}
-                            altText={`${frontMatter.author} - ${frontMatter.title}`}
+                            src={`${frontMatter.data.slug}_${frontMatter.data.imageUniqueIdentifier}`}
+                            altText={`${frontMatter.data.author} - ${frontMatter.data.title}`}
                             imageCategory="book-summaries"
                           />
                           <Flex
