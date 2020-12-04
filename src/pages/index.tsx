@@ -2,10 +2,6 @@ import React from 'react';
 import Head from 'next/head';
 import HomePage from '../containers/HomePage';
 import PageContainer from '../containers/PageContainer';
-// @ts-ignore
-import { frontMatter as bookSummariesPosts } from './book-summaries/**/*.mdx';
-
-// mdx-remote files
 import {
   interviewFilePaths,
   INTERVIEW_PATH,
@@ -41,9 +37,24 @@ export default function PageIndex({
 }
 
 export function getStaticProps() {
-  const interviewPostsRemote = interviewFilePaths.map(filePath => {
-    const source = fs.readFileSync(path.join(INTERVIEW_PATH, filePath));
+  const getPostsContentAndFrontmatter = (
+    postsPath: string,
+    filePath: string,
+  ) => {
+    const source = fs.readFileSync(path.join(postsPath, filePath));
     const { content, data } = matter(source);
+
+    return {
+      content,
+      data,
+    };
+  };
+
+  const interviewPostsRemote = interviewFilePaths.map(filePath => {
+    const { content, data } = getPostsContentAndFrontmatter(
+      INTERVIEW_PATH,
+      filePath,
+    );
 
     return {
       content,
@@ -53,8 +64,10 @@ export function getStaticProps() {
   });
 
   const articlePostsRemote = articleFilePaths.map(filePath => {
-    const source = fs.readFileSync(path.join(ARTICLE_PATH, filePath));
-    const { content, data } = matter(source);
+    const { content, data } = getPostsContentAndFrontmatter(
+      ARTICLE_PATH,
+      filePath,
+    );
 
     return {
       content,
@@ -64,8 +77,10 @@ export function getStaticProps() {
   });
 
   const bookSummaryPostsRemote = bookSummaryFilePaths.flat(1).map(filePath => {
-    const source = fs.readFileSync(path.join(BOOK_SUMMARY_PATH, filePath));
-    const { content, data } = matter(source);
+    const { content, data } = getPostsContentAndFrontmatter(
+      BOOK_SUMMARY_PATH,
+      filePath,
+    );
 
     return {
       content,
@@ -79,8 +94,6 @@ export function getStaticProps() {
   };
 }
 
-// CTA Button
 // Reading Time
-// Try adding articles too
 // Clean up files
 // Update Types

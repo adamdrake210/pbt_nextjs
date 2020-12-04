@@ -9,7 +9,6 @@ export const BOOK_SUMMARY_PATH = path.join(
   'src/posts/book-summaries',
 );
 
-console.log('BOOK_SUMMARY_PATH: ', BOOK_SUMMARY_PATH);
 // export const INTERVIEW_PATH =
 //   'https://github.com/adamdrake210/pbt_posts_content/blob/master/posts/interviews';
 const isMdx = () => {
@@ -39,14 +38,10 @@ export const bookSummaryFilePaths = folderNames.map(folderName => {
     process.cwd(),
     `src/posts/book-summaries/${folderName}`,
   );
-  const mdxFiles = fs.readdirSync(FOLDER_PATH);
-  // Only include md(x) files
+  const mdxFiles = fs.readdirSync(FOLDER_PATH).filter(isMdx);
 
   const concatArray = mdxFiles.map(mdxFile => {
     return `${folderName}/${mdxFile}`;
   });
-  console.log('concatArray: ', concatArray);
   return concatArray;
 });
-
-// console.log('bookSummaryFilePaths: ', bookSummaryFilePaths);
