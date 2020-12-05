@@ -45,3 +45,9 @@ export const bookSummaryFilePaths = folderNames.map(folderName => {
   });
   return concatArray;
 });
+
+// TODO
+// Reading Time implementation
+// Refactor getStaticProps in pages/index.tsx
+// Check sitemap when live
+// Update Types run tsc

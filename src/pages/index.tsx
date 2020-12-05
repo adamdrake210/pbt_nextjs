@@ -93,7 +93,3 @@ export function getStaticProps() {
     props: { interviewPostsRemote, articlePostsRemote, bookSummaryPostsRemote },
   };
 }
-
-// Reading Time
-// Clean up files
-// Update Types
