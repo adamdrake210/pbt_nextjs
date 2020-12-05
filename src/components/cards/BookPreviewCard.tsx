@@ -7,7 +7,7 @@ const BookPreviewCard = ({
   author,
   title,
   intro,
-  readingTime,
+  // readingTime,
   imageUniqueIdentifier,
 }) => {
   return (
@@ -42,9 +42,9 @@ const BookPreviewCard = ({
             <Tag colorScheme="cyan" size="md" mt={2} width="116px">
               Read Summary
             </Tag>
-            <Text fontStyle="italic" color="grey" mt={1}>
+            {/* <Text fontStyle="italic" color="grey" mt={1}>
               {`${readingTime.text}`}
-            </Text>
+            </Text> */}
           </Box>
         </Flex>
       </Flex>

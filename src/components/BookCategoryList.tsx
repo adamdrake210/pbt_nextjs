@@ -11,36 +11,35 @@ import {
   Image,
   Tag,
 } from '@chakra-ui/react';
-// @ts-ignore
-import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
 import NextLink from 'next/link';
 import { FrontMatterBookSummariesType } from '../types/types';
 import { Search } from './partials/Search';
 import BookPreviewCard from './cards/BookPreviewCard';
-import { sortNumberByPublishedDate } from '../helpers/sortNumberByPublishedDate';
+import { sortNumberByPublishedDateRemote } from '../helpers/sortNumberByPublishedDate';
 
 interface Props {
-  category: string;
+  bookSummaryPosts: any;
+  category: string | string[];
 }
 
-const BookCategoryList: React.FC<Props> = ({ category }) => {
+const BookCategoryList: React.FC<Props> = ({ bookSummaryPosts, category }) => {
   const [sortedBooks, setSortedBooks] = useState([]);
 
   const handleSortingOrder = () => {
-    const sortedArray = bookSummariesPosts.sort(sortNumberByPublishedDate);
+    const sortedArray = bookSummaryPosts.sort(sortNumberByPublishedDateRemote);
     setSortedBooks(sortedArray);
   };
 
   useEffect(() => {
     handleSortingOrder();
-  }, [bookSummariesPosts]);
+  }, [bookSummaryPosts]);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     let currentList = [];
     let newList = [];
 
     if (e.target.value !== '') {
-      currentList = bookSummariesPosts;
+      currentList = bookSummaryPosts;
       newList = currentList.filter(item => {
         const titleLowerCase = item.title.toLowerCase();
         const authorLowerCase = item.author.toLowerCase();
@@ -51,7 +50,7 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
         );
       });
     } else {
-      newList = bookSummariesPosts;
+      newList = bookSummaryPosts;
     }
     setSortedBooks(newList);
   }
@@ -68,7 +67,7 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
         textTransform="capitalize"
         color="cyan.900"
       >
-        {category.replace(/-/g, ' ')}
+        {/* {category.replace(/-/g, ' ')} */}
       </Heading>
       <Flex
         w="100%"
@@ -79,13 +78,17 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
       >
         <Stack spacing={8}>
           {sortedBooks &&
-            sortedBooks.map((frontMatter: FrontMatterBookSummariesType) => {
-              if (category === frontMatter.category && frontMatter.published) {
+            sortedBooks.map((book: any) => {
+              if (category === book.data.category && book.data.published) {
                 return (
                   <NextLink
-                    key={frontMatter.slug}
+                    key={book.data.slug}
                     passHref
-                    href={`/book-summaries/${category}/${frontMatter.slug}`}
+                    as={`/book-summaries/${category}/${book.data.slug}`}
+                    href={{
+                      pathname: `/book-summaries/[category]/[slug]`,
+                      query: { category, slug: book.data.slug },
+                    }}
                   >
                     <Link
                       _hover={{
@@ -94,15 +97,13 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
                       mb={4}
                     >
                       <BookPreviewCard
-                        category={frontMatter.category}
-                        slug={frontMatter.slug}
-                        imageUniqueIdentifier={
-                          frontMatter.imageUniqueIdentifier
-                        }
-                        author={frontMatter.author}
-                        title={frontMatter.title}
-                        intro={frontMatter.intro}
-                        readingTime={frontMatter.readingTime}
+                        category={book.data.category}
+                        slug={book.data.slug}
+                        imageUniqueIdentifier={book.data.imageUniqueIdentifier}
+                        author={book.data.author}
+                        title={book.data.title}
+                        intro={book.data.intro}
+                        // readingTime={book.data.readingTime}
                       />
                     </Link>
                   </NextLink>
