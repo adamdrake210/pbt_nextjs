@@ -28,12 +28,11 @@ export const articleFilePaths = fs
   .filter(isMdx);
 
 // bookSummaryFilePaths is the list of all mdx files inside the BOOK_SUMMARY_PATH directory
-
-const folderNames = fs.readdirSync(BOOK_SUMMARY_PATH).map(folder => {
+const bookSummaryfolderNames = fs.readdirSync(BOOK_SUMMARY_PATH).map(folder => {
   return folder;
 });
 
-export const bookSummaryFilePaths = folderNames.map(folderName => {
+export const bookSummaryFilePaths = bookSummaryfolderNames.map(folderName => {
   const FOLDER_PATH = path.join(
     process.cwd(),
     `src/posts/book-summaries/${folderName}`,
@@ -51,3 +50,7 @@ export const bookSummaryFilePaths = folderNames.map(folderName => {
 // Refactor getStaticProps in pages/index.tsx
 // Check sitemap when live
 // Update Types run tsc
+// Sticky Footer!!
+// Check Chakra theme file
+// Clean up next.config.js
+// removed uneeded packages
