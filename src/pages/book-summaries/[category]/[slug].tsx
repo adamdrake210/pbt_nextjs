@@ -107,7 +107,7 @@ export default function BookSummaryLayout({ frontMatter, source }: Props) {
       <Box px={[4, 8]}>{content}</Box>
       <AmazonAdvert />
       <EmailSubscription />
-      <ReadMore tags={tags} category={category} />
+      {/* <ReadMore tags={tags} category={category} /> */}
     </PageContainer>
   );
 }

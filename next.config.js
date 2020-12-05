@@ -1,4 +1,3 @@
-const withMdxEnhanced = require('next-mdx-enhanced');
 const readingTime = require('reading-time');
 
 module.exports = {
@@ -18,18 +17,7 @@ module.exports = {
   },
 };
 
-module.exports = withMdxEnhanced({
-  layoutPath: 'src/layouts',
-  defaultLayout: true,
-  remarkPlugins: [],
-  rehypePlugins: [],
-  extendFrontMatter: {
-    process: mdxContent => ({
-      readingTime: readingTime(mdxContent),
-    }),
-    // phase: 'prebuild|loader|both',
-  },
-})({
+module.exports = {
   webpack: (config, { isServer }) => {
     if (isServer) {
       // eslint-disable-next-line global-require
@@ -38,4 +26,4 @@ module.exports = withMdxEnhanced({
 
     return config;
   },
-});
+};

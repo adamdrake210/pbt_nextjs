@@ -22,7 +22,6 @@
     "fs": "0.0.1-security",
     "gray-matter": "^4.0.2",
     "next": "^10.0.0",
-    "next-mdx-enhanced": "^4.0.0",
     "next-mdx-remote": "^1.0.0",
     "next-remote-watch": "^0.2.0",
     "next-seo": "^4.14.0",
