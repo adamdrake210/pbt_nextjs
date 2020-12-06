@@ -1,11 +1,15 @@
 import React from 'react';
 import Head from 'next/head';
 import PageContainer from '../../containers/PageContainer';
-import ArticlesPage from '../../components/ArticlesPage';
-//@ts-ignore
-import { frontMatter as articlePosts } from './*.mdx';
+import ArticlesPage from '../../containers/ArticlesPage';
+import readingTime from 'reading-time';
 
-function ArticlesIndex() {
+import { articleFilePaths, ARTICLE_PATH } from '../../utils/mdxUtils';
+import fs from 'fs';
+import matter from 'gray-matter';
+import path from 'path';
+
+export default function ArticlesIndex({ articlePosts }) {
   return (
     <>
       <Head>
@@ -18,4 +22,17 @@ function ArticlesIndex() {
   );
 }
 
-export default ArticlesIndex;
+export function getStaticProps() {
+  const articlePosts = articleFilePaths.map(filePath => {
+    const source = fs.readFileSync(path.join(ARTICLE_PATH, filePath));
+    const { content, data } = matter(source);
+    const readTime = readingTime(content);
+
+    return {
+      content,
+      data: { ...data, readTime },
+      filePath,
+    };
+  });
+  return { props: { articlePosts } };
+}

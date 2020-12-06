@@ -1,21 +1,21 @@
-export type FrontMatterBookSummariesType = {
+export type FrontMatterBookSummaries = {
   title: string;
   description: string;
   author: string;
   intro: string;
   slug: string;
-  imageUniqueIdentifier;
+  imageUniqueIdentifier: string;
   category: string;
   tags: string;
   publishedDate: string;
   published: boolean;
   writtenBy: string;
-  readingTime: {
+  readTime: {
     text: string;
   };
 };
 
-export type FrontMatterArticlesType = {
+export type FrontMatterArticles = {
   title: string;
   description: string;
   intro: string;
@@ -26,12 +26,12 @@ export type FrontMatterArticlesType = {
   published: boolean;
   writtenBy: string;
   layout: string;
-  readingTime: {
+  readTime: {
     text: string;
   };
 };
 
-export type FrontMatterInterviewsType = {
+export type FrontMatterInterviews = {
   title: string;
   description: string;
   intro: string;
@@ -42,7 +42,24 @@ export type FrontMatterInterviewsType = {
   publishedDate: string;
   published: boolean;
   layout: string;
-  readingTime: {
+  readTime: {
     text: string;
   };
+};
+
+export type BookSummaryContentFrontMatter = {
+  content: string;
+  data: FrontMatterBookSummaries;
+  filePath?: string;
+};
+
+export type InterviewsContentFrontMatter = {
+  content: string;
+  data: FrontMatterInterviews;
+  filePath?: string;
+};
+export type ArticlesContentFrontMatter = {
+  content: string;
+  data: FrontMatterArticles;
+  filePath?: string;
 };

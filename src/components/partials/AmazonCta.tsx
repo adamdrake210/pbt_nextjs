@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Image, Link } from '@chakra-ui/core';
+import { Button, Image, Link } from '@chakra-ui/react';
 
 type Props = {
   link: string;
@@ -9,7 +9,7 @@ type Props = {
 export const AmazonCta: React.FC<Props> = ({ link, bookSummary }) => {
   return (
     <Link href={link} isExternal _hover={{ textDecoration: 'none' }}>
-      <Button variantColor="cyan" size="lg" mt={4} _hover={{ bg: 'cyan.400' }}>
+      <Button colorScheme="cyan" color="#fff" size="lg" my={8}>
         Get this book on{' '}
         <Image
           src={`../${bookSummary ? '../' : ''}amazon-white-logo.png`}

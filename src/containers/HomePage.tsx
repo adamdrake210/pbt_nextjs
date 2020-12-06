@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Flex, Box, Heading } from '@chakra-ui/core';
+import { Flex, Box, Heading } from '@chakra-ui/react';
 import HomePageBanner from '../components/homepage/HomePageBanner';
 import BookSummariesHomePage from '../components/homepage/BookSummariesHomePage';
 import EmailSubscription from '../components/partials/EmailSubscription';
 import Quote from '../components/partials/Quote';
-import { sortNumberByPublishedDate } from '../helpers/sortNumberByPublishedDate';
+import { sortNumberByPublishedDateRemote } from '../helpers/sortNumberByPublishedDate';
 
 export default function Homepage({
   interviewPosts,
@@ -14,11 +14,9 @@ export default function Homepage({
   const [interviewArr, setInterviewArr] = useState([]);
   const [articleArr, setArticleArr] = useState([]);
   useEffect(() => {
-    setInterviewArr(interviewPosts.sort(sortNumberByPublishedDate));
-    setArticleArr(articlePosts.sort(sortNumberByPublishedDate));
+    setInterviewArr(interviewPosts.sort(sortNumberByPublishedDateRemote));
+    setArticleArr(articlePosts.sort(sortNumberByPublishedDateRemote));
   }, []);
-
-  console.log('interviewArr: ', interviewArr);
 
   return (
     <Flex mt={[2, 2, 2, 12]} w="100%" direction="column" alignItems="center">
@@ -36,7 +34,7 @@ export default function Homepage({
 
       {interviewArr.length && (
         <HomePageBanner
-          post={interviewArr[0]}
+          post={interviewArr[0].data}
           pageCategory="interviews"
           cta="Read Interview"
         />
@@ -56,7 +54,7 @@ export default function Homepage({
 
       {articleArr.length && (
         <HomePageBanner
-          post={articleArr[0]}
+          post={articleArr[0].data}
           pageCategory="articles"
           cta="Read Article"
         />

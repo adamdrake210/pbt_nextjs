@@ -1,12 +1,12 @@
 import React from 'react';
-import { Heading, Flex, Box, Text, Image, Tag } from '@chakra-ui/core';
+import { Heading, Flex, Box, Text, Image, Tag } from '@chakra-ui/react';
 
 const ArticlePreviewCard = ({
   slug,
   title,
   imageUniqueIdentifier,
   description,
-  readingTime,
+  readTime,
 }) => {
   return (
     <Box key={slug} w="100%" shadow="sm" p={4} borderBottom="5px solid #00A3C4">
@@ -28,11 +28,11 @@ const ArticlePreviewCard = ({
           </Heading>
           <Text mt={2}>{description}</Text>
           <Box w="100%" textAlign={['center', 'left']}>
-            <Tag variantColor="cyan" size="md" mt={2} width="116px">
+            <Tag colorScheme="cyan" size="md" mt={2} width="116px">
               Read Article
             </Tag>
             <Text fontStyle="italic" color="grey" mt={1}>
-              {`${readingTime.text}`}
+              {`${readTime.text}`}
             </Text>
           </Box>
         </Flex>

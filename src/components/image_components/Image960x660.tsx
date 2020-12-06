@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Flex } from '@chakra-ui/core';
+import { Image, Flex } from '@chakra-ui/react';
 import { ImageFlexCenter } from './ImageFlexCenter';
 
 interface Props {
@@ -20,6 +20,7 @@ export const Image960x660: React.FC<Props> = ({
       imageCategory={imageCategory}
       imageSize="c_scale,h_660,w_960"
       width={728}
+      marginTop={8}
     />
   );
 };

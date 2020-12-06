@@ -2,14 +2,23 @@ import React from 'react';
 import Head from 'next/head';
 import HomePage from '../containers/HomePage';
 import PageContainer from '../containers/PageContainer';
-// @ts-ignore
-import { frontMatter as interviewPosts } from './interviews/*.mdx';
-// @ts-ignore
-import { frontMatter as articlePosts } from './articles/*.mdx';
-// @ts-ignore
-import { frontMatter as bookSummariesPosts } from './book-summaries/**/*.mdx';
+import {
+  interviewFilePaths,
+  INTERVIEW_PATH,
+  articleFilePaths,
+  ARTICLE_PATH,
+  bookSummaryFilePaths,
+  BOOK_SUMMARY_PATH,
+} from '../utils/mdxUtils';
+import matter from 'gray-matter';
+import fs from 'fs';
+import path from 'path';
 
-function PageIndex() {
+export default function PageIndex({
+  interviewPostsRemote,
+  articlePostsRemote,
+  bookSummaryPostsRemote,
+}) {
   return (
     <>
       <Head>
@@ -18,13 +27,47 @@ function PageIndex() {
 
       <PageContainer maxWidth="1000px">
         <HomePage
-          interviewPosts={interviewPosts}
-          articlePosts={articlePosts}
-          bookSummariesPosts={bookSummariesPosts}
+          interviewPosts={interviewPostsRemote}
+          articlePosts={articlePostsRemote}
+          bookSummariesPosts={bookSummaryPostsRemote}
         />
       </PageContainer>
     </>
   );
 }
 
-export default PageIndex;
+export function getStaticProps() {
+  const getPostsContentAndFrontmatter = (
+    postsPaths: string[],
+    folderPath: string,
+  ) => {
+    const PostsRemote = postsPaths.map(filePath => {
+      const source = fs.readFileSync(path.join(folderPath, filePath));
+      const { content, data } = matter(source);
+
+      return {
+        content,
+        data,
+        filePath,
+      };
+    });
+    return PostsRemote;
+  };
+
+  const interviewPostsRemote = getPostsContentAndFrontmatter(
+    interviewFilePaths,
+    INTERVIEW_PATH,
+  );
+  const articlePostsRemote = getPostsContentAndFrontmatter(
+    articleFilePaths,
+    ARTICLE_PATH,
+  );
+  const bookSummaryPostsRemote = getPostsContentAndFrontmatter(
+    bookSummaryFilePaths,
+    BOOK_SUMMARY_PATH,
+  );
+
+  return {
+    props: { interviewPostsRemote, articlePostsRemote, bookSummaryPostsRemote },
+  };
+}

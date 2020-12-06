@@ -10,7 +10,7 @@ import {
   useToast,
   Spinner,
   Flex,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import { isValidEmail } from '../../helpers/validators';
 import { ga_event } from '../../helpers/gtag';
 
@@ -104,22 +104,24 @@ export default function EmailSubscription() {
           <Box
             border="2px solid"
             borderColor="cyan.300"
-            bg="cyan.600"
-            borderRadius={12}
+            bg="cyan.400"
+            borderRadius={3}
             padding={6}
             my={12}
             w="100%"
             maxW={480}
           >
-            <Heading size="lg" color="white">
+            <Heading size="md" color="white">
               Subscribe to our sporadic newsletter
             </Heading>
             <InputGroup size="md" mt={4}>
               <Input
                 aria-label="Email Newsletter Subscription"
                 placeholder="example@email.com"
+                focusBorderColor="pink.400"
                 ref={inputRef}
                 type="email"
+                backgroundColor="#fff"
               />
               <InputRightElement width="6.75rem">
                 <Button
