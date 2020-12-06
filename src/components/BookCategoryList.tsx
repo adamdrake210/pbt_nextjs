@@ -56,7 +56,7 @@ const BookCategoryList: React.FC<Props> = ({ bookSummaryPosts, category }) => {
         textTransform="capitalize"
         color="cyan.900"
       >
-        {category.replace(/-/g, ' ')}
+        {category?.replace(/-/g, ' ')}
       </Heading>
       <Flex
         w="100%"

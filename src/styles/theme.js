@@ -1,18 +1,5 @@
-import React from 'react';
 import { extendTheme, theme as chakraTheme } from '@chakra-ui/react';
 import { createBreakpoints } from '@chakra-ui/theme-tools';
-
-const customIcons = {
-  hamburger: {
-    path: (
-      <path
-        fill="currentColor"
-        strokeWidth="0"
-        d="M2 15.5v2h20v-2H2zm0-5v2h20v-2H2zm0-5v2h20v-2H2z"
-      />
-    ),
-  },
-};
 
 const breakpoints = createBreakpoints({
   sm: '30em',
@@ -23,6 +10,15 @@ const breakpoints = createBreakpoints({
 
 const theme = extendTheme({
   ...chakraTheme,
+  styles: {
+    global: {
+      '#__next': {
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      },
+    },
+  },
   breakpoints,
   fonts: {
     heading: '"Eczar", sans-serif',
@@ -46,10 +42,6 @@ const theme = extendTheme({
     '4xl': '2.25rem',
     '5xl': '3rem',
     '6xl': '4rem',
-  },
-  icons: {
-    ...chakraTheme.icons,
-    ...customIcons,
   },
 });
 

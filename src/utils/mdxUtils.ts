@@ -50,5 +50,4 @@ export const bookSummaryFilePaths = bookSummaryPaths.flat(1);
 // TODO
 // Check sitemap when live
 // ReadMore Section
-// Sticky Footer!!
 // Check Chakra theme file

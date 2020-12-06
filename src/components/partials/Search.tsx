@@ -6,7 +6,7 @@ import {
   Icon,
   Input,
 } from '@chakra-ui/react';
-
+import { SearchIcon } from '@chakra-ui/icons';
 interface Props {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -15,7 +15,9 @@ export const Search: React.FC<Props> = ({ handleChange }) => {
   return (
     <Box px={[0, 4]} w="100%">
       <InputGroup>
-        <InputLeftElement children={<Icon name="search" color="gray.300" />} />
+        <InputLeftElement
+          children={<SearchIcon name="search" color="gray.300" mt={2} />}
+        />
         <Input
           placeholder="Search for a book..."
           size="lg"
