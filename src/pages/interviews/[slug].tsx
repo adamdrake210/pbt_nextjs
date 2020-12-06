@@ -3,7 +3,7 @@ import PageContainer from '../../containers/PageContainer';
 import { Heading, Box, Flex, Text } from '@chakra-ui/react';
 import PageSeo from '../../components/partials/PageSeo';
 import dynamic from 'next/dynamic';
-import { FrontMatterInterviewsType } from '../../types/types';
+import { FrontMatterInterviews } from '../../types/types';
 import EmailSubscription from '../../components/partials/EmailSubscription';
 import { AmazonAdvert } from '../../components/adverts/AmazonAdvert';
 import { Image960x660 } from '../../components/image_components/Image960x660';
@@ -19,10 +19,10 @@ import { interviewFilePaths, INTERVIEW_PATH } from '../../utils/mdxUtils';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 
-interface Props {
-  frontMatter: FrontMatterInterviewsType;
-  source: any;
-}
+type Props = {
+  frontMatter: FrontMatterInterviews;
+  source: string;
+};
 
 const components = {
   // It also works with dynamically-imported components, which is especially

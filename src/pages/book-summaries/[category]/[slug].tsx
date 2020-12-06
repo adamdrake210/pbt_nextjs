@@ -4,7 +4,7 @@ import { Heading, Box, Flex, Text, Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import PageSeo from '../../../components/partials/PageSeo';
 import dynamic from 'next/dynamic';
-import { FrontMatterBookSummariesType } from '../../../types/types';
+import { FrontMatterBookSummaries } from '../../../types/types';
 import EmailSubscription from '../../../components/partials/EmailSubscription';
 import { AmazonAdvert } from '../../../components/adverts/AmazonAdvert';
 import { AmazonCta } from '../../../components/partials/AmazonCta';
@@ -25,7 +25,7 @@ import ReadMore from '../../../components/partials/ReadMore';
 import CategoryTag from '../../../components/partials/CategoryTag';
 
 interface Props {
-  frontMatter: FrontMatterBookSummariesType;
+  frontMatter: FrontMatterBookSummaries;
   source: any;
 }
 

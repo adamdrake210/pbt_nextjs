@@ -3,7 +3,7 @@ import { Heading, Flex, Box, Link, Image } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
-import { FrontMatterBookSummariesType } from '../types/types';
+import { BookSummaryContentFrontMatter } from '../types/types';
 
 export default function BookSummariesList({ bookSummaryPosts }) {
   const [categories, setCategories] = useState([]);
@@ -13,9 +13,11 @@ export default function BookSummariesList({ bookSummaryPosts }) {
 
   useEffect(() => {
     setFilteredBooks(bookSummaryPosts);
-    const filterData = bookSummaryPosts.map((bookSummary: any) => {
-      return bookSummary.data.category;
-    });
+    const filterData = bookSummaryPosts.map(
+      (bookSummary: BookSummaryContentFrontMatter) => {
+        return bookSummary.data.category;
+      },
+    );
 
     const removedDuplicates = filterData.filter((item: string, pos: number) => {
       return filterData.indexOf(item) == pos;
@@ -24,11 +26,13 @@ export default function BookSummariesList({ bookSummaryPosts }) {
   }, [bookSummaryPosts]);
 
   function findCategoryImage(category: string): string {
-    const sortedBookSummeries = bookSummaryPosts.map((bookSummary: any) => {
-      if (bookSummary.data.category === category) {
-        return `${bookSummary.data.slug}_${bookSummary.data.imageUniqueIdentifier}`;
-      }
-    });
+    const sortedBookSummeries = bookSummaryPosts.map(
+      (bookSummary: BookSummaryContentFrontMatter) => {
+        if (bookSummary.data.category === category) {
+          return `${bookSummary.data.slug}_${bookSummary.data.imageUniqueIdentifier}`;
+        }
+      },
+    );
     const imageUrlArray = sortedBookSummeries
       .filter((x: string) => x)
       .reverse();

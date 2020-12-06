@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Text, Box, Link, Heading } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { FrontMatterInterviewsType } from '../types/types';
+import { InterviewsContentFrontMatter } from '../types/types';
 import EmailSubscription from '../components/partials/EmailSubscription';
 import InterviewPreviewCard from '../components/cards/InterviewPreviewCard';
 import { sortNumberByPublishedDateRemote } from '../helpers/sortNumberByPublishedDate';
@@ -31,34 +31,28 @@ export default function InterviewsPage({ interviewPosts }) {
           direction={['column', 'row']}
           flexWrap="wrap"
         >
-          {sortedPosts &&
-            sortedPosts.map(
-              (frontMatter: any) =>
-                frontMatter.data.published && (
-                  <Box flex={['1 0 100%']} mb={8} key={frontMatter.data.slug}>
-                    <NextLink
-                      passHref
-                      href={`/interviews/${frontMatter.data.slug}`}
-                    >
-                      <Link>
-                        <Flex
-                          justifyContent={['center', 'space-between']}
-                          alignItems="center"
-                        ></Flex>
-                        <InterviewPreviewCard
-                          slug={frontMatter.data.slug}
-                          title={frontMatter.data.title}
-                          imageUniqueIdentifier={
-                            frontMatter.data.imageUniqueIdentifier
-                          }
-                          description={frontMatter.data.description}
-                          readTime={frontMatter.data.readTime}
-                        />
-                      </Link>
-                    </NextLink>
-                  </Box>
-                ),
-            )}
+          {sortedPosts?.map(
+            ({ data }: InterviewsContentFrontMatter) =>
+              data.published && (
+                <Box flex={['1 0 100%']} mb={8} key={data.slug}>
+                  <NextLink passHref href={`/interviews/${data.slug}`}>
+                    <Link>
+                      <Flex
+                        justifyContent={['center', 'space-between']}
+                        alignItems="center"
+                      ></Flex>
+                      <InterviewPreviewCard
+                        slug={data.slug}
+                        title={data.title}
+                        imageUniqueIdentifier={data.imageUniqueIdentifier}
+                        description={data.description}
+                        readTime={data.readTime}
+                      />
+                    </Link>
+                  </NextLink>
+                </Box>
+              ),
+          )}
           {sortedPosts.length < 1 && (
             <Text fontSize="4xl" color="cyan.500">
               No Interviews Found. Coming soon...

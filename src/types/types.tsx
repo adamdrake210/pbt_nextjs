@@ -1,4 +1,4 @@
-export type FrontMatterBookSummariesType = {
+export type FrontMatterBookSummaries = {
   title: string;
   description: string;
   author: string;
@@ -15,7 +15,7 @@ export type FrontMatterBookSummariesType = {
   };
 };
 
-export type FrontMatterArticlesType = {
+export type FrontMatterArticles = {
   title: string;
   description: string;
   intro: string;
@@ -31,7 +31,7 @@ export type FrontMatterArticlesType = {
   };
 };
 
-export type FrontMatterInterviewsType = {
+export type FrontMatterInterviews = {
   title: string;
   description: string;
   intro: string;
@@ -45,4 +45,21 @@ export type FrontMatterInterviewsType = {
   readTime: {
     text: string;
   };
+};
+
+export type BookSummaryContentFrontMatter = {
+  content: string;
+  data: FrontMatterBookSummaries;
+  filePath?: string;
+};
+
+export type InterviewsContentFrontMatter = {
+  content: string;
+  data: FrontMatterInterviews;
+  filePath?: string;
+};
+export type ArticlesContentFrontMatter = {
+  content: string;
+  data: FrontMatterArticles;
+  filePath?: string;
 };

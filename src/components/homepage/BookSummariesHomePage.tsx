@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Text, Heading, Box, Link, Button, Tag } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { FrontMatterBookSummariesType } from '../../types/types';
+import { BookSummaryContentFrontMatter } from '../../types/types';
 import CategoryTag from '../partials/CategoryTag';
 import { sortNumberByPublishedDateRemote } from '../../helpers/sortNumberByPublishedDate';
 import { Image266x400 } from '../image_components/Image266x400';
@@ -54,54 +54,49 @@ export default function BookSummariesHomepage({ bookSummariesPosts }) {
           direction={['column', 'row']}
           flexWrap="wrap"
         >
-          {sortedBooks &&
-            sortedBooks.slice(0, numberSummaries).map(
-              (frontMatter: any) =>
-                frontMatter.data.published && (
-                  <Box
-                    flex={['1 0 100%', '0 0 33.33%']}
-                    mb={8}
-                    key={frontMatter.data.slug}
+          {sortedBooks?.slice(0, numberSummaries).map(
+            ({ data }: BookSummaryContentFrontMatter) =>
+              data.published && (
+                <Box flex={['1 0 100%', '0 0 33.33%']} mb={8} key={data.slug}>
+                  <NextLink
+                    passHref
+                    href={`/book-summaries/${data.category.toLowerCase()}`}
                   >
+                    <Link>
+                      <Flex
+                        justifyContent={['center', 'space-between']}
+                        alignItems="center"
+                      >
+                        <CategoryTag category={data.category} />
+                      </Flex>
+                    </Link>
+                  </NextLink>
+                  <Box w={266}>
                     <NextLink
+                      key={data.slug}
                       passHref
-                      href={`/book-summaries/${frontMatter.data.category.toLowerCase()}`}
+                      href={`/book-summaries/${data.category.toLowerCase()}/${data.slug.toLowerCase()}`}
                     >
                       <Link>
+                        <Image266x400
+                          src={`${data.slug}_${data.imageUniqueIdentifier}`}
+                          altText={`${data.author} - ${data.title}`}
+                          imageCategory="book-summaries"
+                        />
                         <Flex
                           justifyContent={['center', 'space-between']}
                           alignItems="center"
                         >
-                          <CategoryTag category={frontMatter.data.category} />
+                          <Tag colorScheme="cyan" size="sm">
+                            Read Summary
+                          </Tag>
                         </Flex>
                       </Link>
                     </NextLink>
-                    <Box w={266}>
-                      <NextLink
-                        key={frontMatter.data.slug}
-                        passHref
-                        href={`/book-summaries/${frontMatter.data.category.toLowerCase()}/${frontMatter.data.slug.toLowerCase()}`}
-                      >
-                        <Link>
-                          <Image266x400
-                            src={`${frontMatter.data.slug}_${frontMatter.data.imageUniqueIdentifier}`}
-                            altText={`${frontMatter.data.author} - ${frontMatter.data.title}`}
-                            imageCategory="book-summaries"
-                          />
-                          <Flex
-                            justifyContent={['center', 'space-between']}
-                            alignItems="center"
-                          >
-                            <Tag colorScheme="cyan" size="sm">
-                              Read Summary
-                            </Tag>
-                          </Flex>
-                        </Link>
-                      </NextLink>
-                    </Box>
                   </Box>
-                ),
-            )}
+                </Box>
+              ),
+          )}
           {bookSummariesPosts.length < 1 && (
             <Text fontSize="4xl" color="cyan.500">
               No Books Found.

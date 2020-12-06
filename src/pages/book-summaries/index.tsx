@@ -8,8 +8,13 @@ import { bookSummaryFilePaths, BOOK_SUMMARY_PATH } from '../../utils/mdxUtils';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
+import { BookSummaryContentFrontMatter } from '../../types/types';
 
-export default function BookSummariesIndex({ bookSummaryPosts }) {
+type Props = {
+  bookSummaryPosts: BookSummaryContentFrontMatter[];
+};
+
+export default function BookSummariesIndex({ bookSummaryPosts }: Props) {
   return (
     <>
       <Head>

@@ -48,8 +48,8 @@ const bookSummaryPaths = bookSummaryfolderNames.map(folderName => {
 export const bookSummaryFilePaths = bookSummaryPaths.flat(1);
 
 // TODO
-// Reading Time implementation
 // Check sitemap when live
+// ReadMore Section
 // Update Types run tsc
 // Sticky Footer!!
 // Check Chakra theme file
