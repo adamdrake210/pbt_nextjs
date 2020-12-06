@@ -1,15 +1,12 @@
 import React, { useEffect, useState, ReactElement } from 'react';
 import { Heading, Flex, Box, Link, Image } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { useRouter } from 'next/router';
 
 import { BookSummaryContentFrontMatter } from '../types/types';
 
 export default function BookSummariesList({ bookSummaryPosts }) {
   const [categories, setCategories] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
-  const router = useRouter();
-  console.log('router: ', router.query);
 
   useEffect(() => {
     setFilteredBooks(bookSummaryPosts);

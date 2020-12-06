@@ -10,9 +10,12 @@ import matter from 'gray-matter';
 import path from 'path';
 import { useRouter } from 'next/router';
 
-export default function BookSummariesCategoryContainer({ bookSummaryPosts }) {
+export default function BookSummariesCategoryContainer({
+  bookSummaryPosts,
+  category,
+}) {
   const router = useRouter();
-  const { category } = router.query;
+  // const { category } = router.query;
   return (
     <>
       <Head>
@@ -28,7 +31,7 @@ export default function BookSummariesCategoryContainer({ bookSummaryPosts }) {
   );
 }
 
-export function getStaticProps() {
+export function getStaticProps({ params }) {
   const bookSummaryPosts = bookSummaryFilePaths.map(filePath => {
     const source = fs.readFileSync(path.join(BOOK_SUMMARY_PATH, filePath));
     const { content, data } = matter(source);
@@ -40,27 +43,21 @@ export function getStaticProps() {
       filePath,
     };
   });
-  return { props: { bookSummaryPosts } };
+  return { props: { bookSummaryPosts, category: params.category } };
 }
 
 export async function getStaticPaths() {
+  const paths = bookSummaryFilePaths
+    // Remove file extensions for page paths
+    .map(path => path.replace(/\.mdx?$/, ''))
+    // Map the path into the static paths object required by Next.js
+    .map(slug => {
+      const splitSlug = slug.split('/');
+      return { params: { category: splitSlug[0] } };
+    });
+
   return {
-    paths: [
-      { params: { category: 'behavioral-economics' } },
-      { params: { category: 'business' } },
-      { params: { category: 'data-visualisation' } },
-      { params: { category: 'economics' } },
-      { params: { category: 'health-and-wellness' } },
-      { params: { category: 'history' } },
-      { params: { category: 'leadership' } },
-      { params: { category: 'personal-finance' } },
-      { params: { category: 'personal-growth' } },
-      { params: { category: 'productivity' } },
-      { params: { category: 'psychology' } },
-      { params: { category: 'social-sciences' } },
-      { params: { category: 'spiritual' } },
-      { params: { category: 'startups' } },
-    ],
+    paths,
     fallback: true,
   };
 }

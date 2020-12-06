@@ -58,7 +58,7 @@ const ReadMore: React.FC<Props> = () => {
                       author={frontMatter.author}
                       title={frontMatter.title}
                       intro={frontMatter.intro}
-                      // readingTime={frontMatter.readingTime}
+                      readTime={frontMatter.readTime}
                     />
                   </Link>
                 </NextLink>
