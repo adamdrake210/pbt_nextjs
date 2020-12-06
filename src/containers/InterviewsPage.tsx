@@ -52,7 +52,7 @@ export default function InterviewsPage({ interviewPosts }) {
                             frontMatter.data.imageUniqueIdentifier
                           }
                           description={frontMatter.data.description}
-                          // readingTime={frontMatter.data.readingTime}
+                          readTime={frontMatter.data.readTime}
                         />
                       </Link>
                     </NextLink>

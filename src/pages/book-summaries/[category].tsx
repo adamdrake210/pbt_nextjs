@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import PageContainer from '../../containers/PageContainer';
 import BookCategoryList from '../../components/BookCategoryList';
+import readingTime from 'reading-time';
 
 import { bookSummaryFilePaths, BOOK_SUMMARY_PATH } from '../../utils/mdxUtils';
 import fs from 'fs';
@@ -28,13 +29,14 @@ export default function BookSummariesCategoryContainer({ bookSummaryPosts }) {
 }
 
 export function getStaticProps() {
-  const bookSummaryPosts = bookSummaryFilePaths.flat(1).map(filePath => {
+  const bookSummaryPosts = bookSummaryFilePaths.map(filePath => {
     const source = fs.readFileSync(path.join(BOOK_SUMMARY_PATH, filePath));
     const { content, data } = matter(source);
+    const readTime = readingTime(content);
 
     return {
       content,
-      data,
+      data: { ...data, readTime },
       filePath,
     };
   });

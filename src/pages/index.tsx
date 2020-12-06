@@ -38,56 +38,34 @@ export default function PageIndex({
 
 export function getStaticProps() {
   const getPostsContentAndFrontmatter = (
-    postsPath: string,
-    filePath: string,
+    postsPaths: string[],
+    folderPath: string,
   ) => {
-    const source = fs.readFileSync(path.join(postsPath, filePath));
-    const { content, data } = matter(source);
+    const PostsRemote = postsPaths.map(filePath => {
+      const source = fs.readFileSync(path.join(folderPath, filePath));
+      const { content, data } = matter(source);
 
-    return {
-      content,
-      data,
-    };
+      return {
+        content,
+        data,
+        filePath,
+      };
+    });
+    return PostsRemote;
   };
 
-  const interviewPostsRemote = interviewFilePaths.map(filePath => {
-    const { content, data } = getPostsContentAndFrontmatter(
-      INTERVIEW_PATH,
-      filePath,
-    );
-
-    return {
-      content,
-      data,
-      filePath,
-    };
-  });
-
-  const articlePostsRemote = articleFilePaths.map(filePath => {
-    const { content, data } = getPostsContentAndFrontmatter(
-      ARTICLE_PATH,
-      filePath,
-    );
-
-    return {
-      content,
-      data,
-      filePath,
-    };
-  });
-
-  const bookSummaryPostsRemote = bookSummaryFilePaths.flat(1).map(filePath => {
-    const { content, data } = getPostsContentAndFrontmatter(
-      BOOK_SUMMARY_PATH,
-      filePath,
-    );
-
-    return {
-      content,
-      data,
-      filePath,
-    };
-  });
+  const interviewPostsRemote = getPostsContentAndFrontmatter(
+    interviewFilePaths,
+    INTERVIEW_PATH,
+  );
+  const articlePostsRemote = getPostsContentAndFrontmatter(
+    articleFilePaths,
+    ARTICLE_PATH,
+  );
+  const bookSummaryPostsRemote = getPostsContentAndFrontmatter(
+    bookSummaryFilePaths,
+    BOOK_SUMMARY_PATH,
+  );
 
   return {
     props: { interviewPostsRemote, articlePostsRemote, bookSummaryPostsRemote },

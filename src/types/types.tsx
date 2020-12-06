@@ -10,7 +10,7 @@ export type FrontMatterBookSummariesType = {
   publishedDate: string;
   published: boolean;
   writtenBy: string;
-  readingTime: {
+  readTime: {
     text: string;
   };
 };
@@ -26,7 +26,7 @@ export type FrontMatterArticlesType = {
   published: boolean;
   writtenBy: string;
   layout: string;
-  readingTime: {
+  readTime: {
     text: string;
   };
 };
@@ -42,7 +42,7 @@ export type FrontMatterInterviewsType = {
   publishedDate: string;
   published: boolean;
   layout: string;
-  readingTime: {
+  readTime: {
     text: string;
   };
 };

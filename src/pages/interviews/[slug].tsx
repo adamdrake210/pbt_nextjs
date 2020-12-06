@@ -7,9 +7,9 @@ import { FrontMatterInterviewsType } from '../../types/types';
 import EmailSubscription from '../../components/partials/EmailSubscription';
 import { AmazonAdvert } from '../../components/adverts/AmazonAdvert';
 import { Image960x660 } from '../../components/image_components/Image960x660';
-
 import { AmazonCta } from '../../components/partials/AmazonCta';
 import { Image266x400 } from '../../components/image_components/Image266x400';
+import readingTime from 'reading-time';
 
 // Remote packages
 import fs from 'fs';
@@ -34,7 +34,7 @@ const components = {
 };
 
 export default function InterviewLayout({ frontMatter, source }: Props) {
-  const { title, slug, readingTime, imageUniqueIdentifier } = frontMatter;
+  const { title, slug, readTime, imageUniqueIdentifier } = frontMatter;
   const content = hydrate(source, { components });
 
   return (
@@ -63,10 +63,10 @@ export default function InterviewLayout({ frontMatter, source }: Props) {
           </Heading>
         </Box>
         <Flex p={0} w="100%" justifyContent="center">
-          {readingTime && (
+          {readTime && (
             <>
               <Text fontStyle="italic" color="grey" ml={1}>
-                {readingTime.text}
+                {readTime.text}
               </Text>
             </>
           )}
@@ -87,6 +87,7 @@ export const getStaticProps = async ({ params }) => {
   const source = fs.readFileSync(interviewFilePath);
 
   const { content, data } = matter(source);
+  const readTime = readingTime(content);
 
   const mdxSource = await renderToString(content, {
     components,
@@ -101,7 +102,7 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       source: mdxSource,
-      frontMatter: data,
+      frontMatter: { ...data, readTime },
     },
   };
 };

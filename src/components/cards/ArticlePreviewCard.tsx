@@ -6,7 +6,7 @@ const ArticlePreviewCard = ({
   title,
   imageUniqueIdentifier,
   description,
-  readingTime,
+  readTime,
 }) => {
   return (
     <Box key={slug} w="100%" shadow="sm" p={4} borderBottom="5px solid #00A3C4">
@@ -31,9 +31,9 @@ const ArticlePreviewCard = ({
             <Tag colorScheme="cyan" size="md" mt={2} width="116px">
               Read Article
             </Tag>
-            {/* <Text fontStyle="italic" color="grey" mt={1}>
-              {`${readingTime.text}`}
-            </Text> */}
+            <Text fontStyle="italic" color="grey" mt={1}>
+              {`${readTime.text}`}
+            </Text>
           </Box>
         </Flex>
       </Flex>

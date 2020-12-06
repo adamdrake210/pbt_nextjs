@@ -7,9 +7,9 @@ import dynamic from 'next/dynamic';
 import { FrontMatterBookSummariesType } from '../../../types/types';
 import EmailSubscription from '../../../components/partials/EmailSubscription';
 import { AmazonAdvert } from '../../../components/adverts/AmazonAdvert';
-
 import { AmazonCta } from '../../../components/partials/AmazonCta';
 import { Image266x400 } from '../../../components/image_components/Image266x400';
+import readingTime from 'reading-time';
 
 // Remote packages
 import fs from 'fs';
@@ -47,7 +47,7 @@ export default function BookSummaryLayout({ frontMatter, source }: Props) {
     writtenBy,
     category,
     intro,
-    readingTime,
+    readTime,
     tags,
   } = frontMatter;
   const content = hydrate(source, { components });
@@ -74,9 +74,9 @@ export default function BookSummaryLayout({ frontMatter, source }: Props) {
         <Flex p={0} mb={8} w="100%" justifyContent="center">
           <>
             <Text>Written By {writtenBy} - </Text>
-            {/* <Text fontStyle="italic" color="grey" ml={1}>
-                {readingTime.text}
-              </Text> */}
+            <Text fontStyle="italic" color="grey" ml={1}>
+              {readTime.text}
+            </Text>
           </>
         </Flex>
         <Image266x400
@@ -118,8 +118,8 @@ export const getStaticProps = async ({ params }) => {
     `${params.category}/${params.slug}.mdx`,
   );
   const source = fs.readFileSync(bookSummaryFilePaths);
-
   const { content, data } = matter(source);
+  const readTime = readingTime(content);
 
   const mdxSource = await renderToString(content, {
     components,
@@ -134,16 +134,13 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       source: mdxSource,
-      frontMatter: data,
+      frontMatter: { ...data, readTime },
     },
   };
 };
 
 export const getStaticPaths = async () => {
-  console.log('bookSummaryFilePaths: ', bookSummaryFilePaths.flat(1));
-
   const paths = bookSummaryFilePaths
-    .flat(1)
     // Remove file extensions for page paths
     .map(path => path.replace(/\.mdx?$/, ''))
     // Map the path into the static paths object required by Next.js

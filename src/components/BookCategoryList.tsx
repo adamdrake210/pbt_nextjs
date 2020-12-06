@@ -103,7 +103,7 @@ const BookCategoryList: React.FC<Props> = ({ bookSummaryPosts, category }) => {
                         author={book.data.author}
                         title={book.data.title}
                         intro={book.data.intro}
-                        // readingTime={book.data.readingTime}
+                        readTime={book.data.readTime}
                       />
                     </Link>
                   </NextLink>

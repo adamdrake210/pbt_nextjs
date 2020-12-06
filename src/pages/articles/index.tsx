@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import PageContainer from '../../containers/PageContainer';
 import ArticlesPage from '../../containers/ArticlesPage';
+import readingTime from 'reading-time';
 
 import { articleFilePaths, ARTICLE_PATH } from '../../utils/mdxUtils';
 import fs from 'fs';
@@ -25,10 +26,11 @@ export function getStaticProps() {
   const articlePosts = articleFilePaths.map(filePath => {
     const source = fs.readFileSync(path.join(ARTICLE_PATH, filePath));
     const { content, data } = matter(source);
+    const readTime = readingTime(content);
 
     return {
       content,
-      data,
+      data: { ...data, readTime },
       filePath,
     };
   });

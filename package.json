@@ -27,8 +27,7 @@
     "next-seo": "^4.14.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "reading-time": "^1.2.0",
-    "sass": "^1.27.0"
+    "reading-time": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.5",

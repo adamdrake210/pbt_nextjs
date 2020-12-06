@@ -5,7 +5,7 @@ const InterviewPreviewCard = ({
   slug,
   title,
   description,
-  // readingTime,
+  readTime,
   imageUniqueIdentifier,
 }) => {
   return (
@@ -37,9 +37,9 @@ const InterviewPreviewCard = ({
             <Tag colorScheme="cyan" size="md" mt={2} width="116px">
               Read Interview
             </Tag>
-            {/* <Text fontStyle="italic" color="grey" mt={1}>
-              {`${readingTime.text}`}
-            </Text> */}
+            <Text fontStyle="italic" color="grey" mt={1}>
+              {`${readTime.text}`}
+            </Text>
           </Box>
         </Flex>
       </Flex>

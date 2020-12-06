@@ -32,7 +32,7 @@ const bookSummaryfolderNames = fs.readdirSync(BOOK_SUMMARY_PATH).map(folder => {
   return folder;
 });
 
-export const bookSummaryFilePaths = bookSummaryfolderNames.map(folderName => {
+const bookSummaryPaths = bookSummaryfolderNames.map(folderName => {
   const FOLDER_PATH = path.join(
     process.cwd(),
     `src/posts/book-summaries/${folderName}`,
@@ -45,12 +45,11 @@ export const bookSummaryFilePaths = bookSummaryfolderNames.map(folderName => {
   return concatArray;
 });
 
+export const bookSummaryFilePaths = bookSummaryPaths.flat(1);
+
 // TODO
 // Reading Time implementation
-// Refactor getStaticProps in pages/index.tsx
 // Check sitemap when live
 // Update Types run tsc
 // Sticky Footer!!
 // Check Chakra theme file
-// Clean up next.config.js
-// removed uneeded packages

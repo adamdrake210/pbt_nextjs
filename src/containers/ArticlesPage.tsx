@@ -49,7 +49,7 @@ export default function ArticlesPage({ articlePosts }) {
                           }
                           title={frontMatter.data.title}
                           description={frontMatter.data.description}
-                          readingTime={frontMatter.data.readingTime}
+                          readTime={frontMatter.data.readTime}
                         />
                       </Link>
                     </NextLink>
