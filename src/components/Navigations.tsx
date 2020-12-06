@@ -12,8 +12,9 @@ import {
   DrawerCloseButton,
   useDisclosure,
   Icon,
-} from '@chakra-ui/core';
+} from '@chakra-ui/react';
 import styled from '@emotion/styled';
+import { HamburgerIcon } from '@chakra-ui/icons';
 
 const StickyNav = styled(Flex)`
   position: sticky;
@@ -206,7 +207,7 @@ const Navigation: React.FC = () => {
             p={[1, 4]}
             onClick={onOpen}
           >
-            <Icon name="hamburger" color="white" />
+            <HamburgerIcon color="white" />
           </Button>
         </Box>
       </Flex>

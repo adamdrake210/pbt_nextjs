@@ -1,7 +1,5 @@
-/** @jsx jsx */
 import {
   Box,
-  Callout,
   Code,
   Heading,
   Kbd,
@@ -9,11 +7,11 @@ import {
   Text,
   Divider,
   useColorMode,
-} from '@chakra-ui/core';
-import { jsx } from '@emotion/core';
+  Alert,
+} from '@chakra-ui/react';
 import NextLink from 'next/link';
 
-const CustomLink = props => {
+export const CustomLink = props => {
   const { colorMode } = useColorMode();
   const color = {
     light: 'hsl(208, 99%, 44%)',
@@ -42,7 +40,7 @@ const Quote = props => {
   };
 
   return (
-    <Callout
+    <Alert
       mt={4}
       w="98%"
       color="cyan.400"
@@ -94,9 +92,7 @@ const MDXComponents = {
       {...props}
     />
   ),
-  inlineCode: props => (
-    <Code variantColor="yellow" fontSize="0.84em" {...props} />
-  ),
+
   kbd: Kbd,
   br: props => <Box height="24px" {...props} />,
   hr: Hr,

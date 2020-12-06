@@ -1,46 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Heading,
-  Flex,
-  Box,
-  List,
-  ListItem,
-  Link,
-  Stack,
-  Text,
-  Image,
-  Tag,
-} from '@chakra-ui/core';
-// @ts-ignore
-import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
+import { Heading, Flex, Box, Link, Stack } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { FrontMatterBookSummariesType } from '../types/types';
+import { BookSummaryContentFrontMatter } from '../types/types';
 import { Search } from './partials/Search';
 import BookPreviewCard from './cards/BookPreviewCard';
-import { sortNumberByPublishedDate } from '../helpers/sortNumberByPublishedDate';
+import { sortNumberByPublishedDateRemote } from '../helpers/sortNumberByPublishedDate';
 
 interface Props {
+  bookSummaryPosts: BookSummaryContentFrontMatter[];
   category: string;
 }
 
-const BookCategoryList: React.FC<Props> = ({ category }) => {
+const BookCategoryList: React.FC<Props> = ({ bookSummaryPosts, category }) => {
   const [sortedBooks, setSortedBooks] = useState([]);
 
   const handleSortingOrder = () => {
-    const sortedArray = bookSummariesPosts.sort(sortNumberByPublishedDate);
+    const sortedArray = bookSummaryPosts.sort(sortNumberByPublishedDateRemote);
     setSortedBooks(sortedArray);
   };
 
   useEffect(() => {
     handleSortingOrder();
-  }, [bookSummariesPosts]);
+  }, [bookSummaryPosts]);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     let currentList = [];
     let newList = [];
 
     if (e.target.value !== '') {
-      currentList = bookSummariesPosts;
+      currentList = bookSummaryPosts;
       newList = currentList.filter(item => {
         const titleLowerCase = item.title.toLowerCase();
         const authorLowerCase = item.author.toLowerCase();
@@ -51,7 +39,7 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
         );
       });
     } else {
-      newList = bookSummariesPosts;
+      newList = bookSummaryPosts;
     }
     setSortedBooks(newList);
   }
@@ -68,7 +56,7 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
         textTransform="capitalize"
         color="cyan.900"
       >
-        {category.replace(/-/g, ' ')}
+        {category?.replace(/-/g, ' ')}
       </Heading>
       <Flex
         w="100%"
@@ -78,37 +66,39 @@ const BookCategoryList: React.FC<Props> = ({ category }) => {
         flexWrap="wrap"
       >
         <Stack spacing={8}>
-          {sortedBooks &&
-            sortedBooks.map((frontMatter: FrontMatterBookSummariesType) => {
-              if (category === frontMatter.category && frontMatter.published) {
-                return (
-                  <NextLink
-                    key={frontMatter.slug}
-                    passHref
-                    href={`/book-summaries/${category}/${frontMatter.slug}`}
+          {sortedBooks?.map((book: BookSummaryContentFrontMatter) => {
+            const { data } = book;
+            if (category === data.category && data.published) {
+              return (
+                <NextLink
+                  key={data.slug}
+                  passHref
+                  as={`/book-summaries/${category}/${data.slug}`}
+                  href={{
+                    pathname: `/book-summaries/[category]/[slug]`,
+                    query: { category, slug: data.slug },
+                  }}
+                >
+                  <Link
+                    _hover={{
+                      backgroundColor: '#f6f6f6',
+                    }}
+                    mb={4}
                   >
-                    <Link
-                      _hover={{
-                        backgroundColor: '#f6f6f6',
-                      }}
-                      mb={4}
-                    >
-                      <BookPreviewCard
-                        category={frontMatter.category}
-                        slug={frontMatter.slug}
-                        imageUniqueIdentifier={
-                          frontMatter.imageUniqueIdentifier
-                        }
-                        author={frontMatter.author}
-                        title={frontMatter.title}
-                        intro={frontMatter.intro}
-                        readingTime={frontMatter.readingTime}
-                      />
-                    </Link>
-                  </NextLink>
-                );
-              }
-            })}
+                    <BookPreviewCard
+                      category={data.category}
+                      slug={data.slug}
+                      imageUniqueIdentifier={data.imageUniqueIdentifier}
+                      author={data.author}
+                      title={data.title}
+                      intro={data.intro}
+                      readTime={data.readTime}
+                    />
+                  </Link>
+                </NextLink>
+              );
+            }
+          })}
         </Stack>
       </Flex>
     </Box>

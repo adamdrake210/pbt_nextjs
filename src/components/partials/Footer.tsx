@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text } from '@chakra-ui/core';
+import { Flex, Text } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 
 const StickyFooter = styled(Flex)`

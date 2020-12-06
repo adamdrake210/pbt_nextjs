@@ -1,32 +1,32 @@
 import React, { useEffect, useState, ReactElement } from 'react';
-import { Heading, Flex, Box, Link, Image } from '@chakra-ui/core';
-// @ts-ignore
-import { frontMatter as bookSummariesPosts } from '../pages/book-summaries/**/*.mdx';
+import { Heading, Flex, Box, Link, Image } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { FrontMatterBookSummariesType } from '../types/types';
 
-export default function BookSummariesList() {
+import { BookSummaryContentFrontMatter } from '../types/types';
+
+export default function BookSummariesList({ bookSummaryPosts }) {
   const [categories, setCategories] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
 
   useEffect(() => {
-    setFilteredBooks(bookSummariesPosts);
-    const filterData = bookSummariesPosts.map(
-      (frontMatter: FrontMatterBookSummariesType) => {
-        return frontMatter.category;
+    setFilteredBooks(bookSummaryPosts);
+    const filterData = bookSummaryPosts.map(
+      (bookSummary: BookSummaryContentFrontMatter) => {
+        return bookSummary.data.category;
       },
     );
+
     const removedDuplicates = filterData.filter((item: string, pos: number) => {
       return filterData.indexOf(item) == pos;
     });
     setCategories(removedDuplicates);
-  }, [bookSummariesPosts]);
+  }, [bookSummaryPosts]);
 
   function findCategoryImage(category: string): string {
-    const sortedBookSummeries = bookSummariesPosts.map(
-      (frontMatter: FrontMatterBookSummariesType) => {
-        if (frontMatter.category === category) {
-          return `${frontMatter.slug}_${frontMatter.imageUniqueIdentifier}`;
+    const sortedBookSummeries = bookSummaryPosts.map(
+      (bookSummary: BookSummaryContentFrontMatter) => {
+        if (bookSummary.data.category === category) {
+          return `${bookSummary.data.slug}_${bookSummary.data.imageUniqueIdentifier}`;
         }
       },
     );
@@ -38,7 +38,14 @@ export default function BookSummariesList() {
 
   function makeCategoryList(category: string): ReactElement {
     return (
-      <NextLink passHref href={`/book-summaries/${category}`} key={category}>
+      <NextLink
+        passHref
+        href={{
+          pathname: `/book-summaries/[category]`,
+          query: { category },
+        }}
+        key={category}
+      >
         <Link
           _hover={{
             textDecoration: 'underline',

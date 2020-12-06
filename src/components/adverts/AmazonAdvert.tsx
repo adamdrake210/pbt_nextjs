@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Divider } from '@chakra-ui/core';
+import { Box, Divider } from '@chakra-ui/react';
 
 export const AmazonAdvert: React.FC = () => {
   return (
