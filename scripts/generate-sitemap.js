@@ -6,8 +6,12 @@ const prettier = require('prettier');
 (async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc');
   const pages = await globby([
+    'src/posts/',
     'src/pages/**/*{.js,.tsx}',
-    'src/posts/**/*{.mdx}',
+    '!src/pages/articles/[slug].tsx',
+    '!src/pages/interviews/[slug].tsx',
+    '!src/pages/book-summaries/[category].tsx',
+    '!src/pages/book-summaries/[category]/[slug].tsx',
     '!src/pages/_*.js',
     '!src/pages/_*.tsx',
     '!src/pages/api',
@@ -19,6 +23,7 @@ const prettier = require('prettier');
               .map(page => {
                 const path = page
                   .replace('src/pages', '')
+                  .replace('src/posts', '')
                   .replace('.js', '')
                   .replace('.tsx', '')
                   .replace('.mdx', '')
