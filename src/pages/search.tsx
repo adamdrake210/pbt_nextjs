@@ -1,9 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
-import PageContainer from '../../containers/PageContainer';
-import InterviewsPage from '../../containers/InterviewsPage';
+import PageContainer from '../containers/PageContainer';
 import readingTime from 'reading-time';
-import { InterviewsContentFrontMatter } from '../../types/types';
+import {
+  ArticlesContentFrontMatter,
+  BookSummaryContentFrontMatter,
+  InterviewsContentFrontMatter,
+} from '../types/types';
 
 import {
   articleFilePaths,
@@ -12,23 +15,31 @@ import {
   BOOK_SUMMARY_PATH,
   interviewFilePaths,
   INTERVIEW_PATH,
-} from '../../utils/mdxUtils';
+} from '../utils/mdxUtils';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
+import SearchContainer from '../containers/SearchContainer';
 
 type Props = {
+  bookSummaryPosts: BookSummaryContentFrontMatter[];
+  articlePosts: ArticlesContentFrontMatter[];
   interviewPosts: InterviewsContentFrontMatter[];
 };
 
-export default function InterviewsIndex({ interviewPosts }: Props) {
+export default function SearchPage({
+  interviewPosts,
+  articlePosts,
+  bookSummaryPosts,
+}: Props) {
+  const allPosts = [...interviewPosts, ...articlePosts, ...bookSummaryPosts];
   return (
     <>
       <Head>
-        <title>PaperBackTravels | Interviews</title>
+        <title>PaperBackTravels | Search</title>
       </Head>
       <PageContainer maxWidth="1000px">
-        <InterviewsPage interviewPosts={interviewPosts} />
+        <SearchContainer allPosts={allPosts} />
       </PageContainer>
     </>
   );

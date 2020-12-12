@@ -11,10 +11,10 @@ import {
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
-  Icon,
 } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import { HamburgerIcon } from '@chakra-ui/icons';
+import { SearchModal } from './search/SearchModal';
 
 const StickyNav = styled(Flex)`
   position: sticky;
@@ -26,6 +26,7 @@ const StickyNav = styled(Flex)`
 
 const Navigation: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   function DrawerNav() {
     const btnRef = React.useRef();
 
@@ -198,8 +199,10 @@ const Navigation: React.FC = () => {
               About
             </Button>
           </NextLink>
+          <SearchModal />
         </Box>
         <Box color="#ffffff" display={['block', 'block', 'block', 'none']}>
+          <SearchModal />
           <Button
             as="button"
             variant="link"
