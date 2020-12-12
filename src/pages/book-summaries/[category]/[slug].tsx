@@ -21,7 +21,7 @@ import {
 } from '../../../utils/mdxUtils';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
-import ReadMore from '../../../components/partials/ReadMore';
+import ReadMore from '../../../components/ReadMore';
 import CategoryTag from '../../../components/partials/CategoryTag';
 
 interface Props {
@@ -149,7 +149,6 @@ export const getStaticPaths = async () => {
       return { params: { slug: splitSlug[1], category: splitSlug[0] } };
     });
 
-  // console.log('paths: ', paths);
   return {
     paths,
     fallback: false,
