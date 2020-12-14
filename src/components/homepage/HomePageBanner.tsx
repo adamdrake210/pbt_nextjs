@@ -29,7 +29,7 @@ export default function HomePageBanner({ post, pageCategory, cta }) {
             justifyContent="flex-start"
           >
             <Image
-              src={`https://res.cloudinary.com/dg2r37ygd/image/upload/c_scale,h_345,w_500/v1605448173/images/${pageCategory}/${slug}_${imageUniqueIdentifier}.jpg`}
+              src={`https://res.cloudinary.com/dg2r37ygd/image/upload/c_scale,h_345,w_500/images/${pageCategory}/${slug}_${imageUniqueIdentifier}.jpg`}
               alt={`${title}`}
               w={['100%', '100%', '100%', '50%']}
               mr={[0, 0, 0, 4]}
