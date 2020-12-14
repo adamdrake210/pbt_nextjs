@@ -23,7 +23,7 @@ export const ImageFlexCenter: React.FC<Props> = ({
   return (
     <Flex justifyContent="center" alignItems="center" mt={marginTop || 3}>
       <Image
-        src={`https://res.cloudinary.com/dg2r37ygd/image/upload/${imageSize}/v1605448126/images/${imageCategory}/${src}.jpg`}
+        src={`https://res.cloudinary.com/dg2r37ygd/image/upload/${imageSize}/images/${imageCategory}/${src}.jpg`}
         alt={altText}
         w={width}
         h={height}
