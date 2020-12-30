@@ -130,8 +130,9 @@ export default function EmailSubscription() {
             >
               <Input
                 aria-label="Email Newsletter Subscription First Name"
-                placeholder="First Name"
+                placeholder="First Name*"
                 focusBorderColor="teal.300"
+                required
                 ref={firstNameInputRef}
                 type="text"
                 backgroundColor="#fff"
@@ -139,8 +140,9 @@ export default function EmailSubscription() {
               />
               <Input
                 aria-label="Email Newsletter Subscription Email"
-                placeholder="example@email.com"
+                placeholder="example@email.com*"
                 focusBorderColor="teal.300"
+                required
                 ref={emailInputRef}
                 type="email"
                 backgroundColor="#fff"
