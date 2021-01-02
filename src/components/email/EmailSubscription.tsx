@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react';
+import { useRouter } from 'next/router';
 import {
   Heading,
   Text,
   Input,
   InputGroup,
-  InputRightElement,
   Button,
   Box,
   useToast,
@@ -18,6 +18,7 @@ export default function EmailSubscription() {
   const emailInputRef = useRef(null);
   const firstNameInputRef = useRef(null);
   const toast = useToast();
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
   const subscribe = async (event: any) => {
@@ -58,21 +59,12 @@ export default function EmailSubscription() {
         });
         return;
       }
-
-      emailInput = '';
-      setIsLoading(false);
-      toast({
-        title: 'Success!',
-        description: 'You are now subscribed.',
-        status: 'success',
-        duration: 4000,
-        isClosable: true,
-      });
       ga_event({
         action: 'email_subscription',
         category: 'form',
         label: window.location.href,
       });
+      router.push('/lps/email-signup-success');
     } else {
       toast({
         title: 'An error occurred.',
