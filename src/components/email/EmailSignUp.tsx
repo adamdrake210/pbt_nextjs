@@ -21,15 +21,18 @@ export const EmailSignUp: React.FC<Props> = ({ interviewPosts }) => {
         Thank you.
       </Heading>
       <Text fontSize={['2xl']} px={[4, 4, 4, 0]} mb={4}>
-        Please find your download link to our ultimate guide to reading:
-        <br></br>
-        <Link href="#" color="green.300" textDecoration="underline">
-          Click here to download
-        </Link>
+        <strong>Please check your emails</strong>. You should have received an
+        email with the the download link to our Ultimate Guide to Reading. Happy
+        Reading!
+      </Text>
+      <Text fontSize={['lg']} px={[4, 4, 4, 0]} mb={4}>
+        Thank you for joining the Paperback Travels mailing list. We will
+        endeavour to only send you interesting and relevant content and we
+        promise not to send emails too often. That way when you do receive them
+        they will hopefully be something special.
       </Text>
       <Text fontSize={['lg']} px={[4, 4, 4, 0]}>
-        You have successfully joined the Paperback Travels mailing list. Please
-        feel free to continue checking out the great interviews and articles on
+        Want to read some more? Check out these great interviews and articles on
         our site.
       </Text>
       <ReadMoreInterviews interviewPosts={interviewPosts} />
