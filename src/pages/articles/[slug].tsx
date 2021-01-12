@@ -31,6 +31,7 @@ const components = {
   Box: Box,
   AmazonCta: AmazonCta,
   Image266x400: Image266x400,
+  Image960x660: Image960x660,
 };
 
 export default function InterviewLayout({ frontMatter, source }: Props) {
