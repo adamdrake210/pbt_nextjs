@@ -9,7 +9,7 @@ type Props = {
 
 export const EmailSignUp: React.FC<Props> = ({ interviewPosts }) => {
   return (
-    <Flex mt={[4, 4, 4, 12]} w="100%" direction="column">
+    <Flex mt={[4, 4, 4, 20]} w="100%" direction="column">
       <Heading
         as="h1"
         size="xl"
@@ -18,22 +18,22 @@ export const EmailSignUp: React.FC<Props> = ({ interviewPosts }) => {
         fontSize={['4xl', '5xl']}
         mb={4}
       >
-        Thank you.
+        You've got mail!
       </Heading>
-      <Text fontSize={['2xl']} px={[4, 4, 4, 0]} mb={4}>
-        <strong>Please check your emails</strong>. You should have received an
-        email with the the download link to our Ultimate Guide to Reading. Happy
-        Reading!
-      </Text>
+      <Flex flexDirection="column" alignItems="center" w="100%" mb={4}>
+        <Text fontSize={['3xl']} px={[4, 4, 4, 0]} mb={4}>
+          Please check your inbox to download your pdf:
+          <br />{' '}
+          <strong>
+            How To Build An Effective Reading Habit in{' '}
+            {new Date().getFullYear()}.
+          </strong>
+        </Text>
+      </Flex>
       <Text fontSize={['lg']} px={[4, 4, 4, 0]} mb={4}>
-        Thank you for joining the Paperback Travels mailing list. We will
-        endeavour to only send you interesting and relevant content and we
-        promise not to send emails too often. That way when you do receive them
-        they will hopefully be something special.
-      </Text>
-      <Text fontSize={['lg']} px={[4, 4, 4, 0]}>
-        Want to read some more? Check out these great interviews and articles on
-        our site.
+        Thank you for visiting Paperback Travels, we hope you will keep coming
+        back. Below are some recent articles we think you will enjoy. James and
+        Adam
       </Text>
       <ReadMoreInterviews interviewPosts={interviewPosts} />
     </Flex>

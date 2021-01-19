@@ -10,6 +10,7 @@ import {
   useToast,
   Spinner,
   Flex,
+  Image,
 } from '@chakra-ui/react';
 import { isValidEmail } from '../../helpers/validators';
 import { ga_event } from '../../helpers/gtag';
@@ -106,13 +107,20 @@ export default function EmailSubscription() {
             maxW={400}
             boxShadow="0 10px 24px 0 rgba(54, 61, 77, 0.15)"
           >
-            <Heading size="lg" color="black">
-              Join the List
+            <Flex flexDirection="column" alignItems="center" w="100%" mb={4}>
+              <Image
+                maxWidth="300px"
+                src="https://res.cloudinary.com/dg2r37ygd/image/upload/v1611056951/images/site/reading_guide_hqdzbx.jpg"
+                alt="Building a reading habit pdf"
+              />
+            </Flex>
+            <Heading size="md" color="black">
+              Want to Build an Effective Reading Habit?
             </Heading>
             <Text>
-              Join our mailing list to receive occasional emails containing
-              interviews with professionals from all areas. Find out the books
-              they read to become successful.
+              Subscribe to our sporadic newsletter and we will send you a pdf
+              guide about{' '}
+              <strong>How to Build an Effective Reading Habit in 2021</strong>.
             </Text>
             <InputGroup
               size="md"
@@ -148,7 +156,7 @@ export default function EmailSubscription() {
                 color="white"
                 my={2}
               >
-                Join the club
+                Subscribe{' '}
               </Button>
             </InputGroup>
           </Box>
