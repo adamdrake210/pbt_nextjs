@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heading, Flex, Box, Text, Image, Tag } from '@chakra-ui/react';
+import { CLOUDINARY_URL } from '../../constants';
 
 const BookPreviewCard = ({
   category,
@@ -24,7 +25,7 @@ const BookPreviewCard = ({
         justifyContent="center"
       >
         <Image
-          src={`https://res.cloudinary.com/dg2r37ygd/image/upload/c_scale,h_90,w_140/images/book-summaries/${slug}_${imageUniqueIdentifier}.jpg`}
+          src={`${CLOUDINARY_URL}c_scale,h_90,w_140/images/book-summaries/${slug}_${imageUniqueIdentifier}.jpg`}
           alt={`${author} - ${title}`}
           w={90}
           h={140}

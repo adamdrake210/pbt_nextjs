@@ -41,6 +41,7 @@ export default function InterviewLayout({ frontMatter, source }: Props) {
     <PageContainer maxWidth="728px">
       <PageSeo
         {...frontMatter}
+        type="interviews"
         url={`https://paperbacktravels.com/interviews/${slug}`}
       />
       <Image960x660

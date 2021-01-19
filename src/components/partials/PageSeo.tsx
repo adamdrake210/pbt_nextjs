@@ -1,14 +1,17 @@
 import React from 'react';
 import { NextSeo, ArticleJsonLd } from 'next-seo';
+import { CLOUDINARY_URL } from '../../constants';
 
-interface Props {
+type Props = {
   title: string;
   description: string;
   publishedDate: string;
   slug: string;
   url: string;
   author?: string;
-}
+  imageUniqueIdentifier?: string;
+  type: string;
+};
 
 const PageSeo: React.FC<Props> = ({
   title,
@@ -17,9 +20,11 @@ const PageSeo: React.FC<Props> = ({
   slug,
   url,
   author,
+  imageUniqueIdentifier,
+  type,
 }) => {
   const featuredImage = {
-    url: `./images/book-summaries/${slug}.jpg`,
+    url: `${CLOUDINARY_URL}images/${type}/${slug}_${imageUniqueIdentifier}.jpg`,
     alt: title,
   };
 
