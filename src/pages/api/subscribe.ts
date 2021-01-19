@@ -1,5 +1,5 @@
 export default async (req, res) => {
-  const { email } = req.body;
+  const { email, firstName } = req.body;
 
   if (!email) {
     return res.status(400).json({ error: 'Email is required' });
@@ -10,7 +10,13 @@ export default async (req, res) => {
     const response = await fetch(
       `https://us10.api.mailchimp.com/3.0/lists/7c8759de1d/members/`,
       {
-        body: JSON.stringify({ email_address: email, status: 'subscribed' }),
+        body: JSON.stringify({
+          email_address: email,
+          status: 'subscribed',
+          merge_fields: {
+            FNAME: firstName,
+          },
+        }),
         headers: {
           Authorization: `Token ${API_KEY}`,
           'Content-Type': 'application/json',

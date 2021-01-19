@@ -4,7 +4,7 @@ import { Heading, Box, Flex, Text } from '@chakra-ui/react';
 import PageSeo from '../../components/partials/PageSeo';
 import dynamic from 'next/dynamic';
 import { FrontMatterArticles } from '../../types/types';
-import EmailSubscription from '../../components/partials/EmailSubscription';
+import EmailSubscription from '../../components/email/EmailSubscription';
 import { AmazonAdvert } from '../../components/adverts/AmazonAdvert';
 import { Image960x660 } from '../../components/image_components/Image960x660';
 import { AmazonCta } from '../../components/partials/AmazonCta';

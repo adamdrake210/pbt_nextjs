@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Flex, Box, Heading } from '@chakra-ui/react';
 import HomePageBanner from '../components/homepage/HomePageBanner';
 import BookSummariesHomePage from '../components/homepage/BookSummariesHomePage';
-import EmailSubscription from '../components/partials/EmailSubscription';
+import EmailSubscription from '../components/email/EmailSubscription';
 import Quote from '../components/partials/Quote';
 import { sortNumberByPublishedDateRemote } from '../helpers/sortNumberByPublishedDate';
 

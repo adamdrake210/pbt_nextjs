@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Flex, Text, Box, Link, Heading } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { InterviewsContentFrontMatter } from '../types/types';
-import EmailSubscription from '../components/partials/EmailSubscription';
+import EmailSubscription from '../components/email/EmailSubscription';
 import InterviewPreviewCard from '../components/cards/InterviewPreviewCard';
 import { sortNumberByPublishedDateRemote } from '../helpers/sortNumberByPublishedDate';
 
