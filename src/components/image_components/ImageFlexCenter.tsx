@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, Flex } from '@chakra-ui/react';
+import { CLOUDINARY_URL } from '../../constants';
 
 interface Props {
   src: string;
@@ -23,7 +24,7 @@ export const ImageFlexCenter: React.FC<Props> = ({
   return (
     <Flex justifyContent="center" alignItems="center" mt={marginTop || 3}>
       <Image
-        src={`https://res.cloudinary.com/dg2r37ygd/image/upload/${imageSize}/images/${imageCategory}/${src}.jpg`}
+        src={`${CLOUDINARY_URL}${imageSize}/images/${imageCategory}/${src}.jpg`}
         alt={altText}
         w={width}
         h={height}

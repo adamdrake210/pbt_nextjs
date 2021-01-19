@@ -1,6 +1,7 @@
 import React from 'react';
 import { Flex, Text, Box, Link, Tag, Image, Heading } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import { CLOUDINARY_URL } from '../../constants';
 
 export default function HomePageBanner({ post, pageCategory, cta }) {
   const { slug, title, description, readingTime, imageUniqueIdentifier } = post;
@@ -29,7 +30,7 @@ export default function HomePageBanner({ post, pageCategory, cta }) {
             justifyContent="flex-start"
           >
             <Image
-              src={`https://res.cloudinary.com/dg2r37ygd/image/upload/c_scale,h_345,w_500/images/${pageCategory}/${slug}_${imageUniqueIdentifier}.jpg`}
+              src={`${CLOUDINARY_URL}c_scale,h_345,w_500/images/${pageCategory}/${slug}_${imageUniqueIdentifier}.jpg`}
               alt={`${title}`}
               w={['100%', '100%', '100%', '50%']}
               mr={[0, 0, 0, 4]}

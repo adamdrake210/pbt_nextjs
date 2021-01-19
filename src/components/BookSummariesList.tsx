@@ -3,6 +3,7 @@ import { Heading, Flex, Box, Link, Image } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 import { BookSummaryContentFrontMatter } from '../types/types';
+import { CLOUDINARY_URL } from '../constants';
 
 export default function BookSummariesList({ bookSummaryPosts }) {
   const [categories, setCategories] = useState([]);
@@ -75,7 +76,7 @@ export default function BookSummariesList({ bookSummaryPosts }) {
             </Heading>
 
             <Image
-              src={`https://res.cloudinary.com/dg2r37ygd/image/upload/c_scale,h_300,w_205/images/book-summaries/${findCategoryImage(
+              src={`${CLOUDINARY_URL}c_scale,h_300,w_205/images/book-summaries/${findCategoryImage(
                 category,
               )}.jpg`}
               alt={`Book Category - ${category}`}

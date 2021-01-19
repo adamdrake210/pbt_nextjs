@@ -48,7 +48,6 @@ export default function BookSummaryLayout({ frontMatter, source }: Props) {
     category,
     intro,
     readTime,
-    tags,
   } = frontMatter;
   const content = hydrate(source, { components });
 
@@ -56,6 +55,7 @@ export default function BookSummaryLayout({ frontMatter, source }: Props) {
     <PageContainer maxWidth="728px">
       <PageSeo
         {...frontMatter}
+        type="book-summaries"
         url={`https://paperbacktravels.com/book-summaries/${category.toLowerCase()}/${slug.toLowerCase()}`}
       />
       <Flex
