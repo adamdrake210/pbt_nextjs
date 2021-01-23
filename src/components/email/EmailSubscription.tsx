@@ -114,13 +114,19 @@ export default function EmailSubscription() {
                 alt="Building a reading habit pdf"
               />
             </Flex>
-            <Heading size="md" color="black">
-              Want to Build an Effective Reading Habit?
+            <Heading size="md" color="black" textAlign="center" mb={2}>
+              Want to Build an <br />
+              Effective Reading Habit?
             </Heading>
-            <Text>
-              Subscribe to our sporadic newsletter and we will send you a pdf
-              guide about{' '}
-              <strong>How to Build an Effective Reading Habit in 2021</strong>.
+            <Text textAlign="center">
+              Subscribe to our sporadic newsletter <br />
+              and we will send you a pdf guide:
+              <br />
+              <strong>
+                How to Build an Effective <br />
+                Reading Habit in {new Date().getFullYear()}
+              </strong>
+              .
             </Text>
             <InputGroup
               size="md"
