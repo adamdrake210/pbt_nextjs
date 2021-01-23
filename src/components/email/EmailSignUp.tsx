@@ -41,8 +41,7 @@ export const EmailSignUp: React.FC<Props> = () => {
         </Text>
         <Text fontSize={['lg']} px={[4, 4, 4, 0]} mb={4} textAlign="center">
           Thank you for visiting Paperback Travels, we hope you will keep coming
-          back. Below are some recent articles we think you will enjoy. James
-          and Adam
+          back. James and Adam
         </Text>
       </Flex>
     </Flex>
