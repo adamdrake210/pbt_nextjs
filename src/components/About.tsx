@@ -1,6 +1,6 @@
 import React from 'react';
 import { Heading, Text, Box, Divider } from '@chakra-ui/react';
-import EmailSubscription from './partials/EmailSubscription';
+import EmailSubscription from './email/EmailSubscription';
 
 export const About: React.FC = () => {
   return (

@@ -5,7 +5,7 @@ import NextLink from 'next/link';
 import PageSeo from '../../../components/partials/PageSeo';
 import dynamic from 'next/dynamic';
 import { FrontMatterBookSummaries } from '../../../types/types';
-import EmailSubscription from '../../../components/partials/EmailSubscription';
+import EmailSubscription from '../../../components/email/EmailSubscription';
 import { AmazonAdvert } from '../../../components/adverts/AmazonAdvert';
 import { AmazonCta } from '../../../components/partials/AmazonCta';
 import { Image266x400 } from '../../../components/image_components/Image266x400';
@@ -21,7 +21,7 @@ import {
 } from '../../../utils/mdxUtils';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
-import ReadMore from '../../../components/ReadMore';
+import ReadMore from '../../../components/readmore/ReadMoreBookSummaries';
 import CategoryTag from '../../../components/partials/CategoryTag';
 
 interface Props {
