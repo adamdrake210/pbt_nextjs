@@ -22,7 +22,8 @@ import {
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 import ReadMore from '../../../components/readmore/ReadMoreBookSummaries';
-import CategoryTag from '../../../components/partials/CategoryTag';
+import CategoryTag from '@/components/partials/CategoryTag';
+import WrittenBy from '@/common/components/WrittenBy';
 
 interface Props {
   frontMatter: FrontMatterBookSummaries;
@@ -72,12 +73,7 @@ export default function BookSummaryLayout({ frontMatter, source }: Props) {
           </Heading>
         </Box>
         <Flex p={0} mb={8} w="100%" justifyContent="center">
-          <>
-            <Text>Written By {writtenBy} - </Text>
-            <Text fontStyle="italic" color="grey" ml={1}>
-              {readTime.text}
-            </Text>
-          </>
+          <WrittenBy writtenBy={writtenBy} readTime={readTime} />
         </Flex>
         <Image266x400
           src={`${slug}_${imageUniqueIdentifier}`}
