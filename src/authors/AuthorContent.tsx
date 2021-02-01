@@ -34,7 +34,7 @@ export default function AuthorContent({ authorPosts, authorName }: Props) {
     <Flex maxW="600px" direction="column" alignItems="center">
       <Heading
         as="h2"
-        fontSize={['4xl', '5xl']}
+        fontSize={['3xl', '5xl']}
         mb={4}
         w="100%"
         textAlign="center"

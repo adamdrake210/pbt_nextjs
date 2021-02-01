@@ -20,9 +20,7 @@ export default function AuthorContainer({ authorPosts, authorName }: Props) {
     <Flex mt={[2, 2, 2, 12]} w="100%" direction="column" alignItems="center">
       <AuthorContent authorPosts={authorPosts} authorName={authorName} />
 
-      <Box as="section" px={[4, 8]}>
-        <EmailSubscription />
-      </Box>
+      <EmailSubscription />
     </Flex>
   );
 }
