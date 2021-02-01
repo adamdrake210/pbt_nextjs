@@ -1,4 +1,13 @@
 {
   "presets": ["next/babel"],
-  "plugins": ["import-glob-array"]
+  "plugins": [
+    ["import-glob-array"],
+    [
+      "babel-plugin-root-import",
+      {
+        "rootPathSuffix": "src",
+        "rootPathPrefix": "@/"
+      }
+    ]
+  ]
 }

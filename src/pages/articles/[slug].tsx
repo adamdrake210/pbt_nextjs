@@ -18,6 +18,7 @@ import path from 'path';
 import { articleFilePaths, ARTICLE_PATH } from '../../utils/mdxUtils';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
+import WrittenBy from '@/common/components/WrittenBy';
 
 type Props = {
   frontMatter: FrontMatterArticles;
@@ -35,7 +36,13 @@ const components = {
 };
 
 export default function InterviewLayout({ frontMatter, source }: Props) {
-  const { title, slug, readTime, imageUniqueIdentifier } = frontMatter;
+  const {
+    title,
+    slug,
+    readTime,
+    imageUniqueIdentifier,
+    writtenBy,
+  } = frontMatter;
   const content = hydrate(source, { components });
 
   return (
@@ -51,7 +58,7 @@ export default function InterviewLayout({ frontMatter, source }: Props) {
         altText={slug}
       />
       <Flex
-        p={[4, 8]}
+        p={[4]}
         pt={[0, 0]}
         w="100%"
         justify={['center']}
@@ -64,14 +71,8 @@ export default function InterviewLayout({ frontMatter, source }: Props) {
             {title}
           </Heading>
         </Box>
-        <Flex p={0} w="100%" justifyContent="center">
-          {readTime && (
-            <>
-              <Text fontStyle="italic" color="grey" ml={1}>
-                {readTime.text}
-              </Text>
-            </>
-          )}
+        <Flex p={0} w="100%" justifyContent="center" alignItems="center">
+          <WrittenBy writtenBy={writtenBy} readTime={readTime} />
         </Flex>
       </Flex>
       <AmazonAdvert />

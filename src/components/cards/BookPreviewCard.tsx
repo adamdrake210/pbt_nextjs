@@ -1,8 +1,9 @@
 import React from 'react';
 import { Heading, Flex, Box, Text, Image, Tag } from '@chakra-ui/react';
-import { CLOUDINARY_URL } from '../../constants';
+import { CLOUDINARY_URL } from '@/constants';
+import { FrontMatterBookSummaries } from '@/types/types';
 
-const BookPreviewCard = ({
+export default function BookPreviewCard({
   category,
   slug,
   author,
@@ -10,7 +11,7 @@ const BookPreviewCard = ({
   intro,
   readTime,
   imageUniqueIdentifier,
-}) => {
+}: Partial<FrontMatterBookSummaries>) {
   return (
     <Box
       key={category}
@@ -43,14 +44,14 @@ const BookPreviewCard = ({
             <Tag colorScheme="cyan" size="md" mt={2} width="116px">
               Read Summary
             </Tag>
-            <Text fontStyle="italic" color="grey" mt={1}>
-              {`${readTime.text}`}
-            </Text>
+            {readTime && (
+              <Text fontStyle="italic" color="grey" mt={1}>
+                {`${readTime.text}`}
+              </Text>
+            )}
           </Box>
         </Flex>
       </Flex>
     </Box>
   );
-};
-
-export default BookPreviewCard;
+}

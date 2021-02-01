@@ -10,7 +10,20 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 
-const SearchPreviewCard = ({ frontMatter }) => {
+type Props = {
+  frontMatter: {
+    title: string;
+    description: string;
+    readTime?: {
+      text: string;
+    };
+    slug: string;
+    layout: string;
+    tags: string;
+  };
+};
+
+const PreviewCardWithTags = ({ frontMatter }: Props) => {
   const { title, description, readTime, slug, layout, tags } = frontMatter;
 
   const typeOfPost = () => {
@@ -49,9 +62,11 @@ const SearchPreviewCard = ({ frontMatter }) => {
               <TagLabel>Read Post</TagLabel>
               <TagRightIcon as={ArrowForwardIcon} />
             </Tag>
-            <Text fontStyle="italic" color="grey" mt={1}>
-              {`${readTime.text}`}
-            </Text>
+            {readTime && (
+              <Text fontStyle="italic" color="grey" mt={1}>
+                {`${readTime.text}`}
+              </Text>
+            )}
             <Heading fontSize="md" mt={3} color="cyan.900">
               Tags
             </Heading>
@@ -74,4 +89,4 @@ const SearchPreviewCard = ({ frontMatter }) => {
   );
 };
 
-export default SearchPreviewCard;
+export default PreviewCardWithTags;
