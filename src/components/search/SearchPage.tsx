@@ -12,8 +12,9 @@ import React, { useEffect, useState } from 'react';
 import NextLink from 'next/link';
 import { sortNumberByPublishedDateRemote } from '../../helpers/sortNumberByPublishedDate';
 import { SearchIcon } from '@chakra-ui/icons';
-import SearchPreviewCard from './SearchPreviewCard';
+import PreviewCardWithTags from '@/components/cards/PreviewCardWithTags';
 import { useRouter } from 'next/router';
+import { createPostUrl } from '@/helpers/createPostUrl';
 
 type Props = {
   allPosts: any;
@@ -54,15 +55,6 @@ export default function SearchPage({ allPosts }: Props) {
       newList = allPosts;
     }
     setSortedPosts(newList);
-  };
-
-  const createPostUrl = frontMatter => {
-    const { layout, slug, category } = frontMatter;
-
-    if (layout) {
-      return `/${layout}s/${slug}`;
-    }
-    return `/book-summaries/${category}/${slug}`;
   };
 
   useEffect(() => {
@@ -121,7 +113,7 @@ export default function SearchPage({ allPosts }: Props) {
                     }}
                     mb={4}
                   >
-                    <SearchPreviewCard frontMatter={data} />
+                    <PreviewCardWithTags frontMatter={data} />
                   </Link>
                 </NextLink>
               );
