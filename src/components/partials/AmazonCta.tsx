@@ -9,7 +9,6 @@ type Props = {
 
 export const AmazonCta: React.FC<Props> = ({ link, bookSummary }) => {
   const handleAmazonEvent = () => {
-    console.log('Amazon Event!: ', window.location.href + link);
     ga_event({
       action: 'amazon_clicks',
       category: 'affiliate',
