@@ -6,7 +6,7 @@ import {
   ArticlesContentFrontMatter,
   BookSummaryContentFrontMatter,
 } from '@/types/types';
-import AuthorContent from '@/authors/AuthorContent';
+import AuthorContent from '@/modules/authors/AuthorContent';
 
 type Props = {
   authorPosts: Array<

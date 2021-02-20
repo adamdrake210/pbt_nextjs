@@ -3,17 +3,41 @@ import { Flex, Text, Box, Link, Tag, Image, Heading } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { CLOUDINARY_URL } from '../../constants';
 
-export default function HomePageBanner({ post, pageCategory, cta }) {
+type Props = {
+  post: any;
+  pageCategory: string;
+  cta: string;
+  pageTitle: string;
+};
+
+export default function HomePageBanner({
+  post,
+  pageCategory,
+  cta,
+  pageTitle,
+}: Props) {
   const { slug, title, description, readingTime, imageUniqueIdentifier } = post;
 
   return (
     <Box
+      as="section"
       w="100%"
       shadow={['none', 'none', 'none', 'sm']}
       p={4}
       mb={8}
       borderBottom="5px solid #00A3C4"
     >
+      <Heading
+        as="h2"
+        fontSize={['4xl', '5xl']}
+        mb={4}
+        w="100%"
+        textAlign={['center', 'center', 'left']}
+        color="cyan.900"
+        px={[4]}
+      >
+        {pageTitle}
+      </Heading>
       <NextLink
         as={`/${pageCategory}/${slug}`}
         href={`/${pageCategory}/[slug]`}
