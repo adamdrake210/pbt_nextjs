@@ -23,7 +23,7 @@ import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 import ReadMore from '../../../components/readmore/ReadMoreBookSummaries';
 import CategoryTag from '@/components/partials/CategoryTag';
-import WrittenBy from '@/common/components/WrittenBy';
+import WrittenBy from '@/modules/common/components/WrittenBy';
 
 interface Props {
   frontMatter: FrontMatterBookSummaries;

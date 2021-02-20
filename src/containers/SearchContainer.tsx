@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Flex, Heading, Spinner } from '@chakra-ui/react';
-import SearchPage from '../components/search/SearchPage';
+import SearchPage from '@/modules/search/SearchPage';
 
 type Props = {
   allPosts: any;

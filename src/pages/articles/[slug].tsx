@@ -18,7 +18,7 @@ import path from 'path';
 import { articleFilePaths, ARTICLE_PATH } from '../../utils/mdxUtils';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
-import WrittenBy from '@/common/components/WrittenBy';
+import WrittenBy from '@/modules/common/components/WrittenBy';
 
 type Props = {
   frontMatter: FrontMatterArticles;

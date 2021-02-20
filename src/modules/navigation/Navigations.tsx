@@ -14,7 +14,8 @@ import {
 } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 import { HamburgerIcon } from '@chakra-ui/icons';
-import { SearchModal } from './search/SearchModal';
+import { SearchModal } from '@/modules/search/SearchModal';
+import LogoIcon from '@/modules/common/icons/LogoIcon';
 
 const StickyNav = styled(Flex)`
   position: sticky;
@@ -143,6 +144,9 @@ const Navigation: React.FC = () => {
               p={[1, 2]}
               fontFamily="Eczar"
             >
+              <Box mr={1} mb={1}>
+                <LogoIcon boxSize={[5, 6, 8]} />
+              </Box>
               PAPERBACK TRAVELS
             </Button>
           </NextLink>
