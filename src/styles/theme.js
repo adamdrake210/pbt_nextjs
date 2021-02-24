@@ -12,6 +12,9 @@ const theme = extendTheme({
   ...chakraTheme,
   styles: {
     global: {
+      html: {
+        fontSize: '110%',
+      },
       '#__next': {
         display: 'flex',
         flexDirection: 'column',
