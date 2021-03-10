@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Flex, Text, Box, Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { ArticlesContentFrontMatter } from '../types/types';
-import EmailSubscription from '../components/email/EmailSubscription';
-import ArticlePreviewCard from '../components/cards/ArticlePreviewCard';
+import EmailSubscriptionForm from '@/modules/email/EmailSubscriptionForm';
+import ArticlePreviewCard from '@/modules/common/cards/ArticlePreviewCard';
 import { sortNumberByPublishedDateRemote } from '../helpers/sortNumberByPublishedDate';
 
 export default function ArticlesPage({ articlePosts }) {
@@ -58,7 +58,7 @@ export default function ArticlesPage({ articlePosts }) {
         </Flex>
       </Box>
       <Box as="section" px={[4, 8]}>
-        <EmailSubscription />
+        <EmailSubscriptionForm />
       </Box>
     </Flex>
   );

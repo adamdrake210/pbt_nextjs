@@ -12,10 +12,10 @@ import {
   Flex,
   Image,
 } from '@chakra-ui/react';
-import { isValidEmail } from '../../helpers/validators';
-import { ga_event } from '../../helpers/gtag';
+import { isValidEmail } from '@/helpers/validators';
+import { ga_event } from '@/helpers/gtag';
 
-export default function EmailSubscription() {
+export default function EmailSubscriptionForm() {
   const emailInputRef = useRef(null);
   const firstNameInputRef = useRef(null);
   const toast = useToast();

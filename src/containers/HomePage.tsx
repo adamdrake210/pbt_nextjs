@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Flex, Box, Heading } from '@chakra-ui/react';
-import HomePageBanner from '../components/homepage/HomePageBanner';
-import BookSummariesHomePage from '../components/homepage/BookSummariesHomePage';
-import EmailSubscription from '../components/email/EmailSubscription';
-import Quote from '../components/partials/Quote';
-import { sortNumberByPublishedDateRemote } from '../helpers/sortNumberByPublishedDate';
+import { Flex, Box } from '@chakra-ui/react';
+import HomePageBanner from '@/modules/homepage/HomePageBanner';
+import BookSummariesHomePage from '@/modules/homepage/BookSummariesHomePage';
+import EmailSubscriptionForm from '@/modules/email/EmailSubscriptionForm';
+import Quote from '@/modules/common/Quote';
+import { sortNumberByPublishedDateRemote } from '@/helpers/sortNumberByPublishedDate';
 
 export default function Homepage({
   interviewPosts,
@@ -40,7 +40,7 @@ export default function Homepage({
       )}
       <BookSummariesHomePage bookSummariesPosts={bookSummariesPosts} />
       <Box as="section">
-        <EmailSubscription />
+        <EmailSubscriptionForm />
       </Box>
     </Flex>
   );

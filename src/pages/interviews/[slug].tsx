@@ -1,21 +1,21 @@
 import React from 'react';
-import PageContainer from '../../containers/PageContainer';
+import PageContainer from '@/containers/PageContainer';
 import { Heading, Box, Flex, Text } from '@chakra-ui/react';
-import PageSeo from '../../components/partials/PageSeo';
+import PageSeo from '@/modules/common/PageSeo';
 import dynamic from 'next/dynamic';
-import { FrontMatterInterviews } from '../../types/types';
-import EmailSubscription from '../../components/email/EmailSubscription';
-import { AmazonAdvert } from '../../components/adverts/AmazonAdvert';
-import { Image960x660 } from '../../components/image_components/Image960x660';
-import { AmazonCta } from '../../components/partials/AmazonCta';
-import { Image266x400 } from '../../components/image_components/Image266x400';
+import { FrontMatterInterviews } from '@/types/types';
+import EmailSubscriptionForm from '@/modules/email/EmailSubscriptionForm';
+import { AmazonAdvert } from '@/modules/adverts/AmazonAdvert';
+import { Image960x660 } from '@/modules/common/images/Image960x660';
+import { AmazonCta } from '@/modules/common/AmazonCta';
+import { Image266x400 } from '@/modules/common/images/Image266x400';
 import readingTime from 'reading-time';
 
 // Remote packages
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
-import { interviewFilePaths, INTERVIEW_PATH } from '../../utils/mdxUtils';
+import { interviewFilePaths, INTERVIEW_PATH } from '@/utils/mdxUtils';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
 
@@ -78,7 +78,7 @@ export default function InterviewLayout({ frontMatter, source }: Props) {
         {content}
       </Box>
       <AmazonAdvert />
-      <EmailSubscription />
+      <EmailSubscriptionForm />
     </PageContainer>
   );
 }

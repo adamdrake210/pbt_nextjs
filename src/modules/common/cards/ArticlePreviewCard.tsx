@@ -1,29 +1,23 @@
 import React from 'react';
 import { Heading, Flex, Box, Text, Image, Tag } from '@chakra-ui/react';
-import { CLOUDINARY_URL } from '../../constants';
+import { CLOUDINARY_URL } from '@/constants';
 
-const InterviewPreviewCard = ({
+const ArticlePreviewCard = ({
   slug,
   title,
+  imageUniqueIdentifier,
   description,
   readTime,
-  imageUniqueIdentifier,
 }) => {
   return (
-    <Box
-      key={imageUniqueIdentifier}
-      w="100%"
-      shadow="sm"
-      borderBottom="5px solid #00A3C4"
-      p={4}
-    >
+    <Box key={slug} w="100%" shadow="sm" p={4} borderBottom="5px solid #00A3C4">
       <Flex
         flexDirection={['column', 'row']}
         alignItems="center"
         justifyContent="center"
       >
         <Image
-          src={`${CLOUDINARY_URL}c_scale,h_205,w_300/images/interviews/${slug}_${imageUniqueIdentifier}.jpg`}
+          src={`${CLOUDINARY_URL}c_scale,h_205,w_300/images/articles/${slug}_${imageUniqueIdentifier}.jpg`}
           alt={title}
           w={['100%', 300]}
           mr={[0, 0, 4]}
@@ -36,7 +30,7 @@ const InterviewPreviewCard = ({
           <Text mt={2}>{description}</Text>
           <Box w="100%" textAlign={['center', 'left']}>
             <Tag colorScheme="cyan" size="md" mt={2} width="116px">
-              Read Interview
+              Read Article
             </Tag>
             <Text fontStyle="italic" color="grey" mt={1}>
               {`${readTime.text}`}
@@ -48,4 +42,4 @@ const InterviewPreviewCard = ({
   );
 };
 
-export default InterviewPreviewCard;
+export default ArticlePreviewCard;

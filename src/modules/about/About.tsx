@@ -1,6 +1,6 @@
 import React from 'react';
 import { Heading, Text, Box, Divider } from '@chakra-ui/react';
-import EmailSubscription from './email/EmailSubscription';
+import EmailSubscriptionForm from '@/modules/email/EmailSubscriptionForm';
 
 export const About: React.FC = () => {
   return (
@@ -25,7 +25,7 @@ export const About: React.FC = () => {
       </Text>
       <Text>Happy reading!</Text>
       <Divider />
-      <EmailSubscription />
+      <EmailSubscriptionForm />
     </Box>
   );
 };

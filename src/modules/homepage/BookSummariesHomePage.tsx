@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Text, Heading, Box, Link, Button, Tag } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { BookSummaryContentFrontMatter } from '../../types/types';
-import CategoryTag from '../partials/CategoryTag';
-import { sortNumberByPublishedDateRemote } from '../../helpers/sortNumberByPublishedDate';
-import { Image266x400 } from '../image_components/Image266x400';
+import { BookSummaryContentFrontMatter } from '@/types/types';
+import CategoryTag from '@/modules/common/CategoryTag';
+import { sortNumberByPublishedDateRemote } from '@/helpers/sortNumberByPublishedDate';
+import { Image266x400 } from '@/modules/common/images/Image266x400';
 
 export default function BookSummariesHomepage({ bookSummariesPosts }) {
   const [sortedBooks, setSortedBooks] = useState([]);

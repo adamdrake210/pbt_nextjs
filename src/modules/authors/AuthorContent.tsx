@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Flex, Heading, Link } from '@chakra-ui/react';
-import { sortNumberByPublishedDateRemote } from '../../helpers/sortNumberByPublishedDate';
+import { sortNumberByPublishedDateRemote } from '@/helpers/sortNumberByPublishedDate';
 import NextLink from 'next/link';
-import PreviewCardWithTags from '@/components/cards/PreviewCardWithTags';
+import PreviewCardWithTags from '@/modules/common/cards/PreviewCardWithTags';
 import {
   ArticlesContentFrontMatter,
   BookSummaryContentFrontMatter,
