@@ -1,7 +1,7 @@
 import React from 'react';
 import { useColorMode, Flex, Box } from '@chakra-ui/react';
 import Navigation from '@/modules/navigation/Navigations';
-import Footer from '../components/partials/Footer';
+import Footer from '@/modules/common/Footer';
 
 type Props = {
   children: React.ReactNode;

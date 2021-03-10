@@ -1,5 +1,3 @@
-const readingTime = require('reading-time');
-
 module.exports = {
   // Public, build-time env vars.
   // https://nextjs.org/docs#build-time-configuration

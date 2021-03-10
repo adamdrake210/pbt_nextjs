@@ -3,7 +3,7 @@ import React from 'react';
 import { MDXProvider } from '@mdx-js/react';
 import { ChakraProvider } from '@chakra-ui/react';
 import theme from '../styles/theme';
-import MDXComponents from '../components/MDXComponents.tsx';
+import MDXComponents from '@/modules/common/MDXComponents.tsx';
 
 function MyApp({ Component, pageProps }) {
   return (

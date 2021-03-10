@@ -1,14 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
-import PageContainer from '../../containers/PageContainer';
-import BookSummariesList from '../../components/BookSummariesList';
+import PageContainer from '@/containers/PageContainer';
+import BookSummariesList from '@/modules/common/lists/BookSummariesList';
 import readingTime from 'reading-time';
 
-import { bookSummaryFilePaths, BOOK_SUMMARY_PATH } from '../../utils/mdxUtils';
+import { bookSummaryFilePaths, BOOK_SUMMARY_PATH } from '@/utils/mdxUtils';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
-import { BookSummaryContentFrontMatter } from '../../types/types';
+import { BookSummaryContentFrontMatter } from '@/types/types';
 
 type Props = {
   bookSummaryPosts: BookSummaryContentFrontMatter[];

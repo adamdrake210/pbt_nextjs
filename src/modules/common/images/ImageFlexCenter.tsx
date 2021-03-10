@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, Flex } from '@chakra-ui/react';
-import { CLOUDINARY_URL } from '../../constants';
+import { CLOUDINARY_URL } from '@/constants';
 
 interface Props {
   src: string;

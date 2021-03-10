@@ -1,10 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
-import PageContainer from '../../containers/PageContainer';
-import BookCategoryList from '../../components/BookCategoryList';
+import PageContainer from '@/containers/PageContainer';
+import BookCategoryList from '@/modules/common/lists/BookCategoryList';
 import readingTime from 'reading-time';
 
-import { bookSummaryFilePaths, BOOK_SUMMARY_PATH } from '../../utils/mdxUtils';
+import { bookSummaryFilePaths, BOOK_SUMMARY_PATH } from '@/utils/mdxUtils';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';

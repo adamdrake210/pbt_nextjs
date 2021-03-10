@@ -10,9 +10,9 @@ import {
 } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import NextLink from 'next/link';
-import { sortNumberByPublishedDateRemote } from '../../helpers/sortNumberByPublishedDate';
+import { sortNumberByPublishedDateRemote } from '@/helpers/sortNumberByPublishedDate';
 import { SearchIcon } from '@chakra-ui/icons';
-import PreviewCardWithTags from '@/components/cards/PreviewCardWithTags';
+import PreviewCardWithTags from '@/modules/common/cards/PreviewCardWithTags';
 import { useRouter } from 'next/router';
 import { createPostUrl } from '@/helpers/createPostUrl';
 

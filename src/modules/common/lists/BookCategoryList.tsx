@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Heading, Flex, Box, Link, Stack } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { BookSummaryContentFrontMatter } from '../types/types';
-import BookPreviewCard from './cards/BookPreviewCard';
-import { sortNumberByPublishedDateRemote } from '../helpers/sortNumberByPublishedDate';
+import { BookSummaryContentFrontMatter } from '@/types/types';
+import BookPreviewCard from '@/modules/common/cards/BookPreviewCard';
+import { sortNumberByPublishedDateRemote } from '@/helpers/sortNumberByPublishedDate';
 
 interface Props {
   bookSummaryPosts: BookSummaryContentFrontMatter[];

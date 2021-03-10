@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Box } from '@chakra-ui/react';
-import EmailSubscription from '@/components/email/EmailSubscription';
+import EmailSubscriptionForm from '@/modules/email/EmailSubscriptionForm';
 
 import {
   ArticlesContentFrontMatter,
@@ -20,7 +20,7 @@ export default function AuthorContainer({ authorPosts, authorName }: Props) {
     <Flex mt={[2, 2, 2, 12]} w="100%" direction="column" alignItems="center">
       <AuthorContent authorPosts={authorPosts} authorName={authorName} />
 
-      <EmailSubscription />
+      <EmailSubscriptionForm />
     </Flex>
   );
 }

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Heading, Flex, Box, Link, Stack } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { InterviewsContentFrontMatter } from '../../types/types';
-import InterviewPreviewCard from '../cards/InterviewPreviewCard';
+import { InterviewsContentFrontMatter } from '@/types/types';
+import InterviewPreviewCard from '@/modules/common/cards/InterviewPreviewCard';
 
 interface Props {
   interviewPosts: InterviewsContentFrontMatter[];

@@ -2,8 +2,8 @@ import React, { useEffect, useState, ReactElement } from 'react';
 import { Heading, Flex, Box, Link, Image } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
-import { BookSummaryContentFrontMatter } from '../types/types';
-import { CLOUDINARY_URL } from '../constants';
+import { BookSummaryContentFrontMatter } from '@/types/types';
+import { CLOUDINARY_URL } from '@/constants';
 
 export default function BookSummariesList({ bookSummaryPosts }) {
   const [categories, setCategories] = useState([]);

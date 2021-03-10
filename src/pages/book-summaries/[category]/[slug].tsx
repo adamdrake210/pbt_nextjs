@@ -1,29 +1,26 @@
 import React from 'react';
-import PageContainer from '../../../containers/PageContainer';
+import PageContainer from '@/containers/PageContainer';
 import { Heading, Box, Flex, Text, Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import PageSeo from '../../../components/partials/PageSeo';
+import PageSeo from '@/modules/common/PageSeo';
 import dynamic from 'next/dynamic';
-import { FrontMatterBookSummaries } from '../../../types/types';
-import EmailSubscription from '../../../components/email/EmailSubscription';
-import { AmazonAdvert } from '../../../components/adverts/AmazonAdvert';
-import { AmazonCta } from '../../../components/partials/AmazonCta';
-import { Image266x400 } from '../../../components/image_components/Image266x400';
+import { FrontMatterBookSummaries } from '@/types/types';
+import EmailSubscriptionForm from '@/modules/email/EmailSubscriptionForm';
+import { AmazonAdvert } from '@/modules/adverts/AmazonAdvert';
+import { AmazonCta } from '@/modules/common/AmazonCta';
+import { Image266x400 } from '@/modules/common/images/Image266x400';
 import readingTime from 'reading-time';
 
 // Remote packages
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
-import {
-  bookSummaryFilePaths,
-  BOOK_SUMMARY_PATH,
-} from '../../../utils/mdxUtils';
+import { bookSummaryFilePaths, BOOK_SUMMARY_PATH } from '@/utils/mdxUtils';
 import renderToString from 'next-mdx-remote/render-to-string';
 import hydrate from 'next-mdx-remote/hydrate';
-import ReadMore from '../../../components/readmore/ReadMoreBookSummaries';
-import CategoryTag from '@/components/partials/CategoryTag';
-import WrittenBy from '@/modules/common/components/WrittenBy';
+import ReadMore from '@/modules/readmore/ReadMoreBookSummaries';
+import CategoryTag from '@/modules/common/CategoryTag';
+import WrittenBy from '@/modules/common/WrittenBy';
 
 interface Props {
   frontMatter: FrontMatterBookSummaries;
@@ -102,7 +99,7 @@ export default function BookSummaryLayout({ frontMatter, source }: Props) {
       </Box>
       <Box px={[4, 8]}>{content}</Box>
       <AmazonAdvert />
-      <EmailSubscription />
+      <EmailSubscriptionForm />
       {/* <ReadMore tags={tags} category={category} /> */}
     </PageContainer>
   );

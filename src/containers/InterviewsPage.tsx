@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Flex, Text, Box, Link, Heading } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { InterviewsContentFrontMatter } from '../types/types';
-import EmailSubscription from '../components/email/EmailSubscription';
-import InterviewPreviewCard from '../components/cards/InterviewPreviewCard';
-import { sortNumberByPublishedDateRemote } from '../helpers/sortNumberByPublishedDate';
+import { InterviewsContentFrontMatter } from '@/types/types';
+import EmailSubscriptionForm from '@/modules/email/EmailSubscriptionForm';
+import InterviewPreviewCard from '@/modules/common/cards/InterviewPreviewCard';
+import { sortNumberByPublishedDateRemote } from '@/helpers/sortNumberByPublishedDate';
 
 export default function InterviewsPage({ interviewPosts }) {
   const [sortedPosts, setSortedPosts] = useState([]);
@@ -62,7 +62,7 @@ export default function InterviewsPage({ interviewPosts }) {
       </Box>
 
       <Box as="section" px={[4, 8]}>
-        <EmailSubscription />
+        <EmailSubscriptionForm />
       </Box>
     </Flex>
   );

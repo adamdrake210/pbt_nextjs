@@ -1,12 +1,12 @@
 import React from 'react';
 import { Flex, Heading, Text } from '@chakra-ui/react';
-import { InterviewsContentFrontMatter } from '../../types/types';
+import { InterviewsContentFrontMatter } from '@/types/types';
 
 type Props = {
   interviewPosts: InterviewsContentFrontMatter[];
 };
 
-export const EmailSignUp: React.FC<Props> = () => {
+export const EmailSignUpSuccess: React.FC<Props> = () => {
   return (
     <Flex
       mt={[4, 4, 4, 20]}

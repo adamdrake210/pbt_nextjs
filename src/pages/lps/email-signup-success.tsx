@@ -1,20 +1,20 @@
 import React from 'react';
 import Head from 'next/head';
-import PageContainer from '../../containers/PageContainer';
-import { EmailSignUp } from '../../components/email/EmailSignUp';
+import PageContainer from '@/containers/PageContainer';
+import { EmailSignUpSuccess } from '@/modules/email/EmailSignUpSuccess';
 import readingTime from 'reading-time';
 
-import { interviewFilePaths, INTERVIEW_PATH } from '../../utils/mdxUtils';
+import { interviewFilePaths, INTERVIEW_PATH } from '@/utils/mdxUtils';
 import matter from 'gray-matter';
 import fs from 'fs';
 import path from 'path';
-import { InterviewsContentFrontMatter } from '../../types/types';
+import { InterviewsContentFrontMatter } from '@/types/types';
 
 type Props = {
   interviewPosts: InterviewsContentFrontMatter[];
 };
 
-export default function EmailSignUpSuccess({ interviewPosts }: Props) {
+export default function EmailSignUpSuccessPage({ interviewPosts }: Props) {
   return (
     <>
       <Head>
@@ -22,7 +22,7 @@ export default function EmailSignUpSuccess({ interviewPosts }: Props) {
       </Head>
 
       <PageContainer maxWidth="1000px">
-        <EmailSignUp interviewPosts={interviewPosts} />
+        <EmailSignUpSuccess interviewPosts={interviewPosts} />
       </PageContainer>
     </>
   );
