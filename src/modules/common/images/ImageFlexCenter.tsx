@@ -29,6 +29,7 @@ export const ImageFlexCenter: React.FC<Props> = ({
         w={width}
         h={height}
         mb={4}
+        loading="lazy"
       />
     </Flex>
   );
