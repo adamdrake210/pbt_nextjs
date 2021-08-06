@@ -1,10 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
-import HomePage from '@/containers/HomePage';
 import PageContainer from '@/containers/PageContainer';
 import {
-  interviewFilePaths,
-  INTERVIEW_PATH,
   articleFilePaths,
   ARTICLE_PATH,
   bookSummaryFilePaths,
@@ -13,7 +10,6 @@ import {
 import {
   ArticlesContentFrontMatter,
   BookSummaryContentFrontMatter,
-  InterviewsContentFrontMatter,
 } from '@/types/types';
 import matter from 'gray-matter';
 import fs from 'fs';
@@ -81,8 +77,6 @@ export function getStaticProps({ params }: StaticProps) {
     const authorName = post.data.writtenBy.toLowerCase().replace(' ', '-');
     return authorName.includes(name.split('-')[0]);
   });
-
-  console.log('authorPosts: ', authorPosts.length);
 
   return {
     props: {

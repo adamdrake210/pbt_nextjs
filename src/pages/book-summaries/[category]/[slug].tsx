@@ -3,7 +3,6 @@ import PageContainer from '@/containers/PageContainer';
 import { Heading, Box, Flex, Text, Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import PageSeo from '@/modules/common/PageSeo';
-import dynamic from 'next/dynamic';
 import { FrontMatterBookSummaries } from '@/types/types';
 import EmailSubscriptionForm from '@/modules/email/EmailSubscriptionForm';
 import { AmazonAdvert } from '@/modules/adverts/AmazonAdvert';
@@ -18,7 +17,7 @@ import path from 'path';
 import { bookSummaryFilePaths, BOOK_SUMMARY_PATH } from '@/utils/mdxUtils';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
-import ReadMore from '@/modules/readmore/ReadMoreBookSummaries';
+// import ReadMore from '@/modules/readmore/ReadMoreBookSummaries';
 import CategoryTag from '@/modules/common/CategoryTag';
 import WrittenBy from '@/modules/common/WrittenBy';
 

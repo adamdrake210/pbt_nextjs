@@ -1,8 +1,7 @@
 import React from 'react';
 import PageContainer from '@/containers/PageContainer';
-import { Heading, Box, Flex, Text } from '@chakra-ui/react';
+import { Heading, Box, Flex } from '@chakra-ui/react';
 import PageSeo from '@/modules/common/PageSeo';
-import dynamic from 'next/dynamic';
 import { FrontMatterArticles } from '@/types/types';
 import EmailSubscriptionForm from '@/modules/email/EmailSubscriptionForm';
 import { AmazonAdvert } from '@/modules/adverts/AmazonAdvert';
@@ -29,10 +28,10 @@ const components = {
   // It also works with dynamically-imported components, which is especially
   // useful for conditionally loading components for certain routes.
   // See the notes in README.md for more details.
-  Box: Box,
-  AmazonCta: AmazonCta,
-  Image266x400: Image266x400,
-  Image960x660: Image960x660,
+  Box,
+  AmazonCta,
+  Image266x400,
+  Image960x660,
 };
 
 export default function InterviewLayout({ frontMatter, source }: Props) {
