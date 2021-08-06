@@ -16,8 +16,8 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 import { bookSummaryFilePaths, BOOK_SUMMARY_PATH } from '@/utils/mdxUtils';
-import renderToString from 'next-mdx-remote/render-to-string';
-import hydrate from 'next-mdx-remote/hydrate';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote } from 'next-mdx-remote';
 import ReadMore from '@/modules/readmore/ReadMoreBookSummaries';
 import CategoryTag from '@/modules/common/CategoryTag';
 import WrittenBy from '@/modules/common/WrittenBy';
@@ -47,7 +47,6 @@ export default function BookSummaryLayout({ frontMatter, source }: Props) {
     intro,
     readTime,
   } = frontMatter;
-  const content = hydrate(source, { components });
 
   return (
     <PageContainer maxWidth="728px">
@@ -97,7 +96,9 @@ export default function BookSummaryLayout({ frontMatter, source }: Props) {
           {intro}
         </Text>
       </Box>
-      <Box px={[4, 8]}>{content}</Box>
+      <Box px={[4, 8]}>
+        <MDXRemote {...source} components={components} />
+      </Box>
       <AmazonAdvert />
       <EmailSubscriptionForm />
       {/* <ReadMore tags={tags} category={category} /> */}
@@ -114,16 +115,9 @@ export const getStaticProps = async ({ params }) => {
   const { content, data } = matter(source);
   const readTime = readingTime(content);
 
-  const mdxSource = await renderToString(content, {
-    components,
-    // Optionally pass remark/rehype plugins
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-    },
+  const mdxSource = await serialize(content, {
     scope: data,
   });
-
   return {
     props: {
       source: mdxSource,
