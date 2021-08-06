@@ -16,8 +16,8 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 import { interviewFilePaths, INTERVIEW_PATH } from '@/utils/mdxUtils';
-import renderToString from 'next-mdx-remote/render-to-string';
-import hydrate from 'next-mdx-remote/hydrate';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote } from 'next-mdx-remote';
 
 type Props = {
   frontMatter: FrontMatterInterviews;
@@ -28,14 +28,13 @@ const components = {
   // It also works with dynamically-imported components, which is especially
   // useful for conditionally loading components for certain routes.
   // See the notes in README.md for more details.
-  Box: Box,
-  AmazonCta: AmazonCta,
-  Image266x400: Image266x400,
+  Box,
+  AmazonCta,
+  Image266x400,
 };
 
 export default function InterviewLayout({ frontMatter, source }: Props) {
   const { title, slug, readTime, imageUniqueIdentifier } = frontMatter;
-  const content = hydrate(source, { components });
 
   return (
     <PageContainer maxWidth="728px">
@@ -75,7 +74,8 @@ export default function InterviewLayout({ frontMatter, source }: Props) {
       </Flex>
       <AmazonAdvert />
       <Box px={[4, 8]} mb={6}>
-        {content}
+        {/* @ts-ignore */}
+        <MDXRemote {...source} components={components} lazy />
       </Box>
       <AmazonAdvert />
       <EmailSubscriptionForm />
@@ -90,13 +90,7 @@ export const getStaticProps = async ({ params }) => {
   const { content, data } = matter(source);
   const readTime = readingTime(content);
 
-  const mdxSource = await renderToString(content, {
-    components,
-    // Optionally pass remark/rehype plugins
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-    },
+  const mdxSource = await serialize(content, {
     scope: data,
   });
 

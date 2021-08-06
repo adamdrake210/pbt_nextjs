@@ -16,8 +16,8 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 import { articleFilePaths, ARTICLE_PATH } from '@/utils/mdxUtils';
-import renderToString from 'next-mdx-remote/render-to-string';
-import hydrate from 'next-mdx-remote/hydrate';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote } from 'next-mdx-remote';
 import WrittenBy from '@/modules/common/WrittenBy';
 
 type Props = {
@@ -36,14 +36,8 @@ const components = {
 };
 
 export default function InterviewLayout({ frontMatter, source }: Props) {
-  const {
-    title,
-    slug,
-    readTime,
-    imageUniqueIdentifier,
-    writtenBy,
-  } = frontMatter;
-  const content = hydrate(source, { components });
+  const { title, slug, readTime, imageUniqueIdentifier, writtenBy } =
+    frontMatter;
 
   return (
     <PageContainer maxWidth="728px">
@@ -77,7 +71,8 @@ export default function InterviewLayout({ frontMatter, source }: Props) {
       </Flex>
       <AmazonAdvert />
       <Box px={[4, 8]} mb={6}>
-        {content}
+        {/* @ts-ignore */}
+        <MDXRemote {...source} components={components} />
       </Box>
       <AmazonAdvert />
       <EmailSubscriptionForm />
@@ -92,13 +87,7 @@ export const getStaticProps = async ({ params }) => {
   const { content, data } = matter(source);
   const readTime = readingTime(content);
 
-  const mdxSource = await renderToString(content, {
-    components,
-    // Optionally pass remark/rehype plugins
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-    },
+  const mdxSource = await serialize(content, {
     scope: data,
   });
 
