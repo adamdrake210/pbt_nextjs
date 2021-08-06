@@ -8,14 +8,11 @@ import { bookSummaryFilePaths, BOOK_SUMMARY_PATH } from '@/utils/mdxUtils';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
-import { useRouter } from 'next/router';
 
 export default function BookSummariesCategoryContainer({
   bookSummaryPosts,
   category,
 }) {
-  const router = useRouter();
-  // const { category } = router.query;
   return (
     <>
       <Head>

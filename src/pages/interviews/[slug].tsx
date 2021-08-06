@@ -2,7 +2,6 @@ import React from 'react';
 import PageContainer from '@/containers/PageContainer';
 import { Heading, Box, Flex, Text } from '@chakra-ui/react';
 import PageSeo from '@/modules/common/PageSeo';
-import dynamic from 'next/dynamic';
 import { FrontMatterInterviews } from '@/types/types';
 import EmailSubscriptionForm from '@/modules/email/EmailSubscriptionForm';
 import { AmazonAdvert } from '@/modules/adverts/AmazonAdvert';
